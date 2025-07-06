@@ -11,7 +11,6 @@
 - [Ejecución](#-ejecución)
 - [Estructura del proyecto](#-estructura-del-proyecto)
 - [Contribuciones](#-contribuciones)
-- [Licencia](#-licencia)
 
 ---
 
@@ -101,11 +100,5 @@ Portal-Web-CCL/
 3. Realiza cambios y haz commit
 4. Sube tu rama: `git push origin feature/nombre-del-feature`
 5. Abre un Pull Request con descripción clara
-
----
-
-## 📝 Licencia
-
-Este proyecto está bajo la licencia [MIT](LICENSE)
 
 ---
