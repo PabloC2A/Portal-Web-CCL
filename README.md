@@ -1,6 +1,6 @@
 # Portal-Web-CCL
 
-**Portal-Web-CCL** es una aplicación web desarrollada con **Django** para gestionar funcionalidades propias de una cámara de comercio. Ofrece un menú principal para navegar entre secciones clave como Inicio, Gestiones internas y otras vistas disponibles desde el portal web.
+**Portal-Web-CCL** es una aplicación web desarrollada con **Django** para gestionar funcionalidades propias de la Cámara de Comercio de Loja.
 
 ---
 
@@ -10,8 +10,6 @@
 - [Instalación](#-instalación)
 - [Ejecución](#-ejecución)
 - [Estructura del proyecto](#-estructura-del-proyecto)
-- [Funcionalidad y menú](#-funcionalidad-y-menú)
-- [Uso](#-uso)
 - [Contribuciones](#-contribuciones)
 - [Licencia](#-licencia)
 
@@ -23,7 +21,7 @@ Antes de comenzar, asegúrate de tener instalados:
 
 - Python 3.8 o superior
 - pip
-- virtualenv (opcional pero recomendado)
+- virtualenv
 
 ---
 
@@ -79,7 +77,7 @@ Portal-Web-CCL/
 │   ├── settings.py
 │   ├── urls.py
 │   └── wsgi.py
-├── core/                  # Aplicación principal del portal
+├── core/                  # Aplicación para la gestion de lading page
 │   ├── migrations/
 │   ├── templates/core/
 │   ├── __init__.py
@@ -93,33 +91,6 @@ Portal-Web-CCL/
 ├── manage.py
 └── README.md
 ```
-
----
-
-## 🔀 Funcionalidad y menú
-
-### Menú principal
-
-La aplicación cuenta con un menú de navegación que incluye:
-
-- **Inicio**: página principal del sitio
-- **Secciones internas**: funcionalidades gestionadas desde la app `core`
-- **Contacto / Información institucional**: si está disponible
-
-### Funciones disponibles
-
-- Visualización de templates HTML definidos en `templates/core`
-- Vistas gestionadas desde `core/views.py`
-- Administración a través de `/admin`
-
----
-
-## 🧑‍💻 Uso
-
-1. Ejecuta `python manage.py runserver`
-2. Abre el navegador en `http://localhost:8000/`
-3. Usa el menú para navegar entre las diferentes vistas
-4. Accede al panel de administración si tienes credenciales
 
 ---
 
@@ -138,6 +109,3 @@ La aplicación cuenta con un menú de navegación que incluye:
 Este proyecto está bajo la licencia [MIT](LICENSE)
 
 ---
-
-> 💡 Este README está basado en la estructura actual del proyecto. Puedes completarlo con detalles adicionales de las vistas, modelos o funcionalidades específicas cuando el desarrollo avance.
-
