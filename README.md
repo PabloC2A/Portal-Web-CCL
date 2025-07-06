@@ -19,7 +19,7 @@
 
 Antes de comenzar, asegúrate de tener instalados:
 
-- Python 3.8 o superior
+- Python 3.10 o superior
 - pip
 - virtualenv
 
