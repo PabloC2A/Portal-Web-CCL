@@ -17,3 +17,6 @@ def noticias(request):
 
 def contacto(request):
     return render(request, 'core/contacto.html')
+
+def afiliacion(request):
+    return render(request, 'core/afiliacion.html')

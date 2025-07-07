@@ -1,117 +1,185 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>{% block title %}Cámara de Comercio de Loja{% endblock %}</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>{% block title %}Cámara de Comercio de Loja{% endblock %}</title>
 
-  <link href="{% static 'img/favicon.png' %}" rel="icon" type="image/png">
+    <link href="{% static 'img/favicon.png' %}" rel="icon" type="image/png" />
 
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-  <link href="{% static 'css/nucleo-icons.css' %}" rel="stylesheet">
-  <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
+      rel="stylesheet"
+    />
+    <link href="{% static 'css/nucleo-icons.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet" />
 
-  <link type="text/css" href="{% static 'css/argon-design-system.min.css' %}" rel="stylesheet">
-
-</head>
-<body class="bg-white">
-
-  <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
-    <div class="container">
-      <a class="navbar-brand mr-lg-5" href="{% url 'index' %}">
-        <img src='{% static "img/CCL_Logo.png" %}' alt="Logo Cámara de Comercio de Loja">
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="navbar-collapse collapse" id="navbar_global">
-        <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
-          <li class="nav-item"><a class="nav-link" href="{% url 'servicios' %}">Servicios</a></li>
-          <li class="nav-item"><a class="nav-link" href="{% url 'nosotros' %}">Nosotros</a></li>
-          <li class="nav-item"><a class="nav-link" href="{% url 'socios' %}">Socios</a></li>
-          <li class="nav-item"><a class="nav-link" href="{% url 'noticias' %}">Noticias</a></li>
-          <li class="nav-item"><a class="nav-link" href="{% url 'contacto' %}">Contacto</a></li>
-        </ul>
-        <ul class="navbar-nav align-items-lg-center ml-lg-auto">
-          <li class="nav-item d-none d-lg-block ml-lg-4">
-            <a href="#" class="btn btn-warning btn-sm">
-              <span class="nav-link-inner--text">Afíliate</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="btn btn-primary btn-sm">
+    <link
+      type="text/css"
+      href="{% static 'css/argon-design-system.min.css' %}"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-white">
+    <nav
+      id="navbar-main"
+      class="navbar navbar-main navbar-expand-lg navbar-light bg-white shadow-sm sticky-top"
+    >
+      <div class="container">
+        <a class="navbar-brand mr-lg-5" href="{% url 'index' %}">
+          <img
+            src='{% static "img/CCL_Logo.png" %}'
+            alt="Logo Cámara de Comercio de Loja"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbar_global"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbar_global">
+          <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'servicios' %}">Servicios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'nosotros' %}">Nosotros</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'socios' %}">Socios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'noticias' %}">Noticias</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'contacto' %}">Contacto</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+            <li class="nav-item d-none d-lg-block ml-lg-4">
+              <a href="{% url 'afiliacion' %}" class="btn btn-warning btn-sm">
+                <span class="nav-link-inner--text">Afíliate</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="btn btn-primary btn-sm">
                 <span class="nav-link-inner--text">Ingresar</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <main>
-    {% block content %}{% endblock %}
-  </main>
-
-  <footer class="footer bg-dark text-white pt-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4 mb-5 mb-lg-0">
-          <a class="footer-brand" href="{% url 'index' %}">
-              <img src="{% static 'img/CCL_Logo.png' %}" width="140" alt="CCL Logo">
-          </a>
-          <p class="text-white-50 mt-3 pr-lg-4">Liderando el desarrollo empresarial en la región sur del Ecuador desde 1973.</p>
-          <div class="mt-4">
-            <h6 class="text-white">Síguenos en redes</h6>
-            <a href="#" class="btn btn-icon-only btn-neutral rounded-circle" data-toggle="tooltip" title="Facebook">
-                <i class="fa fa-facebook-square"></i>
-            </a>
-            <a href="#" class="btn btn-icon-only btn-neutral rounded-circle" data-toggle="tooltip" title="Instagram">
-                <i class="fa fa-instagram"></i>
-            </a>
-            <a href="#" class="btn btn-icon-only btn-neutral rounded-circle" data-toggle="tooltip" title="Twitter">
-                <i class="fa fa-twitter"></i>
-            </a>
-          </div>
+              </a>
+            </li>
+          </ul>
         </div>
-        <div class="col-lg-2 col-6 mb-4 mb-lg-0">
+      </div>
+    </nav>
+
+    <main>{% block content %}{% endblock %}</main>
+
+    <footer class="footer bg-dark text-white pt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 mb-5 mb-lg-0">
+            <a class="footer-brand" href="{% url 'index' %}">
+              <img
+                src="{% static 'img/CCL_Logo.png' %}"
+                width="140"
+                alt="CCL Logo"
+              />
+            </a>
+            <p class="text-white-50 mt-3 pr-lg-4">
+              Liderando el desarrollo empresarial en la región sur del Ecuador
+              desde 1973.
+            </p>
+            <div class="mt-4">
+              <h6 class="text-white">Síguenos en redes</h6>
+              <a
+                href="#"
+                class="btn btn-icon-only btn-neutral rounded-circle"
+                data-toggle="tooltip"
+                title="Facebook"
+              >
+                <i class="fa fa-facebook-square"></i>
+              </a>
+              <a
+                href="#"
+                class="btn btn-icon-only btn-neutral rounded-circle"
+                data-toggle="tooltip"
+                title="Instagram"
+              >
+                <i class="fa fa-instagram"></i>
+              </a>
+              <a
+                href="#"
+                class="btn btn-icon-only btn-neutral rounded-circle"
+                data-toggle="tooltip"
+                title="Twitter"
+              >
+                <i class="fa fa-twitter"></i>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-2 col-6 mb-4 mb-lg-0">
             <h6 class="text-white text-uppercase">Institución</h6>
             <ul class="list-unstyled">
-                <li><a href="{% url 'nosotros' %}" class="text-white-50">Nosotros</a></li>
-                <li><a href="{% url 'socios' %}" class="text-white-50">Socios</a></li>
-                <li><a href="#" class="text-white-50">Transparencia</a></li>
+              <li>
+                <a href="{% url 'nosotros' %}" class="text-white-50"
+                  >Nosotros</a
+                >
+              </li>
+              <li>
+                <a href="{% url 'socios' %}" class="text-white-50">Socios</a>
+              </li>
+              <li><a href="#" class="text-white-50">Transparencia</a></li>
             </ul>
-        </div>
-        <div class="col-lg-3 col-6 mb-4 mb-lg-0">
+          </div>
+          <div class="col-lg-3 col-6 mb-4 mb-lg-0">
             <h6 class="text-white text-uppercase">Servicios</h6>
             <ul class="list-unstyled">
-                <li><a href="#" class="text-white-50">Asesoría Legal</a></li>
-                <li><a href="#" class="text-white-50">Capacitación</a></li>
-                <li><a href="#" class="text-white-50">Arbitraje</a></li>
-                <li><a href="{% url 'servicios' %}" class="text-white-50">Ver todos</a></li>
+              <li><a href="#" class="text-white-50">Asesoría Legal</a></li>
+              <li><a href="#" class="text-white-50">Capacitación</a></li>
+              <li><a href="#" class="text-white-50">Arbitraje</a></li>
+              <li>
+                <a href="{% url 'servicios' %}" class="text-white-50"
+                  >Ver todos</a
+                >
+              </li>
             </ul>
-        </div>
-        <div class="col-lg-3">
+          </div>
+          <div class="col-lg-3">
             <h6 class="text-white text-uppercase">Contacto</h6>
             <ul class="list-unstyled">
-                <li class="text-white-50"><i class="fa fa-map-marker mr-2"></i>Rocafuerte y Bolívar 153-37</li>
-                <li class="text-white-50"><i class="fa fa-phone mr-2"></i>(07) 257 1389</li>
-                <li class="text-white-50"><i class="fa fa-envelope mr-2"></i>info@camaradecomercioloja.org</li>
+              <li class="text-white-50">
+                <i class="fa fa-map-marker mr-2"></i>Rocafuerte y Bolívar 153-37
+              </li>
+              <li class="text-white-50">
+                <i class="fa fa-phone mr-2"></i>(07) 257 1389
+              </li>
+              <li class="text-white-50">
+                <i class="fa fa-envelope mr-2"></i>info@camaradecomercioloja.org
+              </li>
             </ul>
+          </div>
+        </div>
+        <hr class="my-4" style="border-color: rgba(255, 255, 255, 0.1)" />
+        <div class="row align-items-center justify-content-center">
+          <div class="col-md-12 text-center">
+            <p class="mb-0 text-white-50">
+              © {% now "Y" %} Cámara de Comercio de Loja. Todos los derechos
+              reservados.
+            </p>
+          </div>
         </div>
       </div>
-      <hr class="my-4" style="border-color: rgba(255,255,255,0.1);">
-      <div class="row align-items-center justify-content-center">
-        <div class="col-md-12 text-center">
-            <p class="mb-0 text-white-50">© {% now "Y" %} Cámara de Comercio de Loja. Todos los derechos reservados.</p>
-        </div>
-      </div>
-    </div>
-  </footer>
+    </footer>
 
-  <script src="{% static 'js/core/jquery.min.js' %}"></script>
-  <script src="{% static 'js/core/popper.min.js' %}"></script>
-  <script src="{% static 'js/core/bootstrap.min.js' %}"></script>
-  <script src="{% static 'js/argon-design-system.min.js' %}"></script>
-</body>
+    <script src="{% static 'js/core/jquery.min.js' %}"></script>
+    <script src="{% static 'js/core/popper.min.js' %}"></script>
+    <script src="{% static 'js/core/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/argon-design-system.min.js' %}"></script>
+  </body>
 </html>
