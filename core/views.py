@@ -6,6 +6,9 @@ def index(request):
 def nosotros(request):
     return render(request, 'core/nosotros.html')
 
+def socios(request):
+    return render(request, 'core/socios.html')
+
 def servicios(request):
     return render(request, 'core/servicios.html')
 

@@ -11,6 +11,7 @@
 - [Ejecución](#-ejecución)
 - [Estructura del proyecto](#-estructura-del-proyecto)
 - [Contribuciones](#-contribuciones)
+- [Licencia](#-licencia)
 
 ---
 
@@ -18,7 +19,7 @@
 
 Antes de comenzar, asegúrate de tener instalados:
 
-- Python 3.10 o superior
+- Python 3.8 o superior
 - pip
 - virtualenv
 
@@ -102,3 +103,51 @@ Portal-Web-CCL/
 5. Abre un Pull Request con descripción clara
 
 ---
+
+## 📝 Licencia
+
+Este proyecto está bajo la licencia [MIT](LICENSE)
+
+---
+
+
+config
+├── __init__.py
+├── asgi.py
+├── settings.py
+├── urls.py
+└── wsgi.py
+core
+├── __init__.py
+├── admin.py
+├── apps.py
+├── migrations
+├── models.py
+├── static
+│   ├── css
+│   │   ├── argon-design-system.css
+│   │   ├── argon-design-system.css.map
+│   │   ├── argon-design-system.min.css
+│   │   ├── custom.css
+│   │   ├── font-awesome.css
+│   │   ├── nucleo-icons.css
+│   │   └── nucleo-svg.css
+│   ├── demo
+│   ├── fonts
+│   ├── img
+│   │   ├── CLL_Logo.png
+│   │   ├── Hero.png
+│   ├── js
+│   └── scss
+├── templates
+│   └── core
+│       ├── base.html
+│       ├── contacto.html
+│       ├── index.html
+│       ├── nosotros.html
+│       ├── noticias.html
+│       ├── servicios.html
+│       └── socios.html
+├── tests.py
+├── urls.py
+└── views.py
