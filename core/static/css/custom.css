@@ -1,0 +1,4 @@
+/* Estilo para el fondo del header de la página de servicios */
+.page-header-bg-servicios {
+  background-image: url('../img/hero.png');
+}
