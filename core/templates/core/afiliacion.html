@@ -18,84 +18,157 @@
 
 <section class="section section-lg">
   <div class="container">
-    
-    {% comment %} Contenedor principal del acordeón para los formularios {% endcomment %}
-    <div class="accordion" id="accordionPlanes">
-
-      <div class="row justify-content-center">
-        
-        <div class="col-lg-4 mb-5 mb-lg-0">
-          <div class="card shadow-sm border-0 h-100">
-            <div class="card-body text-center py-5">
-              <h5 class="text-uppercase text-muted">Socio Emprendedor</h5>
-              <h1 class="display-3 font-weight-bold my-4">$15<span class="text-muted font-weight-light" style="font-size: 1.5rem;">/mes</span></h1>
-              <ul class="list-unstyled text-left my-4 px-4">
-                <li class="py-2 d-flex"><i class="ni ni-check-bold text-success mr-2"></i><span>Acceso a red de contactos</span></li>
-                <li class="py-2 d-flex"><i class="ni ni-check-bold text-success mr-2"></i><span>Boletín informativo</span></li>
-              </ul>
-              <a class="btn btn-primary btn-lg mt-3" data-toggle="collapse" href="#collapseEmprendedor" role="button" aria-expanded="false" aria-controls="collapseEmprendedor">
-                Seleccionar Plan
-              </a>
-            </div>
+    <div class="row justify-content-center">
+      
+      <div class="col-lg-4 mb-5 mb-lg-0">
+        <div class="card shadow-sm border-0 h-100">
+          <div class="card-body text-center py-5">
+            <h5 class="text-uppercase text-muted">Socio Emprendedor</h5>
+            <h1 class="display-3 font-weight-bold my-4">$15<span class="text-muted font-weight-light">/mes</span></h1>
+            <ul class="list-unstyled text-left my-4 px-4">
+              <li class="py-2 d-flex"><i class="ni ni-check-bold text-success mr-2"></i><span>Acceso a red de contactos</span></li>
+              <li class="py-2 d-flex"><i class="ni ni-check-bold text-success mr-2"></i><span>Boletín informativo</span></li>
+            </ul>
+            <button type="button" class="btn btn-primary btn-lg mt-3" data-toggle="modal" data-target="#modalEmprendedor">
+              Afiliarse
+            </button>
           </div>
         </div>
-        
-        <div class="col-lg-4 mb-5 mb-lg-0">
-          <div class="card shadow-lg border-primary h-100">
-            <div class="card-body text-center py-5">
-              <h5 class="text-uppercase text-primary">Socio Empresarial</h5>
-              <h1 class="display-3 font-weight-bold my-4">$30<span class="text-primary font-weight-light" style="font-size: 1.5rem;">/mes</span></h1>
-              <ul class="list-unstyled text-left my-4 px-4">
-                <li class="py-2 d-flex"><i class="ni ni-check-bold text-success mr-2"></i><span>Beneficios de Emprendedor</span></li>
-                <li class="py-2 d-flex"><i class="ni ni-check-bold text-success mr-2"></i><span>Asesoría especializada</span></li>
-                <li class="py-2 d-flex"><i class="ni ni-check-bold text-success mr-2"></i><span>Descuentos en capacitaciones</span></li>
-              </ul>
-              <a class="btn btn-primary btn-lg mt-3" data-toggle="collapse" href="#collapseEmpresarial" role="button" aria-expanded="false" aria-controls="collapseEmpresarial">
-                Seleccionar Plan
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4">
-          <div class="card shadow-sm border-0 h-100">
-            <div class="card-body text-center py-5">
-              <h5 class="text-uppercase text-muted">Socio Corporativo</h5>
-              <h1 class="display-3 font-weight-bold my-4">$50<span class="text-muted font-weight-light" style="font-size: 1.5rem;">/mes</span></h1>
-              <ul class="list-unstyled text-left my-4 px-4">
-                <li class="py-2 d-flex"><i class="ni ni-check-bold text-success mr-2"></i><span>Beneficios de Empresarial</span></li>
-                <li class="py-2 d-flex"><i class="ni ni-check-bold text-success mr-2"></i><span>Participación en ruedas de negocios</span></li>
-                <li class="py-2 d-flex"><i class="ni ni-check-bold text-success mr-2"></i><span>Logo en web principal</span></li>
-              </ul>
-              <a class="btn btn-primary btn-lg mt-3" data-toggle="collapse" href="#collapseCorporativo" role="button" aria-expanded="false" aria-controls="collapseCorporativo">
-                Seleccionar Plan
-              </a>
-            </div>
+      </div>
+      
+      <div class="col-lg-4 mb-5 mb-lg-0">
+        <div class="card shadow-lg border-primary h-100">
+          <div class="card-body text-center py-5">
+            <h5 class="text-uppercase text-primary">Socio Empresarial</h5>
+            <h1 class="display-3 font-weight-bold my-4">$30<span class="text-primary font-weight-light">/mes</span></h1>
+            <ul class="list-unstyled text-left my-4 px-4">
+              <li class="py-2 d-flex"><i class="ni ni-check-bold text-success mr-2"></i><span>Beneficios de Emprendedor</span></li>
+              <li class="py-2 d-flex"><i class="ni ni-check-bold text-success mr-2"></i><span>Asesoría especializada</span></li>
+              <li class="py-2 d-flex"><i class="ni ni-check-bold text-success mr-2"></i><span>Descuentos en capacitaciones</span></li>
+            </ul>
+            <button type="button" class="btn btn-primary btn-lg mt-3" data-toggle="modal" data-target="#modalEmpresarial">
+              Afiliarse
+            </button>
           </div>
         </div>
       </div>
 
-      {% comment %} Aquí se cargarán los formularios al desplegarse {% endcomment %}
-      <div class="row justify-content-center">
-        <div class="col-lg-10">
-          
-          <div id="collapseEmprendedor" class="collapse" data-parent="#accordionPlanes">
-            {% include 'core/_form_emprendedor.html' %}
+      <div class="col-lg-4">
+        <div class="card shadow-sm border-0 h-100">
+          <div class="card-body text-center py-5">
+            <h5 class="text-uppercase text-muted">Socio Corporativo</h5>
+            <h1 class="display-3 font-weight-bold my-4">$50<span class="text-muted font-weight-light">/mes</span></h1>
+            <ul class="list-unstyled text-left my-4 px-4">
+              <li class="py-2 d-flex"><i class="ni ni-check-bold text-success mr-2"></i><span>Beneficios de Empresarial</span></li>
+              <li class="py-2 d-flex"><i class="ni ni-check-bold text-success mr-2"></i><span>Ruedas de negocios</span></li>
+              <li class="py-2 d-flex"><i class="ni ni-check-bold text-success mr-2"></i><span>Logo en web principal</span></li>
+            </ul>
+            <button type="button" class="btn btn-primary btn-lg mt-3" data-toggle="modal" data-target="#modalCorporativo">
+              Afiliarse
+            </button>
           </div>
-          
-          <div id="collapseEmpresarial" class="collapse" data-parent="#accordionPlanes">
-            {% include 'core/_form_empresarial.html' %}
-          </div>
-
-          <div id="collapseCorporativo" class="collapse" data-parent="#accordionPlanes">
-            {% include 'core/_form_corporativo.html' %}
-          </div>
-
         </div>
       </div>
-
     </div>
   </div>
 </section>
+{% endblock %}
 
+
+{% block modals %}
+<div class="modal fade" id="modalEmprendedor" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Formulario Socio Emprendedor</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {% include 'core/_form_emprendedor.html' %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalEmpresarial" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Formulario Socio Empresarial</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {% include 'core/_form_empresarial.html' %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalCorporativo" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Formulario Socio Corporativo</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {% include 'core/_form_corporativo.html' %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+
+{% block scripts %}
+<script>
+$(document).ready(function(){
+  
+  // Lógica para el formulario Emprendedor
+  $('#toStep2').on('click', function(e) {
+    e.preventDefault();
+    $('#step1').hide();
+    $('#step2').show();
+  });
+
+  $('#toStep1').on('click', function(e) {
+    e.preventDefault();
+    $('#step2').hide();
+    $('#step1').show();
+  });
+
+  // Lógica para el formulario Empresarial
+  $('#toStep2Empresarial').on('click', function(e) {
+    e.preventDefault();
+    $('#step1Empresarial').hide();
+    $('#step2Empresarial').show();
+  });
+
+  $('#toStep1Empresarial').on('click', function(e) {
+    e.preventDefault();
+    $('#step2Empresarial').hide();
+    $('#step1Empresarial').show();
+  });
+
+  // Lógica para el formulario Corporativo
+  $('#toStep2Corporativo').on('click', function(e) {
+    e.preventDefault();
+    $('#step1Corporativo').hide();
+    $('#step2Corporativo').show();
+  });
+
+  $('#toStep1Corporativo').on('click', function(e) {
+    e.preventDefault();
+    $('#step2Corporativo').hide();
+    $('#step1Corporativo').show();
+  });
+
+});
+</script>
 {% endblock %}

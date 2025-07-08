@@ -1,41 +1,64 @@
 {% comment %} core/templates/core/_form_emprendedor.html {% endcomment %}
-<div class="card card-body mt-4">
-  <h4 class="mb-4 text-primary">Formulario de Afiliación - Socio Emprendedor</h4>
-  <form role="form">
+<form role="form" id="formEmprendedor">
+  
+  <div id="step1">
+    <h5 class="text-primary mb-3">Paso 1 de 2: Datos del Solicitante</h5>
     <div class="row">
-      <div class="col-md-6">
-        <div class="form-group">
-          <label>RUC / Cédula</label>
-          <input class="form-control" placeholder="Ej: 1101234567001" type="text">
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="form-group">
-          <label>Razón Social / Nombres</label>
-          <input class="form-control" placeholder="Nombre que consta en el RUC" type="text">
-        </div>
-      </div>
-    </div>
-    <div class="form-group">
-      <label>Actividad Económica</label>
-      <input class="form-control" placeholder="Ej: Venta de software, consultoría, etc." type="text">
+      <div class="col-md-6"><div class="form-group"><label>Cédula</label><input class="form-control" type="text"></div></div>
+      <div class="col-md-6"><div class="form-group"><label>Profesión</label><input class="form-control" type="text"></div></div>
     </div>
     <div class="row">
-      <div class="col-md-6">
-        <div class="form-group">
-          <label>Correo Electrónico</label>
-          <input class="form-control" placeholder="su@email.com" type="email">
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="form-group">
-          <label>Teléfono de Contacto</label>
-          <input class="form-control" placeholder="0991234567" type="text">
-        </div>
-      </div>
+        <div class="col-md-6"><div class="form-group"><label>Nombres</label><input class="form-control" type="text"></div></div>
+        <div class="col-md-6"><div class="form-group"><label>Apellidos</label><input class="form-control" type="text"></div></div>
     </div>
-    <div class="text-center">
-      <button type="submit" class="btn btn-primary btn-lg mt-4">Enviar Solicitud de Emprendedor</button>
+    <div class="row">
+      <div class="col-md-6"><div class="form-group"><label>Fecha de Nacimiento</label><input class="form-control" type="date"></div></div>
+      <div class="col-md-6"><div class="form-group"><label>Nacionalidad</label><input class="form-control" type="text"></div></div>
     </div>
-  </form>
-</div>
+    <div class="row">
+      <div class="col-md-6"><div class="form-group"><label>Género</label><select class="form-control"><option>Masculino</option><option>Femenino</option></select></div></div>
+      <div class="col-md-6"><div class="form-group"><label>Estado Civil</label><select class="form-control"><option>Soltero/a</option><option>Casado/a</option><option>Divorciado/a</option><option>Viudo/a</option></select></div></div>
+    </div>
+    <div class="form-group"><label>Correo Electrónico</label><input class="form-control" type="email"></div>
+    <div class="row">
+      <div class="col-md-6"><div class="form-group"><label>Teléfono Domicilio</label><input class="form-control" type="text"></div></div>
+      <div class="col-md-6"><div class="form-group"><label>Celular</label><input class="form-control" type="text"></div></div>
+    </div>
+    <div class="form-group"><label>Dirección Domiciliaria</label><input class="form-control" type="text"></div>
+    <div class="text-right">
+      <button type="button" id="toStep2" class="btn btn-primary">Siguiente <i class="fa fa-arrow-right"></i></button>
+    </div>
+  </div>
+
+  <div id="step2" style="display: none;">
+    <h5 class="text-primary mb-3">Paso 2 de 2: Datos del Negocio</h5>
+    <div class="row">
+      <div class="col-md-6"><div class="form-group"><label>Nombre Comercial</label><input class="form-control" type="text"></div></div>
+      <div class="col-md-6"><div class="form-group"><label>Actividad Económica</label><input class="form-control" type="text"></div></div>
+    </div>
+    <div class="form-group"><label>Dirección del Negocio</label><input class="form-control" type="text"></div>
+    <div class="form-group"><label>Página Web (Opcional)</label><input class="form-control" placeholder="https://suempresa.com" type="text"></div>
+    <h6 class="text-muted">Redes Sociales (Opcional)</h6>
+    <div class="row">
+      <div class="col-md-6"><div class="form-group"><div class="input-group"><div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-facebook"></i></span></div><input class="form-control" placeholder="Facebook" type="text"></div></div></div>
+      <div class="col-md-6"><div class="form-group"><div class="input-group"><div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-instagram"></i></span></div><input class="form-control" placeholder="Instagram" type="text"></div></div></div>
+      <div class="col-md-6"><div class="form-group"><div class="input-group"><div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-twitter"></i></span></div><input class="form-control" placeholder="X (Twitter)" type="text"></div></div></div>
+      <div class="col-md-6"><div class="form-group"><div class="input-group"><div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-tiktok"></i></span></div><input class="form-control" placeholder="TikTok" type="text"></div></div></div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-6"><div class="form-group"><label>Adjuntar Cédula</label><div class="custom-file"><input type="file" class="custom-file-input" id="cedulaFile"><label class="custom-file-label" for="cedulaFile">Elegir archivo</label></div></div></div>
+      <div class="col-md-6"><div class="form-group"><label>Adjuntar RUC</label><div class="custom-file"><input type="file" class="custom-file-input" id="rucFile"><label class="custom-file-label" for="rucFile">Elegir archivo</label></div></div></div>
+    </div>
+    <div class="custom-control custom-control-alternative custom-checkbox mt-4">
+      <input class="custom-control-input" id="customCheckRegister" type="checkbox">
+      <label class="custom-control-label" for="customCheckRegister">
+        <span>Acepto los <a href="#">términos y condiciones</a> de afiliación.</span>
+      </label>
+    </div>
+    <div class="d-flex justify-content-between mt-4">
+      <button type="button" id="toStep1" class="btn btn-outline-primary"><i class="fa fa-arrow-left"></i> Anterior</button>
+      <button type="submit" class="btn btn-success btn-lg">Completar Afiliación</button>
+    </div>
+  </div>
+</form>
