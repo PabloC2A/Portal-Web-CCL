@@ -20,6 +20,8 @@
       href="{% static 'css/argon-design-system.min.css' %}"
       rel="stylesheet"
     />
+
+    <link href="{% static 'css/custom.css' %}" rel="stylesheet" />
   </head>
   <body class="bg-white">
     <nav
@@ -31,7 +33,7 @@
           <img
             src='{% static "img/CCL_Logo.png" %}'
             alt="Logo Cámara de Comercio de Loja"
-          />
+            class="navbar-brand-logo"  />
         </a>
         <button
           class="navbar-toggler"
@@ -77,13 +79,13 @@
 
     <main>{% block content %}{% endblock %}</main>
 
-    <footer class="footer bg-dark text-white pt-5">
+    <footer class="footer footer-custom-bg text-white pt-5">
       <div class="container">
         <div class="row">
           <div class="col-lg-4 mb-5 mb-lg-0">
             <a class="footer-brand" href="{% url 'index' %}">
               <img
-                src="{% static 'img/CCL_Logo.png' %}"
+                src="{% static 'img/CCL_Logo2.jpg' %}"
                 width="140"
                 alt="CCL Logo"
               />
