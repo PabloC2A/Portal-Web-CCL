@@ -6,6 +6,9 @@ def index(request):
 def nosotros(request):
     return render(request, 'core/nosotros.html')
 
+def socios(request):
+    return render(request, 'core/socios.html')
+
 def servicios(request):
     return render(request, 'core/servicios.html')
 
@@ -14,3 +17,9 @@ def noticias(request):
 
 def contacto(request):
     return render(request, 'core/contacto.html')
+
+def afiliacion(request):
+    return render(request, 'core/afiliacion.html')
+
+def login(request):
+    return render(request, 'core/login.html')

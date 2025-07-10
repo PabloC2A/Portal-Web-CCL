@@ -1,0 +1,59 @@
+{% comment %} core/templates/core/_form_empresarial.html {% endcomment %}
+<form role="form" id="formEmpresarial">
+
+  <div id="step1Empresarial">
+    <h5 class="text-primary mb-3">Paso 1 de 2: Datos de la Empresa</h5>
+    <div class="row">
+      <div class="col-md-6"><div class="form-group"><label>RUC</label><input class="form-control" type="text"></div></div>
+      <div class="col-md-6"><div class="form-group"><label>Razón Social</label><input class="form-control" type="text"></div></div>
+    </div>
+    <div class="row">
+      <div class="col-md-6"><div class="form-group"><label>Nombre Comercial</label><input class="form-control" type="text"></div></div>
+      <div class="col-md-6"><div class="form-group"><label>Fecha de Constitución</label><input class="form-control" type="date"></div></div>
+    </div>
+    <div class="form-group"><label>Actividad Económica Principal</label><input class="form-control" type="text"></div>
+    <div class="form-group"><label>Dirección del Establecimiento</label><input class="form-control" type="text"></div>
+    <div class="row">
+      <div class="col-md-6"><div class="form-group"><label>Teléfono</label><input class="form-control" type="text"></div></div>
+      <div class="col-md-6"><div class="form-group"><label>Correo Electrónico</label><input class="form-control" type="email"></div></div>
+    </div>
+    <div class="form-group"><label>Página Web (Opcional)</label><input class="form-control" type="text"></div>
+    <div class="text-right">
+      <button type="button" id="toStep2Empresarial" class="btn btn-primary">Siguiente <i class="fa fa-arrow-right"></i></button>
+    </div>
+  </div>
+
+  <div id="step2Empresarial" style="display: none;">
+    <h5 class="text-primary mb-3">Paso 2 de 2: Datos del Representante Legal</h5>
+    <div class="row">
+      <div class="col-md-6"><div class="form-group"><label>Cédula</label><input class="form-control" type="text"></div></div>
+      <div class="col-md-6"><div class="form-group"><label>Nombres y Apellidos</label><input class="form-control" type="text"></div></div>
+    </div>
+    <div class="row">
+      <div class="col-md-6"><div class="form-group"><label>Celular</label><input class="form-control" type="text"></div></div>
+      <div class="col-md-6"><div class="form-group"><label>Correo Electrónico</col-md-6"><input class="form-control" type="email"></div></div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-6"><div class="form-group"><label>Adjuntar Cédula (Rep. Legal)</label><div class="custom-file"><input type="file" class="custom-file-input"><label class="custom-file-label">Elegir archivo</label></div></div></div>
+      <div class="col-md-6"><div class="form-group"><label>Adjuntar RUC (Empresa)</label><div class="custom-file"><input type="file" class="custom-file-input"><label class="custom-file-label">Elegir archivo</label></div></div></div>
+    </div>
+     <div class="form-group">
+        <label>Adjuntar Nombramiento (Rep. Legal)</label>
+        <div class="custom-file">
+            <input type="file" class="custom-file-input">
+            <label class="custom-file-label">Elegir archivo</label>
+        </div>
+    </div>
+    <div class="custom-control custom-control-alternative custom-checkbox mt-4">
+      <input class="custom-control-input" id="customCheckEmpresarial" type="checkbox">
+      <label class="custom-control-label" for="customCheckEmpresarial">
+        <span>Acepto los <a href="#">términos y condiciones</a> de afiliación.</span>
+      </label>
+    </div>
+    <div class="d-flex justify-content-between mt-4">
+      <button type="button" id="toStep1Empresarial" class="btn btn-outline-primary"><i class="fa fa-arrow-left"></i> Anterior</button>
+      <button type="submit" class="btn btn-success btn-lg">Completar Afiliación</button>
+    </div>
+  </div>
+</form>

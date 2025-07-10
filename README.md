@@ -11,6 +11,7 @@
 - [Ejecución](#-ejecución)
 - [Estructura del proyecto](#-estructura-del-proyecto)
 - [Contribuciones](#-contribuciones)
+- [Licencia](#-licencia)
 
 ---
 
@@ -18,7 +19,7 @@
 
 Antes de comenzar, asegúrate de tener instalados:
 
-- Python 3.10 o superior
+- Python 3.8 o superior
 - pip
 - virtualenv
 
@@ -222,5 +223,3 @@ Esta opción es directa y útil si no necesitas revisión de código o estás tr
 - Si tienes dudas, abre un *issue* o comenta en el PR.
 
 ---
-
-¡Gracias por ayudar a mejorar este proyecto!
