@@ -20,6 +20,3 @@ def contacto(request):
 
 def afiliacion(request):
     return render(request, 'core/afiliacion.html')
-
-def login(request):
-    return render(request, 'core/login.html')
