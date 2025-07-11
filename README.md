@@ -70,25 +70,113 @@ http://localhost:8000/
 
 ```
 Portal-Web-CCL/
-├── config/                # Configuraciones globales del proyecto Django
-│   ├── __init__.py
-│   ├── asgi.py
-│   ├── settings.py
+├── config/                       # Configuración global del proyecto
+│   ├── settings/
+│   │   ├── base.py
+│   │   ├── dev.py
+│   │   └── prod.py
+│   ├── urls.py                  # Enrutamiento principal
+│   └── wsgi.py / asgi.py
+│
+├── core/                         # Landing page, contacto, info institucional
+│   ├── views.py
 │   ├── urls.py
-│   └── wsgi.py
-├── core/                  # Aplicación para la gestion de lading page
-│   ├── migrations/
-│   ├── templates/core/
-│   ├── __init__.py
+│   └── templates/core/
+│       └── landing.html
+│
+├── users/                        # Modelo base de usuario y su administración
+│   ├── models.py                # CustomUser con roles
 │   ├── admin.py
-│   ├── apps.py
-│   ├── models.py
-│   ├── tests.py
+│   ├── managers.py
+│   └── apps.py
+│
+├── accounts/                     # Login, logout, autenticación, seguridad
+│   ├── views.py
 │   ├── urls.py
-│   └── views.py
-├── LICENSE
-├── manage.py
-└── README.md
+│   ├── forms.py
+│   └── templates/accounts/
+│       └── login.html
+│
+├── registration/                 # Registro de socios (persona natural o jurídica)
+│   ├── models.py                # Solicitud de afiliación, tipo persona, estados
+│   ├── views.py
+│   ├── urls.py
+│   ├── forms.py
+│   └── templates/registration/
+│       ├── register_natural.html
+│       └── register_juridica.html
+│
+├── profiles/                     # Perfiles extendidos de usuarios
+│   ├── models.py                # Datos personales, empresa, contactos
+│   ├── views.py
+│   ├── urls.py
+│   └── templates/profiles/
+│       └── profile_edit.html
+│
+├── dashboards/                   # Vistas post-login según el rol (socio, empleado)
+│   ├── views.py
+│   ├── urls.py
+│   └── templates/dashboards/
+│       ├── dashboard_socio.html
+│       └── dashboard_empleado.html
+│
+├── memberships/                  # Tipos de membresía, estados, renovaciones
+│   ├── models.py
+│   ├── views.py
+│   ├── urls.py
+│   └── templates/memberships/
+│       └── estado.html
+│
+├── services/                     # Catálogo y solicitudes de servicios institucionales
+│   ├── models.py
+│   ├── views.py
+│   ├── urls.py
+│   └── templates/services/
+│       ├── listado.html
+│       └── solicitar.html
+│
+├── payments/                     # Recepción de pagos (tarjeta, transferencia)
+│   ├── models.py
+│   ├── services.py             # Integración con pasarelas
+│   ├── views.py
+│   ├── urls.py
+│   └── templates/payments/
+│       └── comprobante.html
+│
+├── billing/                      # Facturación y comprobantes (opcional con SRI)
+│   ├── models.py
+│   ├── views.py
+│   ├── sri_utils.py           # Validaciones tributarias si aplica
+│   └── templates/billing/
+│       └── factura.html
+│
+├── publications/                 # Noticias, comunicados, boletines institucionales
+│   ├── models.py
+│   ├── views.py
+│   ├── urls.py
+│   └── templates/publications/
+│       └── noticia_detalle.html
+│
+├── notifications/                # Emails, alertas internas, recordatorios
+│   ├── models.py
+│   ├── services.py             # Envío de correos y notificaciones
+│   ├── views.py
+│   └── templates/notifications/
+│       └── correo_base.html
+│
+├── documents/                    # Subida y validación de documentos (RUC, actas)
+│   ├── models.py
+│   ├── views.py
+│   ├── validators.py
+│   └── templates/documents/
+│       └── subir_documento.html
+│
+├── templates/                    # Templates globales y layouts
+│   └── base.html
+├── static/                       # Archivos estáticos (CSS, JS, imágenes)
+├── media/                        # Archivos subidos por los usuarios
+├── requirements.txt
+└── manage.py
 ```
 
 ---
