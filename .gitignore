@@ -4,6 +4,7 @@
 .vscode/
 *.sqlite3
 __pycache__/
+*.pyc
 # Editor-based HTTP Client requests
 /httpRequests/
 # Datasource local storage ignored files
