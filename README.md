@@ -311,3 +311,94 @@ Esta opción es directa y útil si no necesitas revisión de código o estás tr
 - Si tienes dudas, abre un *issue* o comenta en el PR.
 
 ---
+config
+├── __init__.py
+├── __pycache__
+├── asgi.py
+├── settings.py
+├── urls.py
+└── wsgi.py
+core
+├── __init__.py
+├── __pycache__
+├── admin.py
+├── apps.py
+├── migrations
+│   ├── __init__.py
+│   └── __pycache__
+├── models.py
+├── static
+│   └── css
+│   │   └── custom.css
+│   └── img
+│       ├── CCL_Logo.png
+│       ├── CCL_Logo1.png
+│       ├── CCL_Logo2.jpg
+│       ├── beneficios-socios.jpg
+│       ├── hero.png
+│       ├── logos
+│       │   ├── banco-guayaquil.png
+│       │   ├── banco-loja.jpeg
+│       │   ├── banco-pichincha.jpeg
+│       │   ├── cooperativa-jep.png
+│       │   ├── cuxibamba.png
+│       │   └── hotel-howard.png
+│       ├── news-1.jpg
+│       ├── news-2.jpg
+│       ├── news-3.png
+│       ├── news-featured.jpg
+│       └── team
+│           ├── team-1.jpg
+│           ├── team-2.jpg
+│           ├── team-3.jpg
+│           └── team-4.jpg
+├── templates
+│   └── core
+│       ├── _form_corporativo.html
+│       ├── _form_emprendedor.html
+│       ├── _form_empresarial.html
+│       ├── afiliacion.html
+│       ├── base.html
+│       ├── contacto.html
+│       ├── index.html
+│       ├── nosotros.html
+│       ├── noticias.html
+│       ├── servicios.html
+│       └── socios.html
+├── tests.py
+├── urls.py
+└── views.py
+static
+├── css
+│   ├── argon-design-system.css
+│   ├── argon-design-system.css.map
+│   ├── argon-design-system.min.css
+│   ├── font-awesome.css
+│   ├── nucleo-icons.css
+│   └── nucleo-svg.css
+├── fonts
+│   ├── FontAwesome.otf
+│   ├── fontawesome-webfont.eot
+│   ├── fontawesome-webfont.svg
+│   ├── fontawesome-webfont.ttf
+│   ├── fontawesome-webfont.woff
+│   ├── fontawesome-webfont.woff2
+│   ├── nucleo-icons.eot
+│   ├── nucleo-icons.svg
+│   ├── nucleo-icons.ttf
+│   ├── nucleo-icons.woff
+│   └── nucleo-icons.woff2
+└── js
+users
+├── __init__.py
+├── __pycache__
+├── admin.py
+├── apps.py
+├── migrations
+├── models.py
+├── templates
+│   └── users
+│       └── login.html
+├── tests.py
+├── urls.py
+└── views.py
