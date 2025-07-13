@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "core",
     "users",
     "affiliates",
+    "dashboard",
 ]
 
 MIDDLEWARE = [
