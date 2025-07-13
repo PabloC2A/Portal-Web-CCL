@@ -1,22 +1,29 @@
 from django.shortcuts import render
 
+
 def index(request):
-    return render(request, 'core/index.html')
+    return render(request, "core/index.html")
+
 
 def nosotros(request):
-    return render(request, 'core/nosotros.html')
+    return render(request, "core/nosotros.html")
+
 
 def socios(request):
-    return render(request, 'core/socios.html')
+    return render(request, "core/socios.html")
+
 
 def servicios(request):
-    return render(request, 'core/servicios.html')
+    return render(request, "core/servicios.html")
+
 
 def noticias(request):
-    return render(request, 'core/noticias.html')
+    return render(request, "core/noticias.html")
+
 
 def contacto(request):
-    return render(request, 'core/contacto.html')
+    return render(request, "core/contacto.html")
+
 
 def afiliacion(request):
-    return render(request, 'core/afiliacion.html')
+    return render(request, "core/afiliacion.html")
