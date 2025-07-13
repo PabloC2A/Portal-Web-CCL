@@ -20,3 +20,18 @@ def login(request):
 
     # Si es GET o el formulario es inválido, renderiza el formulario
     return render(request, "users/login.html", {"form": form})
+
+
+# --- VISTAS NUEVAS SOLO PARA MOSTRAR EL FRONTEND ---
+
+def change_password(request):
+    # Muestra el Paso 1: Solicitar correo
+    return render(request, 'users/change_password.html')
+
+def password_verify_code(request):
+    # Muestra el Paso 2: Ingresar código
+    return render(request, 'users/password_verify_code.html')
+
+def password_reset_confirm(request):
+    # Muestra el Paso 3: Ingresar nueva contraseña
+    return render(request, 'users/password_reset_confirm.html')
