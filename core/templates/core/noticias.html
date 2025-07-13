@@ -4,123 +4,136 @@
 
 {% block content %}
 
-<section class="section-hero-2" style="background-image: url('{% static "img/hero.png" %}'); background-size: cover; background-position: center;">
-    <div class="container pt-5 pb-7">
-        <div class="row align-items-center text-center">
-            <div class="col">
-                <h1 class="display-2 text-white">Noticias y Actualidad</h1>
-                <p class="lead text-white pt-2" >Mantente al día con los últimos acontecimientos del sector empresarial de Loja.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section section-lg">
-    <div class="container">
-        <div class="row justify-content-center text-center mb-5">
-            <div class="col-lg-8">
-                <h2 class="display-3">Noticia Destacada</h2>
-            </div>
-        </div>
-        <div class="card shadow-lg">
-            <div class="row no-gutters">
-                <div class="col-lg-6">
-                    <img src="{% static 'img/news-featured.jpg' %}" class="card-img" alt="Noticia Destacada">
+    <section class="section-hero-2"
+             style="background-image: url('{% static "img/hero.png" %}'); background-size: cover; background-position: center;">
+        <div class="container pt-5 pb-7">
+            <div class="row align-items-center text-center">
+                <div class="col">
+                    <h1 class="display-2 text-white">Noticias y Actualidad</h1>
+                    <p class="lead text-white pt-2">Mantente al día con los últimos acontecimientos del sector
+                        empresarial de Loja.</p>
                 </div>
-                <div class="col-lg-6 d-flex align-items-center">
-                    <div class="card-body">
-                        <h3 class="card-title text-primary">CCL Lanza el Programa de Transformación Digital 2025</h3>
-                        <p class="text-muted"><small>Por Equipo de Comunicación | Hace 2 días</small></p>
-                        <p class="lead">En un esfuerzo por modernizar el tejido empresarial de la región, la Cámara de Comercio de Loja ha inaugurado su ambicioso programa de digitalización, ofreciendo a los socios herramientas y capacitación en e-commerce, marketing digital y ciberseguridad.</p>
-                        <a href="#" class="btn btn-primary mt-3">Leer Noticia Completa</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-lg">
+        <div class="container">
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-8">
+                    <h2 class="display-3">Noticia Destacada</h2>
+                </div>
+            </div>
+            <div class="card shadow-lg">
+                <div class="row no-gutters">
+                    <div class="col-lg-6">
+                        <img src="{% static 'img/news-featured.jpg' %}" class="card-img" alt="Noticia Destacada">
+                    </div>
+                    <div class="col-lg-6 d-flex align-items-center">
+                        <div class="card-body">
+                            <h3 class="card-title text-primary">CCL Lanza el Programa de Transformación Digital
+                                2025</h3>
+                            <p class="text-muted"><small>Por Equipo de Comunicación | Hace 2 días</small></p>
+                            <p class="lead">En un esfuerzo por modernizar el tejido empresarial de la región, la Cámara
+                                de Comercio de Loja ha inaugurado su ambicioso programa de digitalización, ofreciendo a
+                                los socios herramientas y capacitación en e-commerce, marketing digital y
+                                ciberseguridad.</p>
+                            <a href="#" class="btn btn-primary mt-3">Leer Noticia Completa</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section class="section section-lg bg-secondary">
-  <div class="container">
-    <div class="row mb-5 justify-content-center">
-      <div class="col-lg-8 text-center">
-        <h4>Filtrar Noticias por Categoría</h4>
-        <div class="btn-group flex-wrap" role="group">
-          <button type="button" class="btn btn-sm btn-primary mb-1">Todas</button>
-          <button type="button" class="btn btn-sm btn-outline-primary mb-1">Eventos</button>
-          <button type="button" class="btn btn-sm btn-outline-primary mb-1">Convenios</button>
-          <button type="button" class="btn btn-sm btn-outline-primary mb-1">Comunicados</button>
-          <button type="button" class="btn btn-sm btn-outline-primary mb-1">Tecnología</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-lg-4 col-md-6 mb-4 d-flex">
-        <div class="card card-blog card-lift--hover shadow border-0 w-100">
-          <a href="#"><img class="card-img-top" src="{% static 'img/news-1.jpg' %}" alt="Noticia 1"></a>
-          <div class="card-body">
-            <p class="text-muted"><small>02 JUL 2025</small></p>
-            <h5 class="card-title text-primary">Nueva Alianza Estratégica con la Universidad Técnica</h5>
-            <p class="card-text">Firmamos convenios con universidades locales para fortalecer la formación empresarial de nuestros socios.</p>
-            <a href="#" class="font-weight-bold text-primary">Leer más <i class="fa fa-arrow-right"></i></a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 mb-4 d-flex">
-        <div class="card card-blog card-lift--hover shadow border-0 w-100">
-          <a href="#"><img class="card-img-top" src="{% static 'img/news-2.jpg' %}" alt="Noticia 2"></a>
-          <div class="card-body">
-            <p class="text-muted"><small>20 JUN 2025</small></p>
-            <h5 class="card-title text-primary">Exitosa Rueda de Negocios en el Hotel Howard Johnson</h5>
-            <p class="card-text">Más de 50 empresas participaron en el último encuentro de networking organizado por la Cámara.</p>
-            <a href="#" class="font-weight-bold text-primary">Leer más <i class="fa fa-arrow-right"></i></a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 mb-4 d-flex">
-        <div class="card card-blog card-lift--hover shadow border-0 w-100">
-          <a href="#"><img class="card-img-top" src="{% static 'img/news-3.png' %}" alt="Noticia 3"></a>
-          <div class="card-body">
-            <p class="text-muted"><small>05 JUN 2025</small></p>
-            <h5 class="card-title text-primary">Seminario Internacional de Marketing Digital para PyMEs</h5>
-            <p class="card-text">Expertos internacionales compartieron las últimas tendencias para impulsar ventas en línea y redes sociales.</p>
-            <a href="#" class="font-weight-bold text-primary">Leer más <i class="fa fa-arrow-right"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row mt-4">
-        <div class="col">
-            <nav>
-                <ul class="pagination justify-content-center">
-                    <li class="page-item disabled"><a class="page-link" href="#">&laquo;</a></li>
-                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-  </div>
-</section>
-
-<section class="section section-lg">
-    <div class="container">
-        <div class="row justify-content-center text-center">
-            <div class="col-lg-8">
-                <h2 class="display-3">Suscríbete a Nuestro Boletín</h2>
-                <p class="lead">Recibe las noticias más importantes, invitaciones a eventos y oportunidades de negocio directamente en tu correo electrónico.</p>
-                <form class="form-inline justify-content-center mt-4">
-                    <div class="form-group mb-2">
-                        <input type="email" class="form-control" placeholder="Ingresa tu email">
+    <section class="section section-lg bg-secondary">
+        <div class="container">
+            <div class="row mb-5 justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h4>Filtrar Noticias por Categoría</h4>
+                    <div class="btn-group flex-wrap" role="group">
+                        <button type="button" class="btn btn-sm btn-primary mb-1">Todas</button>
+                        <button type="button" class="btn btn-sm btn-outline-primary mb-1">Eventos</button>
+                        <button type="button" class="btn btn-sm btn-outline-primary mb-1">Convenios</button>
+                        <button type="button" class="btn btn-sm btn-outline-primary mb-1">Comunicados</button>
+                        <button type="button" class="btn btn-sm btn-outline-primary mb-1">Tecnología</button>
                     </div>
-                    <button type="submit" class="btn btn-primary mb-2 ml-2">Suscribirme</button>
-                </form>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 d-flex">
+                    <div class="card card-blog card-lift--hover shadow border-0 w-100">
+                        <a href="#"><img class="card-img-top" src="{% static 'img/news-1.jpg' %}" alt="Noticia 1"></a>
+                        <div class="card-body">
+                            <p class="text-muted"><small>02 JUL 2025</small></p>
+                            <h5 class="card-title text-primary">Nueva Alianza Estratégica con la Universidad
+                                Técnica</h5>
+                            <p class="card-text">Firmamos convenios con universidades locales para fortalecer la
+                                formación empresarial de nuestros socios.</p>
+                            <a href="#" class="font-weight-bold text-primary">Leer más <i class="fa fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 d-flex">
+                    <div class="card card-blog card-lift--hover shadow border-0 w-100">
+                        <a href="#"><img class="card-img-top" src="{% static 'img/news-2.jpg' %}" alt="Noticia 2"></a>
+                        <div class="card-body">
+                            <p class="text-muted"><small>20 JUN 2025</small></p>
+                            <h5 class="card-title text-primary">Exitosa Rueda de Negocios en el Hotel Howard
+                                Johnson</h5>
+                            <p class="card-text">Más de 50 empresas participaron en el último encuentro de networking
+                                organizado por la Cámara.</p>
+                            <a href="#" class="font-weight-bold text-primary">Leer más <i class="fa fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 d-flex">
+                    <div class="card card-blog card-lift--hover shadow border-0 w-100">
+                        <a href="#"><img class="card-img-top" src="{% static 'img/news-3.png' %}" alt="Noticia 3"></a>
+                        <div class="card-body">
+                            <p class="text-muted"><small>05 JUN 2025</small></p>
+                            <h5 class="card-title text-primary">Seminario Internacional de Marketing Digital para
+                                PyMEs</h5>
+                            <p class="card-text">Expertos internacionales compartieron las últimas tendencias para
+                                impulsar ventas en línea y redes sociales.</p>
+                            <a href="#" class="font-weight-bold text-primary">Leer más <i class="fa fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col">
+                    <nav>
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled"><a class="page-link" href="#">&laquo;</a></li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    <section class="section section-lg">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+                    <h2 class="display-3">Suscríbete a Nuestro Boletín</h2>
+                    <p class="lead">Recibe las noticias más importantes, invitaciones a eventos y oportunidades de
+                        negocio directamente en tu correo electrónico.</p>
+                    <form class="form-inline justify-content-center mt-4">
+                        <div class="form-group mb-2">
+                            <input type="email" class="form-control" placeholder="Ingresa tu email">
+                        </div>
+                        <button type="submit" class="btn btn-primary mb-2 ml-2">Suscribirme</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
 {% endblock %}
