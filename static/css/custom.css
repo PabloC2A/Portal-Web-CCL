@@ -349,36 +349,37 @@
 }
 
 /* Clases de retraso para la animación de las tarjetas */
-.delay-1 { transition-delay: 0.2s; }
-.delay-2 { transition-delay: 0.4s; }
-.delay-3 { transition-delay: 0.6s; }
+.delay-1 { transition-delay: 0.3s; }
+.delay-2 { transition-delay: 0.6s; }
+.delay-3 { transition-delay: 0.9s; }
+.delay-4 { transition-delay: 1.2s; }
 
 
 
-/* --- Estilos FINALES para la sección de Afiliación --- */
+/* --- Estilos DEFINITIVOS para la sección de Afiliación --- */
 
-.section-afiliate-final {
-  position: relative;
+.section-afiliate {
+  position: relative; /* El contenedor padre para la imagen flotante */
   background-color: #153C6D;
-  padding: 5rem 0; /* Espacio interno de la sección */
-  /* MUY IMPORTANTE: permitir que la imagen se desborde */
-  overflow: visible !important; 
+  padding: 6rem 0; /* Espacio para el texto */
 }
 
-/* La columna de la imagen */
-.columna-imagen-final {
-  /* La movemos hacia abajo. Ajusta este valor a tu gusto */
-  margin-top: 4rem; 
+/* La columna de la imagen ahora es flotante */
+.columna-imagen-flotante {
+  position: absolute;
+  width: 30%; /* Ocupará casi la mitad derecha de la pantalla */
+  right: 15%;  /* La separamos un poco del borde derecho */
+  bottom: -300px; /* << LA MAGIA PARA QUE SOBRESALGA */
+  z-index: 2; /* Para que esté por encima del corte diagonal */
 }
 
-/* Sombra suave para la imagen del edificio */
+/* La imagen del edificio */
 .imagen-edificio-final {
   filter: drop-shadow(0px 10px 25px rgba(0, 0, 0, 0.2));
-  /* Transición para el efecto parallax */
-  transition: transform 0.1s linear;
+  transition: transform 0.1s linear; /* Para el parallax */
 }
 
-/* El Divisor de Forma se mantiene igual */
+/* El Divisor de Forma se mantiene igual, pero le damos un z-index */
 .shape-divider {
   position: absolute;
   bottom: 0;
@@ -387,15 +388,64 @@
   overflow: hidden;
   line-height: 0;
   transform: rotate(180deg);
+  z-index: 1; /* Detrás de la imagen */
 }
 
+/* El resto de estilos del divisor no cambian */
 .shape-divider svg {
   position: relative;
   display: block;
   width: calc(100% + 1.3px);
   height: 80px;
 }
-
 .shape-divider .shape-fill {
   fill: #FFFFFF;
+}
+
+/* --- Animación de Expansión para Títulos --- */
+
+.animar-expandir {
+  transform: scale(0.8); /* Empieza un 20% más pequeño */
+  opacity: 0;            /* Empieza invisible */
+  transition: transform 0.6s ease-out, opacity 0.6s ease-out; /* Animación suave */
+}
+
+.animar-expandir.visible {
+  transform: scale(1);   /* Vuelve a su tamaño normal */
+  opacity: 1;            /* Se vuelve totalmente visible */
+}
+
+/* --- Animación 3D para la Tarjeta de Socio Destacado --- */
+
+/* El contenedor que crea la perspectiva 3D */
+.card-3d-wrapper {
+  perspective: 1500px;
+}
+
+/* La tarjeta que se va a inclinar */
+.card-3d-effect {
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-out; /* Transición suave para el movimiento */
+}
+
+/* Capas internas (logo y texto) que se mueven a diferente profundidad */
+.card-3d-layer-1 {
+  transform: translateZ(20px); /* El texto estará un poco más "cerca" */
+}
+.card-3d-layer-2 {
+  transform: translateZ(40px); /* El logo estará aún más "cerca" */
+}
+
+/* --- Estilo personalizado para botones dorados --- */
+.btn-dorado {
+  background-color: #B48314 !important;
+  border-color: #B48314 !important;
+  color: #ffffff !important;
+}
+
+/* Ajuste para la animación: Hacemos que el relleno en el hover 
+  también sea dorado en lugar del azul que teníamos por defecto.
+*/
+.btn-dorado.btn-animado:hover::before {
+    background-color: #946a0f !important; /* Un dorado un poco más oscuro */
 }
