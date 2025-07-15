@@ -1,8 +1,3 @@
-{% comment %}
-Este archivo contiene el formulario unificado y dinámico.
-Se basa en el ejemplo que proporcionaste, usando fieldsets y secciones que se ocultan.
-{% endcomment %}
-
 <style>
     /* Estilos para un formulario moderno y limpio */
     .form-section {
@@ -11,6 +6,7 @@ Se basa en el ejemplo que proporcionaste, usando fieldsets y secciones que se oc
         padding: 25px;
         margin-bottom: 25px;
     }
+
     .form-section legend {
         font-size: 1.1rem; /* 17.6px */
         font-weight: 600;
@@ -18,14 +14,17 @@ Se basa en el ejemplo que proporcionaste, usando fieldsets y secciones que se oc
         padding: 0 10px;
         width: auto;
     }
+
     .radio-group-form {
         display: flex;
         flex-wrap: wrap;
         gap: 15px;
     }
+
     .radio-group-form input[type="radio"] {
         display: none;
     }
+
     .radio-group-form label {
         background-color: #f6f9fc;
         color: #525f7f;
@@ -36,83 +35,157 @@ Se basa en el ejemplo que proporcionaste, usando fieldsets y secciones que se oc
         border: 1px solid #dee2e6;
         font-weight: 600;
     }
+
     .radio-group-form input[type="radio"]:checked + label {
         background-color: #5e72e4;
         color: #ffffff;
         border-color: #5e72e4;
         box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
     }
+
     .hidden {
         display: none;
     }
+
     .form-control-label {
         font-size: .875rem;
         font-weight: 600;
         color: #525f7f;
     }
+
     /* Estilo para los campos de carga de archivos */
     .custom-file-label::after {
         content: "Elegir";
     }
 </style>
 
-<form id="afiliacionUnificadaForm" method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
+{% if form.non_field_errors %}
+    <div class="alert alert-danger" role="alert">{{ form.non_field_errors }}</div>
+{% endif %}
 
+<fieldset class="form-section">
+    <legend><i class="ni ni-single-02 mr-2"></i>Tipo de Solicitante</legend>
+    <div class="radio-group-form">
+        <input type="radio" id="tipoNatural" name="tipo_solicitante" value="natural"
+               {% if form.tipo_solicitante.value == 'natural' %}checked{% endif %}>
+        <label for="tipoNatural">Persona Natural</label>
+        <input type="radio" id="tipoJuridica" name="tipo_solicitante" value="juridica"
+               {% if form.tipo_solicitante.value == 'juridica' %}checked{% endif %}>
+        <label for="tipoJuridica">Persona Jurídica</label>
+    </div>
+    <small class="text-danger">{{ form.tipo_solicitante.errors|striptags }}</small>
+</fieldset>
+
+<div id="seccionNatural" class="hidden">
     <fieldset class="form-section">
-        <legend><i class="ni ni-single-02 mr-2"></i>Tipo de Solicitante</legend>
-        <div class="radio-group-form">
-            <input type="radio" id="tipoNatural" name="tipo_solicitante" value="natural">
-            <label for="tipoNatural">Persona Natural</label>
-            
-            <input type="radio" id="tipoJuridica" name="tipo_solicitante" value="juridica">
-            <label for="tipoJuridica">Persona Jurídica</label>
-        </div>
-    </fieldset>
-
-    <div id="seccionNatural" class="hidden">
-        <fieldset class="form-section">
-            <legend><i class="ni ni-badge mr-2"></i>Información Personal Básica</legend>
-            <div class="row">
-                <div class="col-md-6"><div class="form-group"><label class="form-control-label">Nombres</label><input class="form-control" type="text" name="natural_nombres"></div></div>
-                <div class="col-md-6"><div class="form-group"><label class="form-control-label">Apellidos</label><input class="form-control" type="text" name="natural_apellidos"></div></div>
+        <legend><i class="ni ni-badge mr-2"></i>Información Personal Básica</legend>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group"><label class="form-control-label">Cédula</label>{{ form.natural_cedula }}<small
+                        class="text-danger">{{ form.natural_cedula.errors|striptags }}</small></div>
             </div>
-            <div class="form-group"><label class="form-control-label">Correo Electrónico</label><input class="form-control" type="email" name="natural_email"></div>
-            <div class="form-group"><label class="form-control-label">Celular</label><input class="form-control" type="text" name="natural_celular"></div>
-        </fieldset>
-        <fieldset class="form-section">
-            <legend><i class="ni ni-cloud-upload-96 mr-2"></i>Documentos Requeridos</legend>
-            <div class="form-group"><label class="form-control-label">Copia de la cédula de ciudadanía</label><div class="custom-file"><input type="file" class="custom-file-input" name="natural_cedula_file"><label class="custom-file-label">Elegir archivo</label></div></div>
-            <div class="form-group"><label class="form-control-label">Copia del RUC</label><div class="custom-file"><input type="file" class="custom-file-input" name="natural_ruc_file"><label class="custom-file-label">Elegir archivo</label></div></div>
-        </fieldset>
-    </div>
+            <div class="col-md-6">
+                <div class="form-group"><label class="form-control-label">RUC</label>{{ form.natural_ruc }}<small
+                        class="text-danger">{{ form.natural_ruc.errors|striptags }}</small></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group"><label
+                        class="form-control-label">Nombres</label>{{ form.natural_nombres }}<small
+                        class="text-danger">{{ form.natural_nombres.errors|striptags }}</small></div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group"><label
+                        class="form-control-label">Apellidos</label>{{ form.natural_apellidos }}<small
+                        class="text-danger">{{ form.natural_apellidos.errors|striptags }}</small></div>
+            </div>
+        </div>
+        <div class="form-group"><label class="form-control-label">Correo
+            Electrónico</label>{{ form.natural_email }}<small
+                class="text-danger">{{ form.natural_email.errors|striptags }}</small></div>
+        <div class="form-group"><label class="form-control-label">Celular</label>{{ form.natural_celular }}<small
+                class="text-danger">{{ form.natural_celular.errors|striptags }}</small></div>
+    </fieldset>
+    <fieldset class="form-section">
+        <legend><i class="ni ni-cloud-upload-96 mr-2"></i>Documentos</legend>
+        <div class="form-group"><label class="form-control-label">Copia de cédula</label>
+            <div class="custom-file">{{ form.natural_cedula_file }}<label class="custom-file-label">Elegir
+                archivo</label></div>
+            <small class="text-danger">{{ form.natural_cedula_file.errors|striptags }}</small></div>
+        <div class="form-group"><label class="form-control-label">Copia de RUC (Opcional)</label>
+            <div class="custom-file">{{ form.natural_ruc_file }}<label class="custom-file-label">Elegir archivo</label>
+            </div>
+            <small class="text-danger">{{ form.natural_ruc_file.errors|striptags }}</small></div>
+    </fieldset>
+</div>
 
-    <div id="seccionJuridica" class="hidden">
-        <fieldset class="form-section">
-            <legend><i class="ni ni-building mr-2"></i>Datos de la Empresa</legend>
-            <div class="form-group"><label class="form-control-label">Razón Social</label><input class="form-control" type="text" name="juridica_razon_social"></div>
-            <div class="form-group"><label class="form-control-label">Nombre Comercial</label><input class="form-control" type="text" name="juridica_nombre_comercial"></div>
-            <div class="form-group"><label class="form-control-label">Logo de su empresa o negocio</label><div class="custom-file"><input type="file" class="custom-file-input" name="juridica_logo_file"><label class="custom-file-label">Elegir archivo</label></div></div>
-        </fieldset>
-        <fieldset class="form-section">
-            <legend><i class="ni ni-circle-08 mr-2"></i>Datos del Representante Legal</legend>
-            <div class="form-group"><label class="form-control-label">Nombres y Apellidos</label><input class="form-control" type="text" name="juridica_rep_legal_nombres"></div>
-            <div class="form-group"><label class="form-control-label">Cédula</label><input class="form-control" type="text" name="juridica_rep_legal_cedula"></div>
-        </fieldset>
-        <fieldset class="form-section">
-            <legend><i class="ni ni-collection mr-2"></i>Documentos Requeridos</legend>
-            <div class="form-group"><label class="form-control-label">Copia de RUC</label><div class="custom-file"><input type="file" class="custom-file-input" name="juridica_ruc_file"><label class="custom-file-label">Elegir archivo</label></div></div>
-            <div class="form-group"><label class="form-control-label">Copia de escritura de constitución</label><div class="custom-file"><input type="file" class="custom-file-input" name="juridica_escritura_file"><label class="custom-file-label">Elegir archivo</label></div></div>
-            <div class="form-group"><label class="form-control-label">Copia de cédula del representante legal</label><div class="custom-file"><input type="file" class="custom-file-input" name="juridica_cedula_rep_file"><label class="custom-file-label">Elegir archivo</label></div></div>
-        </fieldset>
-        <fieldset class="form-section">
-            <legend><i class="ni ni-mobile-button mr-2"></i>Datos de Contacto Adicionales</legend>
-            <div class="form-group"><label class="form-control-label">Teléfonos de contacto para la lista de difusión de WhatsApp</label><input class="form-control" type="text" name="juridica_whatsapp"></div>
-            <div class="form-group"><label class="form-control-label">Link de su página web para la guía comercial</label><input class="form-control" type="url" placeholder="https://ejemplo.com" name="juridica_website"></div>
-        </fieldset>
-    </div>
-    
-    <div class="text-center mt-4">
-        <button type="submit" class="btn btn-success btn-lg">Completar Afiliación</button>
-    </div>
-</form>
+<div id="seccionJuridica" class="hidden">
+    <fieldset class="form-section">
+        <legend><i class="ni ni-building mr-2"></i>Datos de la Empresa</legend>
+        <div class="form-group"><label class="form-control-label">RUC</label>{{ form.juridica_ruc_empresa }}<small
+                class="text-danger">{{ form.juridica_ruc_empresa.errors|striptags }}</small></div>
+        <div class="form-group"><label class="form-control-label">Razón
+            Social</label>{{ form.juridica_razon_social }}<small
+                class="text-danger">{{ form.juridica_razon_social.errors|striptags }}</small></div>
+        <div class="form-group"><label class="form-control-label">Nombre
+            Comercial</label>{{ form.juridica_nombre_comercial }}<small
+                class="text-danger">{{ form.juridica_nombre_comercial.errors|striptags }}</small></div>
+        <div class="form-group"><label class="form-control-label">Dirección</label>{{ form.juridica_direccion }}<small
+                class="text-danger">{{ form.juridica_direccion.errors|striptags }}</small></div>
+        <div class="form-group"><label class="form-control-label">Logo</label>
+            <div class="custom-file">{{ form.juridica_logo_file }}<label class="custom-file-label">Elegir
+                archivo</label></div>
+            <small class="text-danger">{{ form.juridica_logo_file.errors|striptags }}</small></div>
+    </fieldset>
+    <fieldset class="form-section">
+        <legend><i class="ni ni-circle-08 mr-2"></i>Datos del Representante Legal</legend>
+        <div class="form-group"><label
+                class="form-control-label">Cédula</label>{{ form.juridica_rep_legal_cedula }}<small
+                class="text-danger">{{ form.juridica_rep_legal_cedula.errors|striptags }}</small></div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group"><label
+                        class="form-control-label">Nombres</label>{{ form.juridica_rep_legal_nombres }}<small
+                        class="text-danger">{{ form.juridica_rep_legal_nombres.errors|striptags }}</small></div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group"><label
+                        class="form-control-label">Apellidos</label>{{ form.juridica_rep_legal_apellidos }}<small
+                        class="text-danger">{{ form.juridica_rep_legal_apellidos.errors|striptags }}</small></div>
+            </div>
+        </div>
+        <div class="form-group"><label class="form-control-label">Correo
+            Electrónico</label>{{ form.juridica_rep_legal_email }}<small
+                class="text-danger">{{ form.juridica_rep_legal_email.errors|striptags }}</small></div>
+        <div class="form-group"><label
+                class="form-control-label">Celular</label>{{ form.juridica_rep_legal_celular }}<small
+                class="text-danger">{{ form.juridica_rep_legal_celular.errors|striptags }}</small></div>
+    </fieldset>
+    <fieldset class="form-section">
+        <legend><i class="ni ni-collection mr-2"></i>Documentos de la Empresa</legend>
+        <div class="form-group"><label class="form-control-label">Copia de RUC</label>
+            <div class="custom-file">{{ form.juridica_ruc_file }}<label class="custom-file-label">Elegir archivo</label>
+            </div>
+            <small class="text-danger">{{ form.juridica_ruc_file.errors|striptags }}</small></div>
+        <div class="form-group"><label class="form-control-label">Copia de escritura</label>
+            <div class="custom-file">{{ form.juridica_escritura_file }}<label class="custom-file-label">Elegir
+                archivo</label></div>
+            <small class="text-danger">{{ form.juridica_escritura_file.errors|striptags }}</small></div>
+        <div class="form-group"><label class="form-control-label">Copia de cédula del rep.</label>
+            <div class="custom-file">{{ form.juridica_cedula_rep_file }}<label class="custom-file-label">Elegir
+                archivo</label></div>
+            <small class="text-danger">{{ form.juridica_cedula_rep_file.errors|striptags }}</small></div>
+    </fieldset>
+    <fieldset class="form-section">
+        <legend><i class="ni ni-mobile-button mr-2"></i>Contacto Adicional</legend>
+        <div class="form-group"><label class="form-control-label">WhatsApp</label>{{ form.juridica_whatsapp }}<small
+                class="text-danger">{{ form.juridica_whatsapp.errors|striptags }}</small></div>
+        <div class="form-group"><label class="form-control-label">Página Web</label>{{ form.juridica_website }}<small
+                class="text-danger">{{ form.juridica_website.errors|striptags }}</small></div>
+    </fieldset>
+</div>
+
+<div class="text-center mt-4">
+    <button type="submit" class="btn btn-success btn-lg">Completar Afiliación</button>
+</div>

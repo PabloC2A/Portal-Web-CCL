@@ -5,6 +5,7 @@
 *.sqlite3
 __pycache__/
 *.pyc
+media
 # Editor-based HTTP Client requests
 /httpRequests/
 # Datasource local storage ignored files

@@ -4,122 +4,173 @@
 {% block title %}Afíliate | Cámara de Comercio de Loja{% endblock %}
 
 {% block content %}
-<section class="section-hero-2"
-         style="background-image: url('{% static "img/hero.png" %}'); background-size: cover; background-position: center;">
-    <div class="container pt-5 pb-7">
-        <div class="row align-items-center text-center">
-            <div class="col">
-                <h1 class="display-2 text-white">Únete a nuestra comunidad</h1>
-                <p class="lead text-white pt-2">Revisa los requisitos y forma parte de la red empresarial más importante de la región.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section section-lg">
-    <div class="container">
-        <div class="row justify-content-center">
-
-            <div class="col-lg-5 mb-5 mb-lg-0">
-                <div class="card shadow border-0 h-100">
-                    <div class="card-header bg-transparent text-center pb-0">
-                        <h4 class="text-uppercase text-muted ls-1">Requisitos de Afiliación</h4>
-                    </div>
-                    <div class="card-body px-lg-5 py-lg-5">
-                        <div class="display-4 text-center mb-4">Persona Natural</div>
-                        <ul class="list-unstyled my-4">
-                            <li class="py-2"><div class="d-flex align-items-center"><span class="mr-3"><i class="ni ni-check-bold text-success"></i></span><span>Copia de la cédula de ciudadanía.</span></div></li>
-                            <li class="py-2"><div class="d-flex align-items-center"><span class="mr-3"><i class="ni ni-check-bold text-success"></i></span><span>Copia del RUC.</span></div></li>
-                            <li class="py-2"><div class="d-flex align-items-center"><span class="mr-3"><i class="ni ni-check-bold text-success"></i></span><span>Información personal básica.</span></div></li>
-                            <li class="py-2"><div class="d-flex align-items-center"><span class="mr-3"><i class="ni ni-check-bold text-success"></i></span><span>Valor a cancelar según la siguiente tabla.</span></div></li>
-                        </ul>
-                        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modalAfiliacion" data-plan="natural">
-                            Afiliarse como Persona Natural
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-5">
-                <div class="card shadow border-0 h-100">
-                    <div class="card-header bg-transparent text-center pb-0">
-                        <h4 class="text-uppercase text-muted ls-1">Requisitos de Afiliación</h4>
-                    </div>
-                    <div class="card-body px-lg-5 py-lg-5">
-                        <div class="display-4 text-center mb-4">Persona Jurídica</div>
-                        <ul class="list-unstyled my-4">
-                            <li class="py-2"><div class="d-flex align-items-center"><span class="mr-3"><i class="ni ni-check-bold text-success"></i></span><span>Copia de RUC</span></div></li>
-                            <li class="py-2"><div class="d-flex align-items-center"><span class="mr-3"><i class="ni ni-check-bold text-success"></i></span><span>Copia de escritura de constitución</span></div></li>
-                            <li class="py-2"><div class="d-flex align-items-center"><span class="mr-3"><i class="ni ni-check-bold text-success"></i></span><span>Copia de cédula del representante legal</span></div></li>
-                            <li class="py-2"><div class="d-flex align-items-center"><span class="mr-3"><i class="ni ni-check-bold text-success"></i></span><span>Datos personales</span></div></li>
-                            <li class="py-2"><div class="d-flex align-items-center"><span class="mr-3"><i class="ni ni-check-bold text-success"></i></span><span>Logo de su empresa o negocio</span></div></li>
-                            <li class="py-2"><div class="d-flex align-items-center"><span class="mr-3"><i class="ni ni-check-bold text-success"></i></span><span>Teléfonos de contacto para WhatsApp</span></div></li>
-                            <li class="py-2"><div class="d-flex align-items-center"><span class="mr-3"><i class="ni ni-check-bold text-success"></i></span><span>Link de su página web y fotografías</span></div></li>
-                        </ul>
-                        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modalAfiliacion" data-plan="juridica">
-                            Afiliarse como Persona Jurídica
-                        </button>
-                    </div>
+    <section class="section-hero-2"
+             style="background-image: url('{% static "img/hero.png" %}'); background-size: cover; background-position: center;">
+        <div class="container pt-5 pb-7">
+            <div class="row align-items-center text-center">
+                <div class="col">
+                    <h1 class="display-2 text-white">Únete a nuestra comunidad</h1>
+                    <p class="lead text-white pt-2">Revisa los requisitos y forma parte de la red empresarial más
+                        importante de la región.</p>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    <section class="section section-lg">
+        <div class="container">
+            <div class="row justify-content-center">
+
+                <div class="col-lg-5 mb-5 mb-lg-0">
+                    <div class="card shadow border-0 h-100">
+                        <div class="card-header bg-transparent text-center pb-0">
+                            <h4 class="text-uppercase text-muted ls-1">Requisitos de Afiliación</h4>
+                        </div>
+                        <div class="card-body px-lg-5 py-lg-5">
+                            <div class="display-4 text-center mb-4">Persona Natural</div>
+                            <ul class="list-unstyled my-4">
+                                <li class="py-2">
+                                    <div class="d-flex align-items-center"><span class="mr-3"><i
+                                            class="ni ni-check-bold text-success"></i></span><span>Copia de la cédula de ciudadanía.</span>
+                                    </div>
+                                </li>
+                                <li class="py-2">
+                                    <div class="d-flex align-items-center"><span class="mr-3"><i
+                                            class="ni ni-check-bold text-success"></i></span><span>Copia del RUC.</span>
+                                    </div>
+                                </li>
+                                <li class="py-2">
+                                    <div class="d-flex align-items-center"><span class="mr-3"><i
+                                            class="ni ni-check-bold text-success"></i></span><span>Información personal básica.</span>
+                                    </div>
+                                </li>
+                                <li class="py-2">
+                                    <div class="d-flex align-items-center"><span class="mr-3"><i
+                                            class="ni ni-check-bold text-success"></i></span><span>Valor a cancelar según la siguiente tabla.</span>
+                                    </div>
+                                </li>
+                            </ul>
+                            <button type="button" class="btn btn-primary btn-block" data-toggle="modal"
+                                    data-target="#modalAfiliacion" data-plan="natural">
+                                Afiliarse como Persona Natural
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="card shadow border-0 h-100">
+                        <div class="card-header bg-transparent text-center pb-0">
+                            <h4 class="text-uppercase text-muted ls-1">Requisitos de Afiliación</h4>
+                        </div>
+                        <div class="card-body px-lg-5 py-lg-5">
+                            <div class="display-4 text-center mb-4">Persona Jurídica</div>
+                            <ul class="list-unstyled my-4">
+                                <li class="py-2">
+                                    <div class="d-flex align-items-center"><span class="mr-3"><i
+                                            class="ni ni-check-bold text-success"></i></span><span>Copia de RUC</span>
+                                    </div>
+                                </li>
+                                <li class="py-2">
+                                    <div class="d-flex align-items-center"><span class="mr-3"><i
+                                            class="ni ni-check-bold text-success"></i></span><span>Copia de escritura de constitución</span>
+                                    </div>
+                                </li>
+                                <li class="py-2">
+                                    <div class="d-flex align-items-center"><span class="mr-3"><i
+                                            class="ni ni-check-bold text-success"></i></span><span>Copia de cédula del representante legal</span>
+                                    </div>
+                                </li>
+                                <li class="py-2">
+                                    <div class="d-flex align-items-center"><span class="mr-3"><i
+                                            class="ni ni-check-bold text-success"></i></span><span>Datos personales</span>
+                                    </div>
+                                </li>
+                                <li class="py-2">
+                                    <div class="d-flex align-items-center"><span class="mr-3"><i
+                                            class="ni ni-check-bold text-success"></i></span><span>Logo de su empresa o negocio</span>
+                                    </div>
+                                </li>
+                                <li class="py-2">
+                                    <div class="d-flex align-items-center"><span class="mr-3"><i
+                                            class="ni ni-check-bold text-success"></i></span><span>Teléfonos de contacto para WhatsApp</span>
+                                    </div>
+                                </li>
+                                <li class="py-2">
+                                    <div class="d-flex align-items-center"><span class="mr-3"><i
+                                            class="ni ni-check-bold text-success"></i></span><span>Link de su página web y fotografías</span>
+                                    </div>
+                                </li>
+                            </ul>
+                            <button type="button" class="btn btn-primary btn-block" data-toggle="modal"
+                                    data-target="#modalAfiliacion" data-plan="juridica">
+                                Afiliarse como Persona Jurídica
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}
 
 
 {% block modals %}
-<div class="modal fade" id="modalAfiliacion" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Formulario de Afiliación</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body">
-                {% include 'affiliates/_form_afiliacion.html' %}
+    <div class="modal fade" id="modalAfiliacion" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Formulario de Afiliación</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <form action="{% url 'afiliacion' %}" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% include 'affiliates/_form_afiliacion.html' %}
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
 {% endblock %}
 
 
 {% block scripts %}
-<script>
-$(document).ready(function () {
-    const modal = $('#modalAfiliacion');
-    
-    // 1. Lógica para PRE-SELECCIONAR el plan al abrir el modal
-    modal.on('show.bs.modal', function (event) {
-        const button = $(event.relatedTarget);
-        const plan = button.data('plan');
-        const radioInput = modal.find('input[name="tipo_solicitante"][value="' + plan + '"]');
-        
-        radioInput.prop('checked', true);
-        radioInput.trigger('change'); // Dispara el cambio para que se muestre la sección correcta
-    });
+    <script>
+        $(document).ready(function () {
+            const modal = $('#modalAfiliacion');
 
-    // 2. Lógica para MOSTRAR/OCULTAR las secciones del formulario
-    modal.on('change', 'input[name="tipo_solicitante"]', function() {
-        const seccionNatural = $('#seccionNatural');
-        const seccionJuridica = $('#seccionJuridica');
+            // 1. Lógica para PRE-SELECCIONAR el plan al abrir el modal
+            modal.on('show.bs.modal', function (event) {
+                const button = $(event.relatedTarget);
+                const plan = button.data('plan');
+                const radioInput = modal.find('input[name="tipo_solicitante"][value="' + plan + '"]');
 
-        seccionNatural.addClass('hidden');
-        seccionJuridica.addClass('hidden');
+                radioInput.prop('checked', true);
+                radioInput.trigger('change'); // Dispara el cambio para que se muestre la sección correcta
+            });
 
-        if ($(this).val() === 'natural') {
-            seccionNatural.removeClass('hidden');
-        } else if ($(this).val() === 'juridica') {
-            seccionJuridica.removeClass('hidden');
-        }
-    });
+            // 2. Lógica para MOSTRAR/OCULTAR las secciones del formulario
+            modal.on('change', 'input[name="tipo_solicitante"]', function () {
+                const seccionNatural = $('#seccionNatural');
+                const seccionJuridica = $('#seccionJuridica');
 
-    // 3. Lógica para mostrar el nombre del archivo en los inputs de carga
-    modal.on('change', '.custom-file-input', function() {
-        let fileName = $(this).val().split('\\').pop();
-        $(this).next('.custom-file-label').addClass("selected").html(fileName);
-    });
-});
-</script>
+                seccionNatural.addClass('hidden');
+                seccionJuridica.addClass('hidden');
+
+                if ($(this).val() === 'natural') {
+                    seccionNatural.removeClass('hidden');
+                } else if ($(this).val() === 'juridica') {
+                    seccionJuridica.removeClass('hidden');
+                }
+            });
+
+            // 3. Lógica para mostrar el nombre del archivo en los inputs de carga
+            modal.on('change', '.custom-file-input', function () {
+                let fileName = $(this).val().split('\\').pop();
+                $(this).next('.custom-file-label').addClass("selected").html(fileName);
+            });
+        });
+    </script>
 {% endblock %}
