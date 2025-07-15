@@ -45,6 +45,7 @@ Instala las dependencias:
 
 ```bash
 pip install django==5.2.4
+pip install Pillow #Necesaria para que Django pueda procesar subidas de imágenes
 ```
 
 ---
