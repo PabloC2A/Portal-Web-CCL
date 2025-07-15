@@ -27,15 +27,21 @@
     <link href="{% static 'css/custom.css' %}" rel="stylesheet"/>
 </head>
 <body class="bg-white">
+
+  <div id="preloader">
+    <img src="{% static 'img/CCL_Logo2.jpg' %}" alt="Cargando...">
+  </div>
 <nav
-        id="navbar-main"
-        class="navbar navbar-main navbar-expand-lg navbar-light bg-white shadow-sm sticky-top"
+  id="navbar-main"
+  class="navbar navbar-main navbar-expand-lg 
+         {% if request.path == '/' %}navbar-transparent{% else %}bg-white shadow-sm sticky-top{% endif %}"
 >
     <div class="container">
         <a class="navbar-brand mr-lg-5" href="{% url 'index' %}">
             <img
                     src='{% static "img/CCL_Logo.png" %}'
                     alt="Logo Cámara de Comercio de Loja"
+                    class="navbar-brand-logo"
             />
         </a>
         <button
@@ -48,30 +54,30 @@
         </button>
         <div class="navbar-collapse collapse" id="navbar_global">
             <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
-                <li class="nav-item">
+                <li class="nav-item {% if request.resolver_match.url_name == 'servicios' %}active{% endif %}">
                     <a class="nav-link" href="{% url 'servicios' %}">Servicios</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {% if request.resolver_match.url_name == 'nosotros' %}active{% endif %}">
                     <a class="nav-link" href="{% url 'nosotros' %}">Nosotros</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {% if request.resolver_match.url_name == 'socios' %}active{% endif %}">
                     <a class="nav-link" href="{% url 'socios' %}">Socios</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {% if request.resolver_match.url_name == 'noticias' %}active{% endif %}">
                     <a class="nav-link" href="{% url 'noticias' %}">Noticias</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {% if request.resolver_match.url_name == 'contacto' %}active{% endif %}">
                     <a class="nav-link" href="{% url 'contacto' %}">Contacto</a>
                 </li>
             </ul>
             <ul class="navbar-nav align-items-lg-center ml-lg-auto">
                 <li class="nav-item d-none d-lg-block ml-lg-4">
-                    <a href="{% url 'afiliacion' %}" class="btn btn-warning btn-sm">
+                    <a href="{% url 'afiliacion' %}" class="btn btn-warning btn-sm btn-animado">
                         <span class="nav-link-inner--text">Afíliate</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{% url 'login' %}" class="btn btn-primary btn-sm">
+                    <a href="{% url 'login' %}" class="btn btn-primary btn-sm btn-animado">
                         <span class="nav-link-inner--text">Ingresar</span>
                     </a>
                 </li>
@@ -82,7 +88,7 @@
 
 <main>{% block content %}{% endblock %}</main>
 
-<footer class="footer bg-dark text-white pt-5">
+<footer class="footer footer-custom-bg text-white pt-5">
     <div class="container">
         <div class="row">
             <div class="col-lg-4 mb-5 mb-lg-0">
@@ -187,5 +193,98 @@
 {% block modals %}{% endblock %}
 
 {% block scripts %}{% endblock %}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    // --- LÓGICA PARA EL PRELOADER ---
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+      preloader.classList.add('preloader-hidden');
+      setTimeout(() => {
+        if (preloader.parentNode) {
+          preloader.parentNode.removeChild(preloader);
+        }
+      }, 800);
+    }
+
+    // --- LÓGICA PARA EL NAVBAR TRANSPARENTE ---
+    const navbar = document.getElementById('navbar-main');
+    if (window.location.pathname === '/' && navbar) {
+      const handleScroll = () => {
+        if (window.scrollY > 50) {
+          navbar.classList.remove('navbar-transparent');
+          navbar.classList.add('navbar-solid');
+        } else {
+          navbar.classList.add('navbar-transparent');
+          navbar.classList.remove('navbar-solid');
+        }
+      };
+      window.addEventListener('scroll', handleScroll);
+    }
+
+    // --- LÓGICA PARA TODAS LAS ANIMACIONES AL HACER SCROLL ---
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Animaciones de deslizamiento
+          if (entry.target.classList.contains('animar-desde-derecha') || entry.target.classList.contains('animar-desde-izquierda') || entry.target.classList.contains('animar-desde-abajo')) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+          // LÓGICA RESTAURADA: Animación de escritura
+          if (entry.target.classList.contains('animar-texto')) {
+            startTypingAndErasingLoop(entry.target);
+            observer.unobserve(entry.target);
+          }
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+
+    // LÍNEA RESTAURADA: Le decimos que también vigile a '.animar-texto'
+    const elementosAnimados = document.querySelectorAll('.animar-desde-derecha, .animar-desde-izquierda, .animar-desde-abajo, .animar-texto');
+    elementosAnimados.forEach(el => observer.observe(el));
+
+    // FUNCIÓN RESTAURADA: La lógica para escribir y borrar
+    function startTypingAndErasingLoop(element) {
+        // El texto a animar AHORA VIVE AQUÍ, dentro del script
+        const textToType = '¿Listo Para Impulsar tu Negocio?';
+        const typingSpeed = 100;
+        const erasingSpeed = 50;
+        const pauseDuration = 2000;
+
+        let i = 0;
+        let isErasing = false;
+
+        function animateText() {
+            const cursor = '<span class="typing-cursor"></span>';
+            let textToShow = textToType.substring(0, i);
+            
+            element.innerHTML = textToShow + cursor;
+
+            if (!isErasing && i < textToType.length) {
+                // Escribiendo
+                i++;
+                setTimeout(animateText, typingSpeed);
+            } else if (isErasing && i > 0) {
+                // Borrando
+                i--;
+                setTimeout(animateText, erasingSpeed);
+            } else {
+                // Cambiando de fase
+                isErasing = !isErasing;
+                if (!isErasing) {
+                  element.innerHTML = ''; // Borra el cursor al final
+                }
+                setTimeout(animateText, isErasing ? pauseDuration : 500);
+            }
+        }
+        // Inicia el ciclo de animación
+        animateText();
+    }
+  });
+</script>
+    
 </body>
 </html>
