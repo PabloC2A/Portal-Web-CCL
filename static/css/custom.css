@@ -39,3 +39,363 @@
 .footer-custom-bg {
   background-color: #153C6D !important;
 }
+
+/*
+ * Estilos para estandarizar los logos de los socios
+ */
+.socio-logo-box {
+  height: 120px; /* Altura fija para todos los contenedores de logos */
+  display: flex;
+  align-items: center; /* Centrado vertical */
+  justify-content: center; /* Centrado horizontal */
+  padding: 1rem; /* Un poco de espacio para que el logo no toque los bordes */
+}
+
+.socio-logo-box img {
+  max-height: 100%; /* La imagen nunca será más alta que el contenedor */
+  max-width: 100%;  /* La imagen nunca será más ancha que el contenedor */
+  object-fit: contain; /* Se asegura que se vea completa y sin deformarse */
+}
+
+.badge {
+  padding: 0.5em 1em; /* Ajusta el relleno vertical y horizontal */
+  font-size: 0.75rem;
+}
+
+/* --- Estilos para la Pantalla de Carga (Preloader) --- */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  background-color: #153C6D; /* El color azul que especificaste */
+  z-index: 9999; /* Se asegura que esté por encima de todo */
+
+  /* Centra el logo en la pantalla */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Transición para el desvanecimiento */
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 1.4s ease-out, visibility 1.4s ease-out;
+}
+
+/* Clase que se añade con JavaScript para ocultar el preloader */
+#preloader.preloader-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Estilo para el logo dentro del preloader */
+#preloader img {
+  max-width: 300px; /* Ajusta el tamaño máximo del logo */
+  width: 80%;
+  /* Animación opcional para que el logo "palpite" suavemente */
+  animation: pulse 3.6s infinite ease-in-out;
+}
+
+/* Definición de la animación de pulso */
+@keyframes pulse {
+  0% {
+    transform: scale(0.98);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(0.98);
+  }
+}
+
+/*
+ * Estilos para el nuevo Hero Section del Index
+ */
+
+.hero-full-screen {
+  height: 100vh; /* Ocupa el 100% de la altura de la pantalla */
+  position: relative; /* Necesario para posicionar la capa superpuesta */
+  display: flex; /* Para centrar el contenido */
+  align-items: center; /* Centrado vertical */
+  justify-content: center; /* Centrado horizontal */
+  
+  /* Estilos para la imagen de fondo */
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+/* Capa oscura semitransparente sobre la imagen de fondo */
+.hero-full-screen::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(21, 60, 109, 0.5); /* Color #153C6D con 50% de opacidad */
+  z-index: 1; /* Se asegura que la capa esté entre el fondo y el texto */
+}
+
+/* Contenedor para el texto del Hero */
+.hero-content {
+  position: relative; /* Para que el texto se ponga sobre la capa oscura */
+  z-index: 2;
+  color: white; /* Color del texto */
+  text-align: center;
+  max-width: 800px; /* Ancho máximo para el texto */
+  padding: 2rem;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem; /* Tamaño de fuente más grande para el título */
+    font-weight: 700;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6); /* Sombra para mejorar legibilidad */
+}
+
+.hero-content p {
+    font-size: 1.25rem; /* Tamaño de fuente para el párrafo */
+    font-weight: 300;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Ajustes para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+}   
+
+/* --- Estilos para el Navbar Transparente sobre el Hero --- */
+
+/* Por defecto, el navbar será transparente y se posicionará sobre el contenido */
+.navbar.navbar-transparent {
+  background-color: transparent !important;
+  box-shadow: none;
+  border: 0;
+  position: absolute; /* Lo saca del flujo normal para que el hero se ponga detrás */
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+/* Estilo para el navbar cuando el usuario hace scroll */
+.navbar.navbar-solid {
+  background-color: #ffffff !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0; /* <-- ESTA LÍNEA FUERZA EL ANCHO COMPLETO */
+  z-index: 1030; /* Asegura que esté por encima de otros elementos */
+
+  /* Animación suave para cuando aparece */
+  animation: slide-in 0.3s ease-in-out;
+}
+
+/* Define la animación */
+@keyframes slide-in {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
+/*
+ * Animación y estilo para los enlaces del Navbar
+ */
+
+/* Estilo base para una transición suave */
+.navbar-nav .nav-link {
+  transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+  border-radius: 5px; /* Bordes redondeados para un mejor efecto visual */
+}
+
+/* Efecto al pasar el cursor (hover) */
+.navbar-nav .nav-link:hover {
+  color: #153C6D !important; /* Cambia al color azul corporativo */
+  transform: scale(1.1); /* Lo hace un 10% más grande */
+}
+
+/* Estilo para el enlace de la página activa */
+.navbar-nav .nav-item.active .nav-link {
+  color: #153C6D !important; /* Mantiene el color azul */
+  font-weight: 600; /* Lo pone en negrita para distinguirlo más */
+}
+
+/* --- Animación de Relleno para Botones del Navbar --- */
+
+.btn-animado {
+  position: relative; /* Base para la capa de color */
+  overflow: hidden;   /* Esconde la capa de color para que no se vea al inicio */
+  transition: transform 0.2s ease-out; /* Transición suave para el efecto de expansión */
+  z-index: 1;         /* Para que el texto del botón siempre esté visible */
+}
+
+/* Creamos una capa de color oculta que aparecerá al pasar el cursor */
+.btn-animado::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0; /* La capa empieza sin ancho (invisible) */
+  height: 100%;
+  background-color: #153C6D; /* El color azul que te gusta para el relleno */
+  transition: width 0.3s ease-in-out; /* La animación de relleno */
+  z-index: -1; /* La ponemos detrás del texto del botón */
+}
+
+/* CUANDO PASAS EL CURSOR SOBRE EL BOTÓN... */
+.btn-animado:hover {
+  transform: scale(1.05); /* El botón se hace un 5% más grande */
+  color: #ffffff !important; /* El texto se vuelve blanco para que se lea sobre el fondo azul */
+}
+
+/* ...la capa de color se expande hasta rellenar todo el botón */
+.btn-animado:hover::before {
+  width: 100%;
+}
+
+
+/* --- Animación para deslizar elementos desde la DERECHA --- */
+
+/* 1. Así empieza el elemento: invisible y movido un poco a la derecha */
+.animar-desde-derecha {
+  opacity: 0;
+  transform: translateX(150px); /* Distancia más larga */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* 2. Así termina: visible y en su posición original */
+.animar-desde-derecha.visible {
+  opacity: 1; /* Se vuelve totalmente visible */
+  transform: translateX(0); /* Vuelve a su posición original */
+}
+
+
+/* --- Animación para deslizar elementos desde la IZQUIERDA --- */
+
+/* 1. Estado inicial: escondido a la izquierda */
+.animar-desde-izquierda {
+  opacity: 0;
+  transform: translateX(-150px); /* Lo movemos 100px a la izquierda */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* 2. Estado final: visible en su sitio */
+.animar-desde-izquierda.visible {
+  opacity: 1;
+  transform: translateX(0); /* Vuelve a su posición original */
+}
+
+/* --- Estilo para el cursor de la animación de escritura --- */
+.typing-cursor {
+  display: inline-block;
+  background-color: white;
+  width: 3px;
+  /* La altura se ajusta al tamaño de la fuente y parpadea */
+  height: 1em;
+  animation: blink 0.8s infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Estilo para el título que se auto-escribe */
+.animar-texto {
+  /* Reserva la altura de una línea de texto para evitar saltos */
+  min-height: 1.2em;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* --- Estilos para la nueva cabecera de Servicios --- */
+
+.hero-servicios {
+  background-color: #153D6C;
+  padding: 6rem 0;
+  overflow: hidden; /* Importante para que el logo no se salga */
+  position: relative;
+}
+
+/* Estilos para el logo animado */
+.hero-logo-interactive {
+  max-width: 250px;
+  /* Transición suave para que el movimiento no sea brusco */
+  transition: transform 0.2s ease-out;
+}
+
+
+/* --- Animación para deslizar elementos desde ABAJO --- */
+.animar-desde-abajo {
+  opacity: 0;
+  transform: translateY(50px); /* Empieza 50px más abajo */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animar-desde-abajo.visible {
+  opacity: 1;
+  transform: translateY(0); /* Vuelve a su posición original */
+}
+
+/* Clases de retraso para la animación de las tarjetas */
+.delay-1 { transition-delay: 0.2s; }
+.delay-2 { transition-delay: 0.4s; }
+.delay-3 { transition-delay: 0.6s; }
+
+
+
+/* --- Estilos FINALES para la sección de Afiliación --- */
+
+.section-afiliate-final {
+  position: relative;
+  background-color: #153C6D;
+  padding: 5rem 0; /* Espacio interno de la sección */
+  /* MUY IMPORTANTE: permitir que la imagen se desborde */
+  overflow: visible !important; 
+}
+
+/* La columna de la imagen */
+.columna-imagen-final {
+  /* La movemos hacia abajo. Ajusta este valor a tu gusto */
+  margin-top: 4rem; 
+}
+
+/* Sombra suave para la imagen del edificio */
+.imagen-edificio-final {
+  filter: drop-shadow(0px 10px 25px rgba(0, 0, 0, 0.2));
+  /* Transición para el efecto parallax */
+  transition: transform 0.1s linear;
+}
+
+/* El Divisor de Forma se mantiene igual */
+.shape-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.shape-divider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 80px;
+}
+
+.shape-divider .shape-fill {
+  fill: #FFFFFF;
+}
