@@ -312,3 +312,190 @@ Esta opción es directa y útil si no necesitas revisión de código o estás tr
 - Si tienes dudas, abre un *issue* o comenta en el PR.
 
 ---
+
+config
+├── __init__.py
+├── __pycache__
+│   ├── __init__.cpython-312.pyc
+│   ├── settings.cpython-312.pyc
+│   ├── urls.cpython-312.pyc
+│   └── wsgi.cpython-312.pyc
+├── asgi.py
+├── settings.py
+├── urls.py
+└── wsgi.py
+affiliates
+├── __init__.py
+├── __pycache__
+│   ├── __init__.cpython-312.pyc
+│   ├── admin.cpython-312.pyc
+│   ├── apps.cpython-312.pyc
+│   ├── forms.cpython-312.pyc
+│   ├── models.cpython-312.pyc
+│   ├── urls.cpython-312.pyc
+│   └── views.cpython-312.pyc
+├── admin.py
+├── apps.py
+├── forms.py
+├── migrations
+│   ├── 0001_initial.py
+│   ├── __init__.py
+│   └── __pycache__
+│       ├── 0001_initial.cpython-312.pyc
+│       └── __init__.cpython-312.pyc
+├── models.py
+├── templates
+│   └── affiliates
+│       ├── _form_afiliacion.html
+│       ├── afiliacion.html
+│       └── afiliacion_exitosa.html
+├── tests.py
+├── urls.py
+└── views.py
+core
+├── __init__.py
+├── __pycache__
+│   ├── __init__.cpython-312.pyc
+│   ├── admin.cpython-312.pyc
+│   ├── apps.cpython-312.pyc
+│   ├── models.cpython-312.pyc
+│   ├── urls.cpython-312.pyc
+│   └── views.cpython-312.pyc
+├── admin.py
+├── apps.py
+├── migrations
+│   ├── __init__.py
+│   └── __pycache__
+│       ├── __init__.cpython-312.pyc
+│       └── __init__.cpython-313.pyc
+├── models.py
+├── static
+│   ├── css
+│   │   └── custom.css
+│   └── img
+│       ├── CCL_Logo.png
+│       ├── CCL_Logo1.png
+│       ├── CCL_Logo2.jpg
+│       ├── beneficios-socios.jpg
+│       ├── hero.png
+│       ├── img_Principal.jpeg
+│       ├── img_Principal1.jpeg
+│       ├── logos
+│       │   ├── banco-guayaquil.png
+│       │   ├── banco-loja.jpeg
+│       │   ├── banco-pichincha.jpeg
+│       │   ├── cooperativa-jep.png
+│       │   ├── cuxibamba.png
+│       │   └── hotel-howard.png
+│       ├── lugar_camara.png
+│       ├── news-1.jpg
+│       ├── news-2.jpg
+│       ├── news-3.png
+│       ├── news-featured.jpg
+│       └── team
+│           ├── team-1.jpg
+│           ├── team-2.jpg
+│           ├── team-3.jpg
+│           └── team-4.jpg
+├── templates
+│   └── core
+│       ├── base.html
+│       ├── contacto.html
+│       ├── index.html
+│       ├── nosotros.html
+│       ├── noticias.html
+│       ├── servicios.html
+│       └── socios.html
+├── tests.py
+├── urls.py
+└── views.py
+dashboard
+├── __init__.py
+├── __pycache__
+├── admin.py
+├── apps.py
+├── migrations
+├── models.py
+├── static
+│   └── dashboard
+│       └── estilos_sidebar.css
+├── templates
+│   └── dashboard
+│       ├── empleado
+│       │   ├── base.html
+│       │   └── dashboard_Empleado.html
+│       └── socio
+│           ├── base_socio.html
+│           ├── dashboard_Socio.html
+│           ├── socio_configuracion.html
+│           ├── socio_convenios.html
+│           ├── socio_noticias.html
+│           ├── socio_notificaciones.html
+│           ├── socio_reservas.html
+│           └── socio_soporte.html
+├── tests.py
+├── urls.py
+└── views.py
+static
+├── css
+│   ├── argon-design-system.css
+│   ├── argon-design-system.css.map
+│   ├── argon-design-system.min.css
+│   ├── custom.css
+│   ├── font-awesome.css
+│   ├── nucleo-icons.css
+│   └── nucleo-svg.css
+├── fonts
+│   ├── FontAwesome.otf
+│   ├── fontawesome-webfont.eot
+│   ├── fontawesome-webfont.svg
+│   ├── fontawesome-webfont.ttf
+│   ├── fontawesome-webfont.woff
+│   ├── fontawesome-webfont.woff2
+│   ├── nucleo-icons.eot
+│   ├── nucleo-icons.svg
+│   ├── nucleo-icons.ttf
+│   ├── nucleo-icons.woff
+│   └── nucleo-icons.woff2
+└── js
+    ├── argon-design-system.js
+    ├── argon-design-system.js.map
+    ├── argon-design-system.min.js
+    ├── core
+    │   ├── bootstrap.min.js
+    │   ├── jquery.min.js
+    │   └── popper.min.js
+    └── plugins
+        ├── bootstrap-datepicker.min.js
+        ├── bootstrap-switch.js
+        ├── chartjs.min.js
+        ├── datetimepicker.js
+        ├── jquery.sharrre.min.js
+        ├── moment.min.js
+        ├── nouislider.min.js
+        └── perfect-scrollbar.jquery.min.js
+users
+├── __init__.py
+├── __pycache__
+│   ├── __init__.cpython-312.pyc
+│   ├── admin.cpython-312.pyc
+│   ├── apps.cpython-312.pyc
+│   ├── models.cpython-312.pyc
+│   ├── urls.cpython-312.pyc
+│   └── views.cpython-312.pyc
+├── admin.py
+├── apps.py
+├── migrations
+│   ├── __init__.py
+│   └── __pycache__
+│       └── __init__.cpython-312.pyc
+├── models.py
+├── templates
+│   └── users
+│       ├── change_password.html
+│       ├── login.html
+│       ├── password_reset_confirm.html
+│       └── password_verify_code.html
+├── tests.py
+├── urls.py
+└── views.py
