@@ -1,7 +1,6 @@
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import login as auth_login
+from django.contrib.auth import login as auth_login, logout as auth_logout
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 
 
 def login(request):
@@ -26,16 +25,18 @@ def login(request):
     return render(request, "users/login.html", {"form": form})
 
 
+def logout(request):
+    auth_logout(request)
+    return redirect("login")
+
+
 def change_password(request):
-    # Muestra el Paso 1: Solicitar correo
     return render(request, "users/change_password.html")
 
 
 def password_verify_code(request):
-    # Muestra el Paso 2: Ingresar código
     return render(request, "users/password_verify_code.html")
 
 
 def password_reset_confirm(request):
-    # Muestra el Paso 3: Ingresar nueva contraseña
     return render(request, "users/password_reset_confirm.html")

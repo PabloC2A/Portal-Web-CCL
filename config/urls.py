@@ -8,5 +8,4 @@ urlpatterns = [
     path("", include("users.urls")),
     path("", include("affiliates.urls")),
     path("dashboard/", include("dashboard.urls")),
-    path("logout/", auth_views.LogoutView.as_view(next_page="/"), name="logout"),
 ]
