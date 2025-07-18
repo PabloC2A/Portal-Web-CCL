@@ -1,7 +1,8 @@
-{% extends 'dashboard/base.html' %}
+{% extends 'dashboard/empleado/base.html' %}
 {% load static %}
 
-{% block title %}Panel de Empleado | Dashboard{% endblock %}
+{% block dashboard_title %}Panel de Empleado | Dashboard{% endblock dashboard_title %}
+{% block page_title %}Dashboard{% endblock page_title %}
 
 {% block content %}
 
@@ -9,10 +10,10 @@
     <div class="col-lg-6 col-md-12 mb-4">
         <div class="card shadow-sm">
             <div class="card-header bg-white">
-                <h5 class="mb-0"><i class="bi bi-people-fill text-primary me-2"></i>Gestión de Socios</h5>
+                <h5 class="mb-0"><i class="bi bi-people-fill text-primary me-2"></i>Gestión de Usuarios</h5>
             </div>
             <div class="card-body">
-                <p class="card-text">Búsqueda, edición y administración de los socios de la Cámara.</p>
+                <p class="card-text">Búsqueda, edición y administración de los usuarios (socios y otros) de la Cámara.</p>
                 <h6 class="text-muted">Próximamente...</h6>
             </div>
         </div>
@@ -21,7 +22,7 @@
     <div class="col-lg-6 col-md-12 mb-4">
         <div class="card shadow-sm">
             <div class="card-header bg-white">
-                <h5 class="mb-0"><i class="bi bi-patch-check-fill text-success me-2"></i>Validación de Afiliaciones</h5>
+                <h5 class="mb-0"><i class="bi bi-person-plus-fill text-success me-2"></i>Validación de Afiliaciones</h5>
             </div>
             <div class="card-body">
                 <p class="card-text">Revisar y aprobar las nuevas solicitudes de afiliación pendientes.</p>
@@ -35,10 +36,10 @@
     <div class="col-lg-6 col-md-12 mb-4">
         <div class="card shadow-sm">
             <div class="card-header bg-white">
-                <h5 class="mb-0"><i class="bi bi-bar-chart-line-fill text-warning me-2"></i>Reportes y Estadísticas</h5>
+                <h5 class="mb-0"><i class="bi bi-hand-thumbs-up-fill text-warning me-2"></i>Gestión de Convenios</h5>
             </div>
             <div class="card-body">
-                <p class="card-text">Generar reportes de socios, convenios y finanzas.</p>
+                <p class="card-text">Administrar los convenios y sus detalles.</p>
                  <h6 class="text-muted">Próximamente...</h6>
             </div>
         </div>
@@ -47,14 +48,41 @@
     <div class="col-lg-6 col-md-12 mb-4">
         <div class="card shadow-sm">
             <div class="card-header bg-white">
-                <h5 class="mb-0"><i class="bi bi-pencil-square text-info me-2"></i>Gestión de Contenido</h5>
+                <h5 class="mb-0"><i class="bi bi-building-fill text-info me-2"></i>Gestión de Espacios y Servicios</h5>
             </div>
             <div class="card-body">
-                <p class="card-text">Administrar noticias, eventos y convenios visibles en el portal web.</p>
+                <p class="card-text">Administrar los espacios y servicios que ofrece la Cámara.</p>
                  <h6 class="text-muted">Próximamente...</h6>
             </div>
         </div>
     </div>
 </div>
 
-{% endblock %}
+<div class="row">
+    <div class="col-lg-6 col-md-12 mb-4">
+        <div class="card shadow-sm">
+            <div class="card-header bg-white">
+                <h5 class="mb-0"><i class="bi bi-megaphone-fill text-danger me-2"></i>Gestión de Noticias y Eventos</h5>
+            </div>
+            <div class="card-body">
+                <p class="card-text">Crear y administrar las noticias y eventos del portal web.</p>
+                 <h6 class="text-muted">Próximamente...</h6>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6 col-md-12 mb-4">
+        <div class="card shadow-sm">
+            <div class="card-header bg-white">
+                <h5 class="mb-0"><i class="bi bi-graph-up-arrow text-primary me-2"></i>Métricas y Reportes</h5>
+            </div>
+            <div class="card-body">
+                <p class="card-text">Visualizar métricas y generar reportes sobre el uso del portal.</p>
+                 <h6 class="text-muted">Próximamente...</h6>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

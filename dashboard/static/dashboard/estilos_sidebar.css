@@ -1,0 +1,290 @@
+/* Estilos generales para el cuerpo y el diseño del dashboard */
+body {
+    background-color: #f8f9fe; /* Un color de fondo claro y suave */
+    font-family: 'Open Sans', sans-serif; /* Fuente de Google Fonts para una tipografía moderna */
+    overflow-x: hidden; /* Previene el scroll horizontal no deseado */
+}
+
+/* Contenedor principal para el layout del dashboard */
+.dashboard-layout {
+    display: flex; /* Utiliza flexbox para organizar el sidebar y el contenido principal */
+    min-height: 100vh; /* Asegura que el layout ocupe al menos el 100% del alto de la ventana */
+}
+
+/* Estilos de la barra lateral (sidebar) */
+.sidebar {
+    width: 280px; /* Ancho fijo del sidebar, un poco más ancho para mejor visualización */
+    background-color: #ffffff; /* Fondo blanco puro para el sidebar */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.08); /* Sombra más pronunciada para profundidad */
+    position: fixed; /* Fija la barra lateral en la pantalla */
+    height: 100vh; /* Ocupa el 100% del alto de la ventana */
+    padding-top: 25px; /* Espacio superior para el logo */
+    z-index: 1020; /* Asegura que esté por encima de la mayoría de los elementos */
+    transition: transform 0.3s ease-in-out; /* Transición suave para ocultar/mostrar en móviles */
+    overflow-y: auto; /* Permite el scroll si el contenido es demasiado largo */
+}
+
+/* Encabezado del sidebar (logo) */
+.sidebar-header {
+    padding: 0 1rem 1.8rem; /* Padding para el logo, con más espacio abajo */
+    text-align: center;
+    border-bottom: 1px solid #e9ecef; /* Separador sutil bajo el logo */
+    margin-bottom: 1.8rem;
+}
+
+.logo-ccl {
+    height: 60px; /* Altura del logo más prominente */
+    max-width: 200px; /* Ancho máximo para el logo */
+    object-fit: contain; /* Asegura que el logo se ajuste sin distorsión */
+}
+
+/* Encabezados de menú (e.g., "Menu", "Configuraciones") */
+.sidebar-menu-heading, .sidebar-heading {
+    font-size: 0.85rem; /* Tamaño de fuente ligeramente más grande */
+    color: #8898aa; /* Color gris suave para los títulos */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    font-weight: 700; /* Negrita */
+    padding: 0.5rem 1.5rem; /* Padding para alineación con los elementos del menú */
+    margin-top: 1.5rem; /* Más espacio encima de los títulos de sección */
+    margin-bottom: 0.8rem; /* Espacio debajo de los títulos */
+}
+
+/* Estilos para los enlaces de navegación */
+.sidebar .nav-link {
+    color: #525f7f; /* Color de texto predeterminado para los enlaces */
+    font-weight: 500; /* Peso de la fuente */
+    padding: 0.9rem 1.5rem; /* Padding generoso para un área de clic cómoda */
+    display: flex; /* Utiliza flexbox para alinear el icono y el texto */
+    align-items: center;
+    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease; /* Transiciones suaves para hover y activo */
+    border-radius: 0.5rem; /* Bordes más redondeados */
+    margin: 0 0.8rem 0.4rem; /* Márgenes para separar elementos y dar aire */
+}
+
+.sidebar .nav-link i {
+    min-width: 2.2rem; /* Ancho mínimo para los iconos para una alineación consistente */
+    font-size: 1.25rem; /* Tamaño de los iconos ligeramente más grande */
+    color: #a8b0c2; /* Color predeterminado de los iconos */
+    transition: color 0.2s ease;
+}
+
+/* Efecto hover en los enlaces de navegación */
+.sidebar .nav-link:hover {
+    background-color: #f2f7ff; /* Fondo azul muy claro en hover */
+    color: #5e72e4; /* Color azul primario para el texto en hover */
+    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.05); /* Sombra sutil en hover */
+}
+
+.sidebar .nav-link:hover i {
+    color: #5e72e4; /* Color azul primario para el icono en hover */
+}
+
+/* Estilo para el enlace de navegación activo */
+.sidebar .nav-link.active {
+    color: #5e72e4; /* Color azul primario fuerte para el texto activo */
+    background-color: #e6efff; /* Fondo azul más claro y distintivo para el elemento activo */
+    font-weight: 600; /* Más negrita para el texto activo */
+    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.08); /* Sombra más pronunciada para el activo */
+    position: relative; /* Para posibles decoraciones adicionales, como una línea a la izquierda */
+}
+
+.sidebar .nav-link.active i {
+    color: #5e72e4; /* Color azul primario fuerte para el icono activo */
+}
+
+/* Divisor horizontal */
+.sidebar-divider {
+    border-top: 1px solid #e9ecef; /* Línea delgada y clara para el divisor */
+    margin: 2rem 0; /* Espacio generoso arriba y abajo del divisor */
+}
+
+/* Pie de página del sidebar (botón de cerrar sesión) */
+.sidebar-footer {
+    padding: 1rem 1.2rem; /* Padding horizontal y superior/inferior */
+    border-top: 1px solid #e9ecef; /* Línea de separación superior */
+    margin-top: auto; /* Empuja el footer a la parte inferior del sidebar */
+}
+
+.sidebar-footer .btn-dark {
+    background-color: #344767; /* Color oscuro profesional para el botón */
+    border-color: #344767;
+    font-weight: 600;
+    padding: 0.8rem 1.5rem; /* Padding más grande para un botón más robusto */
+    border-radius: 0.5rem; /* Bordes redondeados */
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sidebar-footer .btn-dark:hover {
+    background-color: #2a3854; /* Un poco más oscuro en hover */
+    border-color: #2a3854;
+    box-shadow: 0 0.3rem 0.7rem rgba(0, 0, 0, 0.15); /* Sombra más intensa en hover */
+}
+
+.sidebar-footer .btn-dark i {
+    font-size: 1.2rem; /* Tamaño de icono del botón */
+    margin-right: 0.6rem;
+}
+
+/* Contenido principal (área a la derecha de la sidebar) */
+.main-content {
+    flex-grow: 1; /* Ocupa el espacio restante */
+    margin-left: 280px; /* Desplaza el contenido principal por el ancho del sidebar */
+    padding: 1.5rem; /* Padding general para el contenido */
+    transition: margin-left 0.3s ease-in-out;
+}
+
+/* Encabezado superior (top-header) del main-content */
+.top-header {
+    background-color: #ffffff;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: -1.5rem; /* Extiende el header para cubrir el padding del main-content */
+    margin-right: -1.5rem;
+    margin-top: -1.5rem; /* Sube el header para que quede pegado al top */
+    margin-bottom: 1.5rem; /* Espacio debajo del header */
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    border-radius: 0.5rem; /* Bordes redondeados para el header */
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+}
+
+.user-avatar {
+    width: 45px; /* Tamaño del avatar un poco más grande */
+    height: 45px;
+    border-radius: 50%;
+    margin-left: 1rem;
+    border: 2px solid #ddd;
+    object-fit: cover;
+}
+
+/* Tarjeta de información del usuario en el contenido principal (si la usas) */
+.user-info-card {
+    border-left: 5px solid #5e72e4; /* Borde izquierdo con color de acento primario */
+    border-radius: 0.75rem; /* Bordes más redondeados */
+    margin-top: 1.5rem; /* Espacio desde el top-header */
+    padding: 1rem 1.5rem; /* Padding interno */
+}
+
+.profile-icon-circle {
+    width: 60px; /* Tamaño del círculo de icono de perfil */
+    height: 60px;
+    font-size: 2.2rem; /* Tamaño del icono dentro del círculo */
+    background-color: #5e72e4 !important; /* Color de fondo azul */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.user-full-name {
+    color: #344767; /* Color de texto oscuro para el nombre */
+    font-weight: 700;
+    font-size: 1.3rem; /* Tamaño de fuente más grande para el nombre */
+}
+
+.user-role {
+    font-size: 0.95rem;
+    color: #8898aa;
+}
+
+/* Estilos para el bloque de "Página en Construcción" */
+.icon-shape {
+    width: 80px;
+    height: 80px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 3rem; /* Tamaño grande para el icono */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); /* Sombra para el icono */
+}
+
+.icon-shape-primary {
+    background-color: #5e72e4; /* Color primario */
+    color: #fff;
+}
+
+#sidebar::-webkit-scrollbar {
+    width: 8px; /* Ancho de la barra de desplazamiento vertical */
+    background-color: transparent; /* Fondo transparente para el área del scrollbar */
+}
+
+#sidebar::-webkit-scrollbar-thumb {
+    background-color: rgba(136, 152, 170, 0.4); /* Color del "pulgar" (la parte que se mueve) semi-transparente */
+    border-radius: 10px; /* Bordes redondeados para el pulgar */
+    border: 2px solid transparent; /* Pequeño borde transparente para reducir el tamaño visual del pulgar */
+    background-clip: padding-box; /* Asegura que el borde transparente se aplique correctamente */
+}
+
+#sidebar::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(136, 152, 170, 0.6); /* Un poco menos transparente al pasar el mouse */
+}
+
+/* Para navegadores Firefox (propiedades estándar, pero con menor compatibilidad en WebKit) */
+#sidebar {
+    scrollbar-width: thin; /* Hace la barra de desplazamiento más delgada */
+    scrollbar-color: rgba(136, 152, 170, 0.4) transparent; /* Color del pulgar y del riel */
+}
+
+/* Media Queries para responsividad (ejemplo para móviles y tablets) */
+@media (max-width: 991.98px) { /* Para pantallas medianas y pequeñas (Bootstrap 'lg' breakpoint y menores) */
+    .sidebar {
+        transform: translateX(-280px); /* Oculta el sidebar por defecto en móviles */
+        position: fixed; /* Asegura que siga fijo */
+        left: 0;
+        top: 0;
+        height: 100vh;
+        z-index: 1030; /* Más alto que el overlay */
+    }
+
+    .sidebar.show { /* Clase para mostrar la sidebar en móvil */
+        transform: translateX(0);
+    }
+
+    .main-content {
+        margin-left: 0; /* Elimina el margen en móviles */
+        padding: 1rem; /* Menor padding en móviles */
+    }
+
+    .sidebar-toggle-mobile {
+        display: block; /* Muestra el botón de toggle en móviles */
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        z-index: 1040; /* El más alto para que sea clickeable */
+        background-color: #5e72e4; /* Color del botón de toggle */
+        border-color: #5e72e4;
+    }
+
+    .sidebar-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6); /* Fondo oscuro semitransparente para el overlay */
+        z-index: 1025; /* Entre el sidebar y el contenido principal */
+        display: none; /* Oculto por defecto */
+    }
+
+    .sidebar-overlay.show {
+        display: block; /* Muestra el overlay cuando el sidebar está abierto */
+    }
+
+    .top-header {
+        margin-left: 0;
+        margin-right: 0;
+        border-radius: 0; /* Elimina bordes redondeados en móviles */
+    }
+
+    .sidebar-header {
+        padding: 1.5rem 1rem; /* Ajuste de padding para móviles */
+    }
+}

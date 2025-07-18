@@ -5,14 +5,19 @@
 
 {% block content %}
 
-    <section class="section-hero-2"
-             style="background-image: url('{% static "img/hero.png" %}'); background-size: cover; background-position: center;">
-        <div class="container pt-5 pb-7">
-            <div class="row align-items-center text-center">
-                <div class="col">
+    <section class="hero-servicios">
+        <div class="container">
+            <div class="row align-items-center">
+                
+                <div class="col-lg-7">
                     <h1 class="display-2 text-white">Sobre Nosotros</h1>
-                    <p class="lead text-white pt-2">Liderando el desarrollo comercial de Loja desde 1973</p>
+                    <p class="lead text-white opacity-8 pt-2">Liderando el desarrollo comercial de Loja desde 1973</p>
                 </div>
+                
+                <div class="col-lg-5 d-none d-lg-block">
+                    <img src="{% static 'img/CCL_Logo2.jpg' %}" alt="Logo CCL" class="hero-logo-interactive img-fluid">
+                </div>
+
             </div>
         </div>
     </section>
@@ -21,15 +26,15 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-5 mb-lg-0">
-                    <h2 class="font-weight-bold">Nuestra Historia y Compromiso</h2>
-                    <p class="lead text-muted">La Cámara de Comercio de Loja es una institución privada sin fines de
+                    <h2 class="font-weight-bold animar-expandir">Nuestra Historia y Compromiso</h2>
+                    <p class="lead text-muted animar-desde-izquierda">La Cámara de Comercio de Loja es una institución privada sin fines de
                         lucro que representa y defiende los intereses del sector empresarial de la provincia de Loja y
                         la región sur del Ecuador.</p>
-                    <p>Desde nuestra fundación, hemos sido un pilar para el crecimiento, fomentando la innovación y la
+                    <p class="lead text-muted animar-desde-izquierda">Desde nuestra fundación, hemos sido un pilar para el crecimiento, fomentando la innovación y la
                         competitividad en un mercado en constante cambio.</p>
                 </div>
                 <div class="col-lg-6">
-                    <div class="info info-hover-primary p-4 rounded shadow-sm mb-4">
+                    <div class="info info-hover-primary p-4 rounded shadow-sm mb-4 animar-desde-derecha">
                         <div class="icon icon-shape icon-shape-primary rounded-circle mr-3">
                             <i class="ni ni-world-2"></i>
                         </div>
@@ -39,7 +44,7 @@
                                 fortalezcan la competitividad de nuestros asociados.</p>
                         </div>
                     </div>
-                    <div class="info info-hover-success p-4 rounded shadow-sm">
+                    <div class="info info-hover-success p-4 rounded shadow-sm animar-desde-derecha">
                         <div class="icon icon-shape icon-shape-success rounded-circle mr-3">
                             <i class="ni ni-spaceship"></i>
                         </div>
@@ -58,13 +63,13 @@
         <div class="container">
             <div class="row justify-content-center text-center mb-5">
                 <div class="col-lg-8">
-                    <h2 class="display-3">Nuestros Valores</h2>
-                    <p class="lead">Nuestras acciones se guían por un conjunto de valores fundamentales que definen
+                    <h2 class="display-3 animar-expandir">Nuestros Valores</h2>
+                    <p class="lead animar-expandir">Nuestras acciones se guían por un conjunto de valores fundamentales que definen
                         quiénes somos y cómo trabajamos.</p>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 animar-desde-abajo delay-1">
                     <div class="card card-plain text-center">
                         <div class="card-body">
                             <div class="icon icon-lg icon-shape icon-shape-primary shadow rounded-circle mb-4"><i
@@ -75,7 +80,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 animar-desde-abajo delay-2">
                     <div class="card card-plain text-center">
                         <div class="card-body">
                             <div class="icon icon-lg icon-shape icon-shape-success shadow rounded-circle mb-4"><i
@@ -86,7 +91,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 animar-desde-abajo delay-3">
                     <div class="card card-plain text-center">
                         <div class="card-body">
                             <div class="icon icon-lg icon-shape icon-shape-warning shadow rounded-circle mb-4"><i
@@ -102,7 +107,7 @@
 
     <section class="section section-lg">
         <div class="container">
-            <div class="row justify-content-center text-center mb-5">
+            <div class="row justify-content-center text-center mb-5 animar-expandir">
                 <div class="col-lg-8">
                     <h2 class="display-3">Nuestro Directorio</h2>
                     <p class="lead">Un equipo de líderes empresariales comprometidos con la visión de la Cámara de
@@ -110,7 +115,7 @@
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-lg-3 col-md-6 mb-4">
+                <div class="col-lg-3 col-md-6 mb-4 animar-desde-izquierda delay-1">
                     <div class="card card-profile shadow mt-md-0 h-100">
                         <div class="px-4">
                             <img src="{% static 'img/team/team-1.jpg' %}" class="card-profile-image-2 rounded-circle">
@@ -121,7 +126,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4">
+                <div class="col-lg-3 col-md-6 mb-4 animar-desde-izquierda delay-2">
                     <div class="card card-profile shadow mt-md-0 h-100">
                         <div class="px-4">
                             <img src="{% static 'img/team/team-2.jpg' %}" class="card-profile-image-2 rounded-circle">
@@ -132,7 +137,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4">
+                <div class="col-lg-3 col-md-6 mb-4 animar-desde-izquierda delay-3">
                     <div class="card card-profile shadow mt-md-0 h-100">
                         <div class="px-4">
                             <img src="{% static 'img/team/team-3.jpg' %}" class="card-profile-image-2 rounded-circle">
@@ -143,7 +148,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4">
+                <div class="col-lg-3 col-md-6 mb-4 animar-desde-izquierda delay-4">
                     <div class="card card-profile shadow mt-md-0 h-100">
                         <div class="px-4">
                             <img src="{% static 'img/team/team-4.jpg' %}" class="card-profile-image-2 rounded-circle">
@@ -158,4 +163,33 @@
         </div>
     </section>
 
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const heroSection = document.querySelector('.hero-servicios');
+    const logo = document.querySelector('.hero-logo-interactive');
+
+    if (heroSection && logo) {
+        heroSection.addEventListener('mousemove', (e) => {
+            const { clientX, clientY } = e;
+            const { offsetWidth, offsetHeight } = heroSection;
+            
+            const xPos = (clientX / offsetWidth) - 0.5;
+            const yPos = (clientY / offsetHeight) - 0.5;
+
+            const moveStrength = 25; 
+
+            const a = -xPos * moveStrength;
+            const b = -yPos * moveStrength;
+
+            logo.style.transform = `translate(${a}px, ${b}px)`;
+        });
+
+        heroSection.addEventListener('mouseleave', () => {
+            logo.style.transform = 'translate(0, 0)';
+        });
+    }
+});
+</script>
+{% endblock %}
 {% endblock %}
