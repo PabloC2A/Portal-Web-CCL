@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from affiliates.views import empleado_solicitudes_afiliacion
+from users.views import empleado_usuarios
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -15,5 +16,10 @@ urlpatterns = [
         "dashboard/solicitudes-afiliacion/",
         empleado_solicitudes_afiliacion,
         name="gestion_afiliaciones"
+    ),
+    path(
+        "dashboard/usuarios/",
+        empleado_usuarios,
+        name="gestion_usuarios" # Le damos un nombre nuevo y claro
     ),
 ]

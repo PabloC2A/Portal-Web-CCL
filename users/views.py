@@ -1,6 +1,8 @@
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as auth_login, logout as auth_logout
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import user_passes_test
+from django.core.exceptions import PermissionDenied
 
 
 def login(request):
@@ -42,3 +44,24 @@ def password_reset_confirm(request):
     return render(request, "users/password_reset_confirm.html")
 
 
+def is_empleado(user):
+    """
+    Verifica si el usuario es un empleado (staff).
+    """
+    return user.is_authenticated and user.is_staff
+
+@user_passes_test(is_empleado, login_url="login")
+def empleado_usuarios(request):
+    return render(request, "users/empleado_usuarios.html")
+
+@user_passes_test(is_empleado, login_url="login")
+def crear_usuario(request):
+    return redirect(request, "users/empleado_usuarios")
+
+@user_passes_test(is_empleado, login_url="login")
+def editar_usuario(request):
+    return redirect(request, "users/empleado_usuarios")
+
+@user_passes_test(is_empleado, login_url="login")
+def usuario_detalles(request):
+    return redirect(request, "users/empleado_usuarios") 
