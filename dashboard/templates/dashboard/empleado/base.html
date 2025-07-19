@@ -33,13 +33,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {% if request.resolver_match.url_name == 'empleado_usuarios' %}active{% endif %}" href="{% url 'empleado_usuarios' %}">
+                    <a class="nav-link {% if request.resolver_match.url_name == 'gestion_usuarios' %}active{% endif %}" href="{% url 'gestion_usuarios' %}">
                         <i class="bi bi-people"></i>
                         <span>Usuarios</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {% if request.resolver_match.url_name == 'empleado_solicitudes_afiliacion' %}active{% endif %}" href="{% url 'empleado_solicitudes_afiliacion' %}">
+                    <a class="nav-link {% if request.resolver_match.url_name == 'gestion_afiliaciones' %}active{% endif %}" href="{% url 'gestion_afiliaciones' %}">
                         <i class="bi bi-person-plus"></i>
                         <span>Solicitudes de Afiliación</span>
                     </a>

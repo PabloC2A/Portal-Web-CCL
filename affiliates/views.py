@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib import messages  # Se importa el framework de mensajes
 from .forms import FormularioAfiliacion
 from .models import SolicitudPersonaNatural, SolicitudPersonaJuridica
+from django.contrib.auth.decorators import user_passes_test
+from django.core.exceptions import PermissionDenied
 
 
 def crear_solicitud_afiliacion(request):
@@ -56,3 +58,15 @@ def crear_solicitud_afiliacion(request):
 
 
 # 3. La vista 'afiliacion_exitosa' se elimina por completo.
+
+# Create your views here.
+def is_empleado(user):
+    """
+    Verifica si el usuario es un empleado (staff).
+    """
+    return user.is_authenticated and user.is_staff
+
+
+@user_passes_test(is_empleado, login_url="login")
+def empleado_solicitudes_afiliacion(request):
+    return render(request, "affiliates/empleado_solicitudes_afiliacion.html")
