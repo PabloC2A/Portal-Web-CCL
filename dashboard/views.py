@@ -61,6 +61,12 @@ def socio_soporte(request):
 def dashboard_empleado(request):
     return render(request, "dashboard/empleado/dashboard_Empleado.html")
 
+
+@user_passes_test(is_empleado, login_url="login")
+def empleado_convenios(request):
+    return render(request, "dashboard/empleado/empleado_convenios.html")
+
+
 @user_passes_test(is_empleado, login_url="login")
 def empleado_espacios_servicios(request):
     return render(request, "dashboard/empleado/empleado_espacios_servicios.html")

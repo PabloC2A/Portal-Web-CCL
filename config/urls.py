@@ -23,6 +23,4 @@ urlpatterns = [
         empleado_usuarios,
         name="gestion_usuarios" # Le damos un nombre nuevo y claro
     ),
-
-    
 ]
