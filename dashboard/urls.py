@@ -1,4 +1,6 @@
 from django.urls import path
+
+from users.views import gestionar_usuarios
 from . import views
 
 urlpatterns = [
@@ -12,6 +14,11 @@ urlpatterns = [
     path("socio/configuracion/", views.socio_configuracion, name="socio_configuracion"),
     path("socio/soporte/", views.socio_soporte, name="socio_soporte"),
     path("empleado/", views.dashboard_empleado, name="dashboard_empleado"),
+    path(
+        "empleado/usuarios/",
+        gestionar_usuarios,
+        name="gestion_usuarios",
+    ),
     path("empleado/convenios/", views.empleado_convenios, name="empleado_convenios"),
     path(
         "empleado/espacios-servicios/",

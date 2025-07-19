@@ -5,7 +5,6 @@
 {% block page_title %}Gestión de Usuarios{% endblock page_title %}
 
 {% block extra_css %}
-    {# Asegúrate que la ruta a tu CSS sea la correcta. Si la moviste a 'users', cámbiala aquí. #}
     <link type="text/css" href="{% static 'users/css/empleado_usuarios.css' %}" rel="stylesheet"/>
 {% endblock extra_css %}
 
@@ -27,34 +26,48 @@
                         <table class="table table-hover table-striped align-middle" id="usersTable">
                             <thead class="table-light">
                             <tr>
-                                <th scope="col">Cédula</th>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Correo Electrónico</th>
+                                <th scope="col">Usuario</th>
+                                <th scope="col">Correo</th>
                                 <th scope="col">Rol</th>
                                 <th scope="col">Estado</th>
                                 <th scope="col" class="text-center">Acción</th>
                             </tr>
                             </thead>
                             <tbody>
-                            {# Aquí el backend rellenará los datos. #}
-                            <tr>
-                                <td>1104721489</td>
-                                <td>Pablo Criollo</td>
-                                <td>pacriollo232@gmail.com</td>
-                                <td>Administrador</td>
-                                <td><span class="badge bg-success">Activo</span></td>
-                                <td class="text-center">
-                                    <button class="btn btn-sm btn-outline-info me-1" data-bs-toggle="modal"
-                                            data-bs-target="#usuarioDetallesModal" title="Ver Detalles"><i
-                                            class="bi bi-eye"></i></button>
-                                    <button class="btn btn-sm btn-outline-warning me-1" data-bs-toggle="modal"
-                                            data-bs-target="#editarUsuarioModal" title="Editar"><i
-                                            class="bi bi-pencil"></i></button>
-                                    <button class="btn btn-sm btn-outline-danger" title="Dar de Baja"><i
-                                            class="bi bi-trash"></i></button>
-                                </td>
-                            </tr>
-                            {# ... más filas ... #}
+                            {% for usuario in usuarios %}
+                                <tr>
+                                    <td>
+                                        {{ usuario.first_name }} {{ usuario.last_name }}
+                                        <br>
+                                        <small class="text-muted">{{ usuario.username }}</small>
+                                    </td>
+                                    <td>{{ usuario.email }}</td>
+                                    <td>
+                                        {% if usuario.is_superuser %}
+                                            <span class="badge bg-danger">Superadmin</span>
+                                        {% elif usuario.is_staff %}
+                                            <span class="badge bg-info text-dark">Empleado</span>
+                                        {% else %}
+                                            <span class="badge bg-secondary">Socio</span>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if usuario.is_active %}
+                                            <span class="badge bg-success">Activo</span>
+                                        {% else %}
+                                            <span class="badge bg-warning text-dark">Inactivo</span>
+                                        {% endif %}
+                                    </td>
+                                    <td class="text-center">
+                                        <button class="btn btn-sm btn-outline-info me-1" title="Ver Detalles"><i
+                                                class="bi bi-eye"></i></button>
+                                        <button class="btn btn-sm btn-outline-warning me-1" title="Editar"><i
+                                                class="bi bi-pencil"></i></button>
+                                        <button class="btn btn-sm btn-outline-danger" title="Dar de Baja"><i
+                                                class="bi bi-trash"></i></button>
+                                    </td>
+                                </tr>
+                            {% endfor %}
                             </tbody>
                         </table>
                     </div>
@@ -63,8 +76,6 @@
         </div>
     </div>
 
-    {# --- AQUÍ ESTÁ LA CORRECCIÓN --- #}
-    {# Cambiamos 'gestionusers/' por 'users/' para que Django encuentre las plantillas #}
     {% include 'users/form_crearUsuario.html' %}
     {% include 'users/form_usuarioEdit.html' %}
     {% include 'users/usuarioDetalles.html' %}
@@ -72,6 +83,5 @@
 {% endblock content %}
 
 {% block extra_js %}
-    {# Asegúrate que la ruta a tu JS sea la correcta. Si la moviste a 'users', cámbiala aquí. #}
     <script src="{% static 'users/js/empleado_usuarios.js' %}"></script>
 {% endblock extra_js %}

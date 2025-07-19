@@ -1,6 +1,8 @@
-from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as auth_login, logout as auth_logout
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
+
 from .decorators import empleado_required
 
 
@@ -44,8 +46,13 @@ def password_reset_confirm(request):
 
 
 @empleado_required
-def empleado_usuarios(request):
-    return render(request, "users/empleado_usuarios.html")
+def gestionar_usuarios(request):
+    """
+    Mostrar la lista de todos los usuarios del sistema
+    """
+    listado_de_usuarios = User.objects.all().order_by("last_name")
+    contexto = {"usuarios": listado_de_usuarios}
+    return render(request, "users/empleado_usuarios.html", contexto)
 
 
 @empleado_required

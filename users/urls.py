@@ -1,4 +1,5 @@
 from django.urls import path
+
 from . import views
 
 urlpatterns = [
@@ -14,6 +15,5 @@ urlpatterns = [
         views.password_reset_confirm,
         name="password_reset_confirm",
     ),
-    path("user/gestionEmpleados", views.empleado_usuarios, name="empleado_usuarios"),
     path("usuarios/crear/", views.crear_usuario, name="crear_usuario"),
 ]
