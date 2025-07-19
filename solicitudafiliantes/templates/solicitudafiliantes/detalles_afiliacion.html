@@ -1,0 +1,88 @@
+{% comment %}
+Este archivo contiene el HTML para el modal de Bootstrap que muestra los detalles de una solicitud.
+Para usarlo, inclúyelo en tu plantilla principal, por ejemplo en "empleado_solicitudes_afiliacion.html",
+usando la etiqueta: {% include 'ruta/a/este/archivo/detalles_afiliacion.html' %}
+El modal se activará con un botón que tenga los atributos: data-bs-toggle="modal" data-bs-target="#solicitudDetallesModal"
+{% endcomment %}
+
+<div class="modal fade" id="solicitudDetallesModal" tabindex="-1" aria-labelledby="solicitudDetallesModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header bg-light">
+                <h5 class="modal-title" id="solicitudDetallesModalLabel">
+                    <i class="bi bi-file-earmark-text me-2"></i>Detalles de la Solicitud - Ticket #<span id="modal-ticket">000000</span>
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <strong>Fecha de envío:</strong>
+                            <p id="modal-fecha-envio" class="text-muted">--/--/----</p>
+                        </div>
+                        <div class="col-md-6">
+                            <strong>Estado actual:</strong>
+                            <p><span id="modal-estado" class="badge bg-secondary">Cargando...</span></p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <div class="card-header"><i class="bi bi-person-badge me-2"></i>Información del Solicitante</div>
+                                <div class="card-body">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item"><strong>Nombre:</strong> <span id="modal-nombre-usuario"></span></li>
+                                        <li class="list-group-item"><strong>Cédula/RUC:</strong> <span id="modal-ruc-usuario"></span></li>
+                                        <li class="list-group-item"><strong>Email:</strong> <span id="modal-email-usuario"></span></li>
+                                        <li class="list-group-item"><strong>Teléfono:</strong> <span id="modal-telefono-usuario"></span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <div class="card-header"><i class="bi bi-building me-2"></i>Información de la Empresa</div>
+                                <div class="card-body">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item"><strong>Razón Social:</strong> <span id="modal-razon-social"></span></li>
+                                        <li class="list-group-item"><strong>Nombre Comercial:</strong> <span id="modal-nombre-comercial"></span></li>
+                                        <li class="list-group-item"><strong>Actividad:</strong> <span id="modal-actividad"></span></li>
+                                        <li class="list-group-item"><strong>Dirección:</strong> <span id="modal-direccion"></span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                             <div class="card">
+                                <div class="card-header"><i class="bi bi-paperclip me-2"></i>Documentos Adjuntos</div>
+                                <div class="card-body">
+                                    <p>Haga clic en los enlaces para ver o descargar los documentos.</p>
+                                    <div id="modal-documentos-list" class="list-group">
+                                        <a href="#" class="list-group-item list-group-item-action" target="_blank">
+                                            <i class="bi bi-file-pdf me-2"></i> Copia de RUC
+                                        </a>
+                                        <a href="#" class="list-group-item list-group-item-action" target="_blank">
+                                            <i class="bi bi-file-image me-2"></i> Copia de Cédula
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-danger"><i class="bi bi-x-circle me-1"></i>Rechazar Solicitud</button>
+                <button type="button" class="btn btn-success"><i class="bi bi-check-circle me-1"></i>Aceptar Solicitud</button>
+            </div>
+        </div>
+    </div>
+</div>

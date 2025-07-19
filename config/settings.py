@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "affiliates",
     "dashboard",
     "gestionusers",
+    "solicitudafiliantes",
 ]
 
 MIDDLEWARE = [

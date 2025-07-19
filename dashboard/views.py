@@ -62,11 +62,6 @@ def dashboard_empleado(request):
     return render(request, "dashboard/empleado/dashboard_Empleado.html")
 
 @user_passes_test(is_empleado, login_url="login")
-def empleado_solicitudes_afiliacion(request):
-    return render(request, "dashboard/empleado/empleado_solicitudes_afiliacion.html")
-
-
-@user_passes_test(is_empleado, login_url="login")
 def empleado_convenios(request):
     return render(request, "dashboard/empleado/empleado_convenios.html")
 

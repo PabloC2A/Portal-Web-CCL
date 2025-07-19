@@ -1,0 +1,122 @@
+{% extends 'dashboard/empleado/base.html' %}
+{% load static %}
+
+{% block dashboard_title %}Gestión de Afiliaciones | Cámara de Comercio de Loja{% endblock dashboard_title %}
+{% block page_title %}Gestión de Afiliaciones{% endblock page_title %}
+
+{% block extra_css %}
+<link type="text/css" href="{% static 'solicitudafiliantes/css/solicitudafiliacion.css' %}" rel="stylesheet" />
+{% endblock extra_css %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="card shadow mb-4 border-0">
+            <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+                <h5 class="mb-0 text-dark fw-bold">Solicitudes de Afiliación</h5>
+                <div class="d-flex align-items-center">
+                    <div class="btn-group" role="group" aria-label="Acciones de tabla">
+                        <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="tooltip" title="Filtrar"><i class="bi bi-filter"></i></button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="tooltip" title="Configuración"><i class="bi bi-gear"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="mb-4 d-flex flex-wrap align-items-center">
+                    <div class="dropdown me-3 mb-2 mb-md-0">
+                        <button class="btn btn-outline-secondary dropdown-toggle d-inline-flex align-items-center" type="button" id="dropdownFiltroEstado" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-funnel me-1"></i> Filtrar por estado
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownFiltroEstado">
+                            <li><a class="dropdown-item" href="?estado=todos">Todos</a></li>
+                            <li><a class="dropdown-item" href="?estado=pendiente">Pendientes</a></li>
+                            <li><a class="dropdown-item" href="?estado=aceptada">Aceptadas</a></li>
+                            <li><a class="dropdown-item" href="?estado=rechazada">Rechazadas</a></li>
+                        </ul>
+                    </div>
+                    <div class="input-group flex-grow-1" style="max-width: 400px;">
+                        <span class="input-group-text"><i class="bi bi-search"></i></span>
+                        <input type="text" class="form-control" placeholder="Buscar por ticket, nombre, RUC..." aria-label="Buscar afiliaciones" id="searchInput">
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-hover table-striped align-middle" id="afiliacionesTable">
+                        <thead class="table-light">
+                            <tr>
+                                <th scope="col">Ticket</th>
+                                <th scope="col">Razón Social</th>
+                                <th scope="col">Solicitante</th>
+                                <th scope="col">Fecha de envío</th>
+                                <th scope="col">Estado</th>
+                                <th scope="col" class="text-center">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {# Aquí es donde Django generará las filas dinámicamente desde la vista #}
+                            {% for solicitud in solicitudes %}
+                            <tr>
+                               <td><span class="fw-bold">#{{ solicitud.ticket }}</span></td>
+                               <td>{{ solicitud.razon_social }}</td>
+                               <td>{{ solicitud.usuario.get_full_name }}</td>
+                               <td>{{ solicitud.fecha_envio|date:"d/m/Y H:i" }}</td>
+                               <td>
+                                   {% if solicitud.estado == 'pendiente' %}
+                                       <span class="badge bg-warning text-dark">Pendiente</span>
+                                   {% elif solicitud.estado == 'aceptada' %}
+                                       <span class="badge bg-success">Aceptada</span>
+                                   {% elif solicitud.estado == 'rechazada' %}
+                                       <span class="badge bg-danger">Rechazada</span>
+                                   {% else %}
+                                       <span class="badge bg-secondary">{{ solicitud.get_estado_display }}</span>
+                                   {% endif %}
+                               </td>
+                               <td class="text-center">
+                                    {# BOTÓN PARA ABRIR EL MODAL DE DETALLES #}
+                                    <button class="btn btn-sm btn-outline-info me-1" 
+                                            data-bs-toggle="modal" 
+                                            data-bs-target="#solicitudDetallesModal" 
+                                            data-solicitud-id="{{ solicitud.id }}"
+                                            title="Ver Detalles">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+                                    
+                                    {# Lógica para mostrar botones de Aceptar/Rechazar #}
+                                    {% if solicitud.estado == 'pendiente' %}
+                                    <button class="btn btn-sm btn-success me-1" data-solicitud-id="{{ solicitud.id }}" data-action="aceptar" title="Aceptar">
+                                        <i class="bi bi-check-circle"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-danger" data-solicitud-id="{{ solicitud.id }}" data-action="rechazar" title="Rechazar">
+                                        <i class="bi bi-x-circle"></i>
+                                    </button>
+                                    {% else %}
+                                    <button class="btn btn-sm btn-success me-1" disabled><i class="bi bi-check-circle"></i></button>
+                                    <button class="btn btn-sm btn-danger" disabled><i class="bi bi-x-circle"></i></button>
+                                    {% endif %}
+                               </td>
+                            </tr>
+                            {% empty %}
+                            <tr><td colspan="6" class="text-center text-muted py-4">No se encontraron solicitudes de afiliación.</td></tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center mt-3">
+                    {# Aquí iría la lógica de paginación del backend #}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{# ===== INTEGRACIÓN DEL MODAL ===== #}
+{# Aquí se incluye el código del modal que creamos anteriormente. #}
+{% include 'solicitudafiliantes/detalles_afiliacion.html' %}
+
+{% endblock content %}
+
+{% block extra_js %}
+{# Es importante que tu archivo JS se cargue al final #}
+<script src="{% static 'solicitudafiliantes/js/solicitudafiliacion.js' %}"></script>
+{% endblock extra_js %}
