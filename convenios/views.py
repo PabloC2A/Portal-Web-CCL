@@ -1,10 +1,7 @@
 from django.shortcuts import render
-from django.contrib.auth.decorators import user_passes_test
+from users.decorators import empleado_required
 
-# Create your views here.
-def is_empleado(user):
-    return user.is_authenticated and user.is_staff
 
-@user_passes_test(is_empleado, login_url="login")
+@empleado_required
 def empleado_convenios(request):
     return render(request, "convenios/empleado_convenios.html")

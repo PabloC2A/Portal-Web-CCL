@@ -1,9 +1,8 @@
 from django.shortcuts import render, redirect
-from django.contrib import messages  # Se importa el framework de mensajes
+from django.contrib import messages
 from .forms import FormularioAfiliacion
 from .models import SolicitudPersonaNatural, SolicitudPersonaJuridica
-from django.contrib.auth.decorators import user_passes_test
-from django.core.exceptions import PermissionDenied
+from users.decorators import empleado_required
 
 
 def crear_solicitud_afiliacion(request):
@@ -12,7 +11,6 @@ def crear_solicitud_afiliacion(request):
         if form.is_valid():
             datos = form.cleaned_data
             if datos["tipo_solicitante"] == "natural":
-                # ... (la lógica de creación del objeto sigue aquí)
                 SolicitudPersonaNatural.objects.create(
                     cedula=datos["natural_cedula"],
                     ruc=datos.get("natural_ruc"),
@@ -44,12 +42,10 @@ def crear_solicitud_afiliacion(request):
                     url_sitio_web=datos.get("juridica_website"),
                 )
 
-            # 1. Se añade el mensaje de éxito a la cola
             messages.success(
                 request, "¡Tu solicitud de afiliación ha sido enviada con éxito!"
             )
 
-            # 2. Se redirige a la misma página para mostrar el mensaje
             return redirect("afiliacion")
     else:
         form = FormularioAfiliacion()
@@ -57,16 +53,6 @@ def crear_solicitud_afiliacion(request):
     return render(request, "affiliates/afiliacion.html", {"form": form})
 
 
-# 3. La vista 'afiliacion_exitosa' se elimina por completo.
-
-# Create your views here.
-def is_empleado(user):
-    """
-    Verifica si el usuario es un empleado (staff).
-    """
-    return user.is_authenticated and user.is_staff
-
-
-@user_passes_test(is_empleado, login_url="login")
+@empleado_required
 def empleado_solicitudes_afiliacion(request):
     return render(request, "affiliates/empleado_solicitudes_afiliacion.html")

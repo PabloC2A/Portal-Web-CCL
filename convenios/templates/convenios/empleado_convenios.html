@@ -10,20 +10,20 @@
 {% endblock extra_css %}
 
 {% block content %}
-<div class="card shadow border-0">
-    <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
-        <h5 class="mb-0 text-dark fw-bold">Convenios Registrados</h5>
-        <div>
-            <!-- Botón para abrir el modal de agregar convenio -->
-            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#agregarConvenioModal">
-                <i class="bi bi-plus-circle-fill me-1"></i> Agregar Convenio
-            </button>
+    <div class="card shadow border-0">
+        <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+            <h5 class="mb-0 text-dark fw-bold">Convenios Registrados</h5>
+            <div>
+                <!-- Botón para abrir el modal de agregar convenio -->
+                <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#agregarConvenioModal">
+                    <i class="bi bi-plus-circle-fill me-1"></i> Agregar Convenio
+                </button>
+            </div>
         </div>
-    </div>
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-hover table-striped align-middle">
-                <thead class="table-light">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover table-striped align-middle">
+                    <thead class="table-light">
                     <tr>
                         <th scope="col">Empresa / Institución</th>
                         <th scope="col">Tipo de Convenio</th>
@@ -31,8 +31,8 @@
                         <th scope="col">Estado</th>
                         <th scope="col" class="text-center">Acciones</th>
                     </tr>
-                </thead>
-                <tbody>
+                    </thead>
+                    <tbody>
                     {# Ejemplo de una fila. Tu compañero reemplazará esto con un bucle for de Django #}
                     <tr>
                         <td><strong>Supermaxi</strong></td>
@@ -41,11 +41,13 @@
                         <td><span class="badge bg-success">Activo</span></td>
                         <td class="text-center">
                             <!-- Botón para ver detalles (ojo) -->
-                            <button class="btn btn-sm btn-outline-info" data-bs-toggle="modal" data-bs-target="#detallesConvenioModal" title="Ver Detalles">
+                            <button class="btn btn-sm btn-outline-info" data-bs-toggle="modal"
+                                    data-bs-target="#detallesConvenioModal" title="Ver Detalles">
                                 <i class="bi bi-eye"></i>
                             </button>
                             <!-- Botón para editar (lápiz) -->
-                            <button class="btn btn-sm btn-outline-warning mx-1" data-bs-toggle="modal" data-bs-target="#editarConvenioModal" title="Editar">
+                            <button class="btn btn-sm btn-outline-warning mx-1" data-bs-toggle="modal"
+                                    data-bs-target="#editarConvenioModal" title="Editar">
                                 <i class="bi bi-pencil"></i>
                             </button>
                             <!-- Botón para eliminar (basura) -->
@@ -61,10 +63,12 @@
                         <td>15/03/2023</td>
                         <td><span class="badge bg-danger">Expirado</span></td>
                         <td class="text-center">
-                            <button class="btn btn-sm btn-outline-info" data-bs-toggle="modal" data-bs-target="#detallesConvenioModal" title="Ver Detalles">
+                            <button class="btn btn-sm btn-outline-info" data-bs-toggle="modal"
+                                    data-bs-target="#detallesConvenioModal" title="Ver Detalles">
                                 <i class="bi bi-eye"></i>
                             </button>
-                            <button class="btn btn-sm btn-outline-warning mx-1" data-bs-toggle="modal" data-bs-target="#editarConvenioModal" title="Editar">
+                            <button class="btn btn-sm btn-outline-warning mx-1" data-bs-toggle="modal"
+                                    data-bs-target="#editarConvenioModal" title="Editar">
                                 <i class="bi bi-pencil"></i>
                             </button>
                             <button class="btn btn-sm btn-outline-danger" title="Eliminar">
@@ -73,17 +77,17 @@
                         </td>
                     </tr>
                     {# Fin de los ejemplos #}
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</div>
 
-{# --- Inclusión de los Modales --- #}
-{# Estos archivos contienen el código de las ventanas emergentes #}
-{% include 'convenios/agregar_convenio.html' %}
-{% include 'convenios/detalles_convenio.html' %}
-{% include 'convenios/edit_convenio.html' %}
+    {# --- Inclusión de los Modales --- #}
+    {# Estos archivos contienen el código de las ventanas emergentes #}
+    {% include 'convenios/agregar_convenio.html' %}
+    {% include 'convenios/detalles_convenio.html' %}
+    {% include 'convenios/edit_convenio.html' %}
 
 {% endblock content %}
 

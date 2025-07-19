@@ -5,26 +5,27 @@
 {% block page_title %}Gestión de Usuarios{% endblock page_title %}
 
 {% block extra_css %}
-{# Asegúrate que la ruta a tu CSS sea la correcta. Si la moviste a 'users', cámbiala aquí. #}
-<link type="text/css" href="{% static 'users/css/empleado_usuarios.css' %}" rel="stylesheet" />
+    {# Asegúrate que la ruta a tu CSS sea la correcta. Si la moviste a 'users', cámbiala aquí. #}
+    <link type="text/css" href="{% static 'users/css/empleado_usuarios.css' %}" rel="stylesheet"/>
 {% endblock extra_css %}
 
 {% block content %}
-<div class="row">
-    <div class="col-12">
-        <div class="card shadow mb-4 border-0">
-            <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
-                <h5 class="mb-0 text-dark fw-bold">Usuarios del Sistema</h5>
-                <div>
-                    <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#crearUsuarioModal">
-                        <i class="bi bi-person-plus-fill me-1"></i> Crear Usuario
-                    </button>
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow mb-4 border-0">
+                <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0 text-dark fw-bold">Usuarios del Sistema</h5>
+                    <div>
+                        <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#crearUsuarioModal">
+                            <i class="bi bi-person-plus-fill me-1"></i> Crear Usuario
+                        </button>
+                    </div>
                 </div>
-            </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-hover table-striped align-middle" id="usersTable">
-                        <thead class="table-light">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped align-middle" id="usersTable">
+                            <thead class="table-light">
                             <tr>
                                 <th scope="col">Cédula</th>
                                 <th scope="col">Nombre</th>
@@ -33,8 +34,8 @@
                                 <th scope="col">Estado</th>
                                 <th scope="col" class="text-center">Acción</th>
                             </tr>
-                        </thead>
-                        <tbody>
+                            </thead>
+                            <tbody>
                             {# Aquí el backend rellenará los datos. #}
                             <tr>
                                 <td>1104721489</td>
@@ -43,29 +44,34 @@
                                 <td>Administrador</td>
                                 <td><span class="badge bg-success">Activo</span></td>
                                 <td class="text-center">
-                                    <button class="btn btn-sm btn-outline-info me-1" data-bs-toggle="modal" data-bs-target="#usuarioDetallesModal" title="Ver Detalles"><i class="bi bi-eye"></i></button>
-                                    <button class="btn btn-sm btn-outline-warning me-1" data-bs-toggle="modal" data-bs-target="#editarUsuarioModal" title="Editar"><i class="bi bi-pencil"></i></button>
-                                    <button class="btn btn-sm btn-outline-danger" title="Dar de Baja"><i class="bi bi-trash"></i></button>
+                                    <button class="btn btn-sm btn-outline-info me-1" data-bs-toggle="modal"
+                                            data-bs-target="#usuarioDetallesModal" title="Ver Detalles"><i
+                                            class="bi bi-eye"></i></button>
+                                    <button class="btn btn-sm btn-outline-warning me-1" data-bs-toggle="modal"
+                                            data-bs-target="#editarUsuarioModal" title="Editar"><i
+                                            class="bi bi-pencil"></i></button>
+                                    <button class="btn btn-sm btn-outline-danger" title="Dar de Baja"><i
+                                            class="bi bi-trash"></i></button>
                                 </td>
                             </tr>
                             {# ... más filas ... #}
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-{# --- AQUÍ ESTÁ LA CORRECCIÓN --- #}
-{# Cambiamos 'gestionusers/' por 'users/' para que Django encuentre las plantillas #}
-{% include 'users/form_crearUsuario.html' %}
-{% include 'users/form_usuarioEdit.html' %}
-{% include 'users/usuarioDetalles.html' %}
+    {# --- AQUÍ ESTÁ LA CORRECCIÓN --- #}
+    {# Cambiamos 'gestionusers/' por 'users/' para que Django encuentre las plantillas #}
+    {% include 'users/form_crearUsuario.html' %}
+    {% include 'users/form_usuarioEdit.html' %}
+    {% include 'users/usuarioDetalles.html' %}
 
 {% endblock content %}
 
 {% block extra_js %}
-{# Asegúrate que la ruta a tu JS sea la correcta. Si la moviste a 'users', cámbiala aquí. #}
-<script src="{% static 'users/js/empleado_usuarios.js' %}"></script>
+    {# Asegúrate que la ruta a tu JS sea la correcta. Si la moviste a 'users', cámbiala aquí. #}
+    <script src="{% static 'users/js/empleado_usuarios.js' %}"></script>
 {% endblock extra_js %}
