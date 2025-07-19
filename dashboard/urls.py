@@ -12,7 +12,6 @@ urlpatterns = [
     path("socio/configuracion/", views.socio_configuracion, name="socio_configuracion"),
     path("socio/soporte/", views.socio_soporte, name="socio_soporte"),
     path("empleado/", views.dashboard_empleado, name="dashboard_empleado"),
-    path("empleado/usuarios/", views.empleado_usuarios, name="empleado_usuarios"),
     path(
         "empleado/solicitudes-afiliacion/",
         views.empleado_solicitudes_afiliacion,

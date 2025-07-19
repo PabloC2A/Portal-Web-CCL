@@ -33,7 +33,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {% if request.resolver_match.url_name == 'empleado_usuarios' %}active{% endif %}" href="{% url 'empleado_usuarios' %}">
+                    <a class="nav-link {% if request.resolver_match.url_name == 'empleado_usuarios' %}active{% endif %}" href="{% url 'gestionusers:empleado_usuarios' %}">
                         <i class="bi bi-people"></i>
                         <span>Usuarios</span>
                     </a>
