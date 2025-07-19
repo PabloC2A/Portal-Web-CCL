@@ -117,5 +117,14 @@ def editar_usuario(request, pk):
 
 
 @empleado_required
-def usuario_detalles(request):
-    return redirect("empleado_usuarios")
+def desactivar_usuario(request, pk):
+    if request.method == "POST":
+        usuario = get_object_or_404(User, pk=pk)
+        usuario.is_active = False
+        usuario.save()
+        messages.warning(
+            request, f'El usuario "{usuario.username}" ha sido desactivado.'
+        )
+
+    # Redirigimos a la lista de usuarios en cualquier caso
+    return redirect("gestion_usuarios")

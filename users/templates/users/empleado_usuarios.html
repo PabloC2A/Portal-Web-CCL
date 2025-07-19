@@ -67,8 +67,18 @@
                                         {% endif %}
                                     </td>
                                     <td class="text-center">
-                                        <button class="btn btn-sm btn-outline-info me-1" title="Ver Detalles"><i
-                                                class="bi bi-eye"></i></button>
+                                        <button type="button" class="btn btn-sm btn-outline-info me-1"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#usuarioDetallesModal"
+                                                data-nombre-completo="{{ usuario.first_name }} {{ usuario.last_name }}"
+                                                data-cedula="{{ usuario.username }}"
+                                                data-correo="{{ usuario.email }}"
+                                                data-rol="{% if usuario.is_superuser %}Superadmin{% elif usuario.is_staff %}Empleado{% else %}Socio{% endif %}"
+                                                data-estado="{% if usuario.is_active %}Activo{% else %}Inactivo{% endif %}"
+                                                data-url-editar="{% url 'editar_usuario' pk=usuario.pk %}"
+                                                title="Ver Detalles">
+                                            <i class="bi bi-eye"></i>
+                                        </button>
                                         <button type="button" class="btn btn-sm btn-outline-warning me-1"
                                                 data-bs-toggle="modal"
                                                 data-bs-target="#editarUsuarioModal"
@@ -81,8 +91,43 @@
                                                 title="Editar">
                                             <i class="bi bi-pencil"></i>
                                         </button>
-                                        <button class="btn btn-sm btn-outline-danger" title="Dar de Baja"><i
-                                                class="bi bi-trash"></i></button>
+                                        <button type="button" class="btn btn-sm btn-outline-danger"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#desactivarUsuarioModal-{{ usuario.pk }}"
+                                                title="Dar de Baja">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+
+                                        <div class="modal fade" id="desactivarUsuarioModal-{{ usuario.pk }}"
+                                             tabindex="-1" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">Confirmar Desactivación</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>¿Estás seguro de que quieres desactivar la cuenta del usuario
+                                                            <strong>{{ usuario.username }}</strong>?</p>
+                                                        <p class="text-danger small">Esta acción no se puede deshacer
+                                                            fácilmente.</p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <form action="{% url 'desactivar_usuario' pk=usuario.pk %}"
+                                                              method="POST">
+                                                            {% csrf_token %}
+                                                            <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">Cancelar
+                                                            </button>
+                                                            <button type="submit" class="btn btn-danger">Sí,
+                                                                desactivar
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                             {% endfor %}
@@ -103,4 +148,5 @@
 {% block extra_js %}
     <script src="{% static 'users/js/empleado_usuarios.js' %}"></script>
     <script src="{% static 'users/js/form_editar_usuario.js' %}"></script>
+    <script src="{% static 'users/js/form_detalle_usuario.js' %}"></script>
 {% endblock extra_js %}

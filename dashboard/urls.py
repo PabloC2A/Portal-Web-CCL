@@ -1,6 +1,11 @@
 from django.urls import path
 
-from users.views import gestionar_usuarios, crear_usuario, editar_usuario
+from users.views import (
+    gestionar_usuarios,
+    crear_usuario,
+    editar_usuario,
+    desactivar_usuario,
+)
 from . import views
 
 urlpatterns = [
@@ -21,6 +26,11 @@ urlpatterns = [
     ),
     path("empleado/usuarios/crear", crear_usuario, name="crear_usuario"),
     path("empleado/usuarios/<int:pk>/editar/", editar_usuario, name="editar_usuario"),
+    path(
+        "empleado/usuarios/<int:pk>/desactivar/",
+        desactivar_usuario,
+        name="desactivar_usuario",
+    ),
     path("empleado/convenios/", views.empleado_convenios, name="empleado_convenios"),
     path(
         "empleado/espacios-servicios/",
