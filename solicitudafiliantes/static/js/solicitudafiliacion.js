@@ -1,75 +1,61 @@
-// solicitudafiliantes/static/js/solicitudafiliacion.js
+// solicitudafiliantes/static/solicitudafiliantes/js/solicitudafiliacion.js
 
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('solicitudafiliacion.js cargado y DOM listo.');
 
-    // Inicialización de Tooltips de Bootstrap
-    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    // 1. Habilita los tooltips de Bootstrap en toda la página.
+    // Esto hace que los títulos de los botones aparezcan al pasar el mouse.
+    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    tooltipTriggerList.map(function (tooltipTriggerEl) {
         return new bootstrap.Tooltip(tooltipTriggerEl);
     });
 
-    // Lógica para el botón "Limpiar Búsqueda"
-    const clearSearchButton = document.getElementById('clearSearchButton');
-    const searchInput = document.getElementById('searchInput');
 
-    if (clearSearchButton && searchInput) {
-        clearSearchButton.addEventListener('click', function() {
-            searchInput.value = '';
-            // Aquí irían tus animaciones o lógica de UI después de limpiar la búsqueda.
+    // 2. Prepara los popovers de confirmación para los botones de acción.
+    const actionButtons = document.querySelectorAll('button[data-action="aceptar"], button[data-action="rechazar"]');
+
+    actionButtons.forEach(button => {
+        const action = button.getAttribute('data-action');
+        const isAccept = action === 'aceptar';
+        const title = isAccept ? 'Aceptar Solicitud' : 'Rechazar Solicitud';
+        const buttonClass = isAccept ? 'btn-success' : 'btn-danger';
+
+        // Contenido HTML del popover con los botones de confirmación.
+        const popoverContent = `
+            <div class="text-center">
+                <p class="mb-2">¿Estás seguro?</p>
+                <button class="btn btn-sm ${buttonClass} btn-confirm-action">Sí</button>
+                <button class="btn btn-sm btn-outline-secondary btn-cancel-action">No</button>
+            </div>
+        `;
+
+        // Crea la instancia del popover para cada botón.
+        new bootstrap.Popover(button, {
+            container: 'body',
+            placement: 'top',
+            html: true,
+            title: title,
+            content: popoverContent,
+            sanitize: false, // Requerido para usar HTML en el contenido.
         });
-    }
+    });
 
-    // Lógica para el selector de "Ítems por página"
-    const itemsPerPageSelect = document.getElementById('itemsPerPageSelect');
 
-    if (itemsPerPageSelect) {
-        itemsPerPageSelect.addEventListener('change', function() {
-            const itemsPerPage = this.value;
-            console.log(`Ítems por página cambiados a: ${itemsPerPage}`);
-            // Aquí irían tus animaciones o lógica de UI después de cambiar los ítems por página.
-        });
-    }
+    // 3. Maneja el cierre de los popovers.
+    // Esto escucha clics en toda la página para cerrar el popover activo.
+    document.body.addEventListener('click', function(event) {
+        const target = event.target;
+        
+        // Busca el popover que está actualmente abierto.
+        const activePopoverTrigger = document.querySelector('[aria-describedby]');
+        if (!activePopoverTrigger) return; // Si no hay ninguno, no hace nada.
 
-    // --- Lógica para los botones de acción de la tabla (Ver Detalles, Aceptar, Rechazar) ---
-    // Esto se manejaría si usas modales o envíos AJAX para las acciones.
+        // Cierra el popover si se hace clic en "Sí", "No", o en cualquier lugar fuera del popover.
+        if (target.classList.contains('btn-confirm-action') ||
+            target.classList.contains('btn-cancel-action') ||
+            !target.closest('.popover')) {
+            
+            bootstrap.Popover.getInstance(activePopoverTrigger).hide();
+        }
+    });
 
-    // Ejemplo: Abrir modal de detalles al hacer clic en el botón "Ver Detalles"
-    // const detallesModalElement = document.getElementById('solicitudDetallesModal');
-    // if (detallesModalElement) {
-    //     const detallesModal = new bootstrap.Modal(detallesModalElement);
-    //     document.querySelectorAll('.btn-outline-info[data-bs-target="#solicitudDetallesModal"]').forEach(button => {
-    //         button.addEventListener('click', function() {
-    //             const solicitudId = this.getAttribute('data-solicitud-id');
-    //             console.log(`Ver detalles de la solicitud ID: ${solicitudId}`);
-    //             // Aquí harías una llamada AJAX para obtener los detalles de la solicitud
-    //             // y rellenar el modal antes de mostrarlo.
-    //             // detallesModal.show();
-    //         });
-    //     });
-    // }
-
-    // Ejemplo: Manejar botones de Aceptar/Rechazar (requiere confirmación y backend)
-    // document.querySelectorAll('.btn-success[data-action="aceptar"], .btn-danger[data-action="rechazar"]').forEach(button => {
-    //     button.addEventListener('click', function() {
-    //         const solicitudId = this.getAttribute('data-solicitud-id');
-    //         const action = this.getAttribute('data-action'); // 'aceptar' o 'rechazar'
-    //         console.log(`Solicitud ID: ${solicitudId}, Acción: ${action}`);
-    //         // Aquí harías una solicitud AJAX al backend para procesar la acción.
-    //         // fetch(`/dashboard/afiliaciones/${solicitudId}/${action}/`, { method: 'POST', headers: { 'X-CSRFToken': obtenerCsrfToken() } })
-    //         // .then(response => response.json())
-    //         // .then(data => { if (data.success) { location.reload(); } else { alert('Error: ' + data.message); } });
-    //     });
-    // });
-
-    // --- Espacio para tus animaciones y scripts de frontend específicos ---
-    const afiliacionesTable = document.getElementById('afiliacionesTable');
-    if (afiliacionesTable) {
-        afiliacionesTable.style.opacity = '0';
-        setTimeout(() => {
-            afiliacionesTable.style.transition = 'opacity 0.8s ease-in';
-            afiliacionesTable.style.opacity = '1';
-        }, 100); 
-    }
-    // --------------------------------------------------------------------
 });
