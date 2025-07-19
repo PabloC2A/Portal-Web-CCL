@@ -312,3 +312,25 @@ Esta opción es directa y útil si no necesitas revisión de código o estás tr
 - Si tienes dudas, abre un *issue* o comenta en el PR.
 
 ---
+convenios
+├── __init__.py
+├── __pycache__
+├── admin.py
+├── apps.py
+├── migrations
+│   ├── __init__.py
+├── models.py
+├── static
+│   └── convenios
+│       ├── css
+│       │   └── convenios.css
+│       └── js
+│           └── convenios.js
+├── templates
+│   └── convenios
+│       ├── detalles_convenio.html
+│       ├── edit_convenio.html
+│       └── empleado_convenios.html
+├── tests.py
+├── urls.py
+└── views.py
