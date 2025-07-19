@@ -1,0 +1,6 @@
+/* convenios/static/convenios/css/convenios.css */
+
+/* Ejemplo: Hacer que el cursor sea una mano sobre las filas de la tabla */
+.table-hover tbody tr {
+    cursor: pointer;
+}

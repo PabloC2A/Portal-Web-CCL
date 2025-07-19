@@ -1,0 +1,46 @@
+<!-- Modal para Editar Convenio -->
+<div class="modal fade" id="editarConvenioModal" tabindex="-1" aria-labelledby="editarConvenioModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-warning text-dark">
+                <h5 class="modal-title" id="editarConvenioModalLabel">Editar Convenio</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Tu compañero llenará este formulario con datos existentes -->
+                <form>
+                    <div class="mb-3">
+                        <label for="edit-nombreEmpresa" class="form-label">Nombre de la Empresa</label>
+                        <input type="text" class="form-control" id="edit-nombreEmpresa" value="Supermaxi">
+                    </div>
+                    <div class="mb-3">
+                        <label for="edit-tipoConvenio" class="form-label">Tipo de Convenio</label>
+                        <input type="text" class="form-control" id="edit-tipoConvenio" value="Descuento para Socios">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="edit-fechaInicio" class="form-label">Fecha de Inicio</label>
+                            <input type="date" class="form-control" id="edit-fechaInicio" value="2024-01-01">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="edit-fechaFin" class="form-label">Fecha de Finalización</label>
+                            <input type="date" class="form-control" id="edit-fechaFin" value="2024-12-31">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="edit-descripcionConvenio" class="form-label">Descripción</label>
+                        <textarea class="form-control" id="edit-descripcionConvenio" rows="3">10% de descuento en todas las compras para socios activos de la Cámara de Comercio.</textarea>
+                    </div>
+                     <div class="mb-3">
+                        <label for="edit-logoEmpresa" class="form-label">Cambiar Logo</label>
+                        <input class="form-control" type="file" id="edit-logoEmpresa">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-warning">Guardar Cambios</button>
+            </div>
+        </div>
+    </div>
+</div>

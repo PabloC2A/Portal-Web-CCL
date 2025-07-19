@@ -11,6 +11,7 @@ urlpatterns = [
     path("", include("affiliates.urls")),
     path("dashboard/", include("dashboard.urls")),
     path("dashboard/", include("affiliates.urls")),
+    path("dashboard/", include("convenios.urls")),
 
     path(
         "dashboard/solicitudes-afiliacion/",
