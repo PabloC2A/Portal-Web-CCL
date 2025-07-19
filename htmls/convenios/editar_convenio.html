@@ -1,0 +1,69 @@
+<div class="modal fade" id="editarConvenioModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <form method="post" action="" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="ni ni-settings-gear-65 mr-2"></i>Editar Convenio</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="edit_nombreEmpresa">Nombre de la Empresa</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text"><i class="ni ni-building"></i></span></div>
+                            <input type="text" class="form-control" name="nombre_empresa" id="edit_nombreEmpresa">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit_tipoConvenio">Tipo de Convenio</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text"><i class="ni ni-tag"></i></span></div>
+                            <input type="text" class="form-control" name="tipo_convenio" id="edit_tipoConvenio">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="edit_fechaInicio">Fecha de Inicio</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span></div>
+                                    <input class="form-control datepicker" name="fecha_inicio" id="edit_fechaInicio" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="edit_fechaFin">Fecha de Finalización</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span></div>
+                                    <input class="form-control datepicker" name="fecha_fin" id="edit_fechaFin" type="text">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit_descripcionConvenio">Descripción</label>
+                        <textarea class="form-control" name="descripcion" id="edit_descripcionConvenio" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit_logoEmpresa">Cambiar Logo</label>
+                        <input type="file" class="form-control" name="logo" id="edit_logoEmpresa">
+                    </div>
+                     <div class="form-group mt-4">
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" name="is_active" id="edit_activoSwitch">
+                            <label class="custom-control-label" for="edit_activoSwitch">Convenio Activo</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-link" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-warning ml-auto"><i class="fa fa-save mr-2"></i>Guardar Cambios</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

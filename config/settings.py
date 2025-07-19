@@ -41,9 +41,6 @@ INSTALLED_APPS = [
     "affiliates",
     "dashboard",
     "convenios",
-    "espacios_Servicios",
-    "noticias_eventos",
-    "metricas",
 ]
 
 MIDDLEWARE = [
