@@ -11,6 +11,14 @@
 {% block content %}
     <div class="row">
         <div class="col-12">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
             <div class="card shadow mb-4 border-0">
                 <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
                     <h5 class="mb-0 text-dark fw-bold">Usuarios del Sistema</h5>
@@ -61,8 +69,18 @@
                                     <td class="text-center">
                                         <button class="btn btn-sm btn-outline-info me-1" title="Ver Detalles"><i
                                                 class="bi bi-eye"></i></button>
-                                        <button class="btn btn-sm btn-outline-warning me-1" title="Editar"><i
-                                                class="bi bi-pencil"></i></button>
+                                        <button type="button" class="btn btn-sm btn-outline-warning me-1"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#editarUsuarioModal"
+                                                data-url-actualizar="{% url 'editar_usuario' pk=usuario.pk %}"
+                                                data-nombre="{{ usuario.first_name }}"
+                                                data-apellido="{{ usuario.last_name }}"
+                                                data-email="{{ usuario.email }}"
+                                                data-rol="{% if usuario.is_staff %}empleado{% else %}socio{% endif %}"
+                                                data-activo="{% if usuario.is_active %}true{% endif %}"
+                                                title="Editar">
+                                            <i class="bi bi-pencil"></i>
+                                        </button>
                                         <button class="btn btn-sm btn-outline-danger" title="Dar de Baja"><i
                                                 class="bi bi-trash"></i></button>
                                     </td>
@@ -84,4 +102,5 @@
 
 {% block extra_js %}
     <script src="{% static 'users/js/empleado_usuarios.js' %}"></script>
+    <script src="{% static 'users/js/form_editar_usuario.js' %}"></script>
 {% endblock extra_js %}
