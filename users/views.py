@@ -40,3 +40,5 @@ def password_verify_code(request):
 
 def password_reset_confirm(request):
     return render(request, "users/password_reset_confirm.html")
+
+

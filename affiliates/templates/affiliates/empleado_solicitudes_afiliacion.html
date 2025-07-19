@@ -1,0 +1,106 @@
+{% extends 'dashboard/empleado/base.html' %}
+{% load static %}
+
+{% block dashboard_title %}Gestión de Afiliaciones | Cámara de Comercio de Loja{% endblock dashboard_title %}
+{% block page_title %}Gestión de Afiliaciones{% endblock page_title %}
+
+{% block extra_css %}
+<link type="text/css" href="{% static 'affiliates/css/solicitudafiliacion.css' %}" rel="stylesheet" />
+{% endblock extra_css %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="card shadow mb-4 border-0">
+            <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+                <h5 class="mb-0 text-dark fw-bold">Solicitudes Registradas</h5>
+                <div class="d-flex align-items-center">
+                    <div class="input-group" style="max-width: 300px;">
+                        <span class="input-group-text"><i class="bi bi-search"></i></span>
+                        <input type="text" class="form-control" placeholder="Buscar..." id="searchInput">
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    {# Aplicamos las clases de Bootstrap a la tabla #}
+                    <table class="table table-hover table-striped align-middle" id="afiliacionesTable">
+                        <thead class="table-light">
+                            <tr>
+                                <th scope="col">Ticket</th>
+                                <th scope="col">Razón Social / Nombre</th>
+                                <th scope="col">Tipo</th>
+                                <th scope="col">Fecha de envío</th>
+                                <th scope="col">Estado</th>
+                                <th scope="col" class="text-center">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {# Aquí iteramos sobre las solicitudes que pasamos desde la vista #}
+                            {% for solicitud in solicitudes %}
+                            <tr>
+                               <td><span class="fw-bold">#{{ solicitud.id }}</span></td>
+                               <td>
+                                   {# Verificamos si es persona natural o jurídica para mostrar el nombre correcto #}
+                                   {% if solicitud.solicitudpersonajuridica %}
+                                       {{ solicitud.solicitudpersonajuridica.razon_social }}
+                                   {% elif solicitud.solicitudpersonanatural %}
+                                       {{ solicitud.solicitudpersonanatural.nombres }} {{ solicitud.solicitudpersonanatural.apellidos }}
+                                   {% endif %}
+                               </td>
+                               <td>
+                                   {% if solicitud.solicitudpersonajuridica %}
+                                       <span class="badge bg-primary">Jurídica</span>
+                                   {% elif solicitud.solicitudpersonanatural %}
+                                       <span class="badge bg-info text-dark">Natural</span>
+                                   {% endif %}
+                               </td>
+                               <td>{{ solicitud.fecha_creacion|date:"d/m/Y H:i" }}</td>
+                               <td>
+                                   {# Usamos el método del modelo para mostrar el estado con un badge #}
+                                   {% if solicitud.estado == 'PENDIENTE' %}
+                                       <span class="badge bg-warning text-dark">{{ solicitud.get_estado_display }}</span>
+                                   {% elif solicitud.estado == 'APROBADO' %}
+                                       <span class="badge bg-success">{{ solicitud.get_estado_display }}</span>
+                                   {% elif solicitud.estado == 'RECHAZADO' %}
+                                       <span class="badge bg-danger">{{ solicitud.get_estado_display }}</span>
+                                   {% else %}
+                                       <span class="badge bg-secondary">{{ solicitud.get_estado_display }}</span>
+                                   {% endif %}
+                               </td>
+                               <td class="text-center">
+                                    <button class="btn btn-sm btn-outline-info me-1" 
+                                            data-bs-toggle="modal" 
+                                            data-bs-target="#solicitudDetallesModal" 
+                                            data-solicitud-id="{{ solicitud.id }}"
+                                            title="Ver Detalles">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+                                    
+                                    {% if solicitud.estado == 'PENDIENTE' %}
+                                    <button class="btn btn-sm btn-success me-1" title="Aceptar"><i class="bi bi-check-circle"></i></button>
+                                    <button class="btn btn-sm btn-danger" title="Rechazar"><i class="bi bi-x-circle"></i></button>
+                                    {% else %}
+                                    <button class="btn btn-sm btn-success me-1" disabled><i class="bi bi-check-circle"></i></button>
+                                    <button class="btn btn-sm btn-danger" disabled><i class="bi bi-x-circle"></i></button>
+                                    {% endif %}
+                               </td>
+                            </tr>
+                            {% empty %}
+                            <tr><td colspan="6" class="text-center text-muted py-4">No hay solicitudes registradas.</td></tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{# Incluimos el modal para los detalles #}
+{% include 'affiliates/detalles_afiliacion.html' %}
+{% endblock content %}
+
+{% block extra_js %}
+<script src="{% static 'affiliates/js/solicitudafiliacion.js' %}"></script>
+{% endblock extra_js %}
