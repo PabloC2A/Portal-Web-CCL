@@ -1,8 +1,13 @@
-from django.shortcuts import render, redirect
 from django.contrib import messages
-from .forms import FormularioAfiliacion
-from .models import SolicitudPersonaNatural, SolicitudPersonaJuridica
+from django.shortcuts import render, redirect
+
 from users.decorators import empleado_required
+from .forms import FormularioAfiliacion
+from .models import (
+    SolicitudPersonaNatural,
+    SolicitudPersonaJuridica,
+    SolicitudAfiliacion,
+)
 
 
 def crear_solicitud_afiliacion(request):
@@ -55,4 +60,13 @@ def crear_solicitud_afiliacion(request):
 
 @empleado_required
 def empleado_solicitudes_afiliacion(request):
-    return render(request, "affiliates/empleado_solicitudes_afiliacion.html")
+    """
+    Esta vista obtiene todas las solicitudes de afiliación
+    """
+    listado_solicitudes = SolicitudAfiliacion.objects.select_related(
+        "solicitudpersonanatural", "solicitudpersonajuridica"
+    ).all()
+
+    contexto = {"solicitudes": listado_solicitudes}
+
+    return render(request, "affiliates/empleado_solicitudes_afiliacion.html", contexto)
