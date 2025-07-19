@@ -1,6 +1,11 @@
 from django.urls import path
 
-from affiliates.views import empleado_solicitudes_afiliacion
+from affiliates.views import (
+    empleado_solicitudes_afiliacion,
+    detalles_solicitud_api,
+    aprobar_solicitud,
+    rechazar_solicitud,
+)
 from users.views import (
     gestionar_usuarios,
     crear_usuario,
@@ -36,6 +41,21 @@ urlpatterns = [
         "empleado/afiliaciones/",
         empleado_solicitudes_afiliacion,
         name="gestion_afiliaciones",
+    ),
+    path(
+        "api/solicitud/<int:pk>/",
+        detalles_solicitud_api,
+        name="detalles_solicitud_api",
+    ),
+    path(
+        "empleado/afiliacion/<int:pk>/aprobar/",
+        aprobar_solicitud,
+        name="aprobar_solicitud",
+    ),
+    path(
+        "empleado/afiliacion/<int:pk>/rechazar/",
+        rechazar_solicitud,
+        name="rechazar_solicitud",
     ),
     path("empleado/convenios/", views.empleado_convenios, name="empleado_convenios"),
     path(
