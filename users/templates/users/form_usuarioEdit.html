@@ -1,22 +1,56 @@
-<div class="modal fade" id="editarUsuarioModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+<div class="modal fade" id="editarUsuarioModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
-            <form method="post" id="editarUsuarioForm" action="">
+            <form method="post" id="editarUsuarioForm" action="" novalidate>
                 {% csrf_token %}
-                <div class="modal-header bg-warning">
-                    <h5 class="modal-title">Editar Usuario</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="ni ni-settings-gear-65 mr-2"></i>Editar Usuario</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body">
-                    {% if edit_form %}
-                        {{ edit_form.as_p }}
-                    {% else %}
-                        <p>Cargando datos del usuario...</p>
-                    {% endif %}
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="{{ edit_form.first_name.id_for_label }}">{{ edit_form.first_name.label }}</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text"><i class="ni ni-single-02"></i></span></div>
+                                    {{ edit_form.first_name }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="{{ edit_form.last_name.id_for_label }}">{{ edit_form.last_name.label }}</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text"><i class="ni ni-single-02"></i></span></div>
+                                    {{ edit_form.last_name }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ edit_form.email.id_for_label }}">{{ edit_form.email.label }}</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text"><i class="ni ni-email-83"></i></span></div>
+                            {{ edit_form.email }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ edit_form.rol.id_for_label }}">{{ edit_form.rol.label }}</label>
+                        {{ edit_form.rol }}
+                    </div>
+                    <div class="form-group mt-4">
+                        <div class="custom-control custom-switch">
+                            {{ edit_form.is_active }}
+                            <label class="custom-control-label" for="id_is_active">{{ edit_form.is_active.label }}</label>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-warning">Guardar Cambios</button>
+                    <button type="button" class="btn btn-link" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-warning ml-auto"><i class="fa fa-save mr-2"></i>Guardar Cambios</button>
                 </div>
             </form>
         </div>

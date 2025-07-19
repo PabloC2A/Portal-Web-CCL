@@ -5,96 +5,98 @@
 {% block page_title %}Gestión de Afiliaciones{% endblock page_title %}
 
 {% block extra_css %}
-    <link type="text/css" href="{% static 'affiliates/css/solicitudafiliacion.css' %}" rel="stylesheet"/>
+    <link href="{% static 'fonts/nucleo-icons.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet" />
+    <link type="text/css" href="{% static 'css/argon-design-system.min.css' %}" rel="stylesheet" />
 {% endblock extra_css %}
 
 {% block content %}
+<div class="container-fluid mt-4">
     <div class="row">
-        <div class="col-12">
+        <div class="col">
             {% if messages %}
                 {% for message in messages %}
                     <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-                        {{ message }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        <span class="alert-inner--text">{{ message }}</span>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
                 {% endfor %}
             {% endif %}
-            <div class="card shadow mb-4 border-0">
-                <div class="card-header bg-white py-3"><h5 class="mb-0 text-dark fw-bold">Solicitudes Registradas</h5>
+
+            <div class="card shadow">
+                <div class="card-header bg-transparent border-0">
+                    <h3 class="mb-0">Solicitudes de Afiliación Registradas</h3>
                 </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-hover table-striped align-middle" id="afiliacionesTable"
-                               data-url-aprobar-base="{% url 'aprobar_solicitud' pk=0 %}"
-                               data-url-rechazar-base="{% url 'rechazar_solicitud' pk=0 %}">
-
-                            <thead class="table-light">
+                <div class="table-responsive">
+                    <table class="table align-items-center table-flush" id="afiliacionesTable"
+                           data-url-aprobar-base="{% url 'aprobar_solicitud' pk=0 %}"
+                           data-url-rechazar-base="{% url 'rechazar_solicitud' pk=0 %}">
+                        <thead class="thead-light">
                             <tr>
-                                <th>Ticket</th>
-                                <th>Razón Social / Nombre</th>
-                                <th>Tipo</th>
-                                <th>Fecha de envío</th>
-                                <th>Estado</th>
-                                <th class="text-center">Acciones</th>
+                                <th scope="col">Ticket</th>
+                                <th scope="col">Razón Social / Nombre</th>
+                                <th scope="col">Tipo</th>
+                                <th scope="col">Fecha de envío</th>
+                                <th scope="col">Estado</th>
+                                <th scope="col" class="text-center">Acciones</th>
                             </tr>
-                            </thead>
-                            <tbody>
-                            {% for solicitud in solicitudes %}
-                                <tr>
-                                    <td><span class="fw-bold">#{{ solicitud.id }}</span></td>
-                                    <td>
-                                        {% if solicitud.solicitudpersonajuridica %}
-                                            {{ solicitud.solicitudpersonajuridica.razon_social }}{% elif solicitud.solicitudpersonanatural %}
-                                            {{ solicitud.solicitudpersonanatural.nombres }}
-                                            {{ solicitud.solicitudpersonanatural.apellidos }}{% endif %}
-                                    </td>
-                                    <td>
-                                        {% if solicitud.solicitudpersonajuridica %}
-                                            <span class="badge bg-primary">Jurídica</span>{% elif solicitud.solicitudpersonanatural %}
-                                            <span class="badge bg-info text-dark">Natural</span>{% endif %}
-                                    </td>
-                                    <td>{{ solicitud.fecha_creacion|date:"d/m/Y H:i" }}</td>
-                                    <td>
-                                        {% if solicitud.estado == 'PENDIENTE' %}
-                                            <span class="badge bg-warning text-dark">{{ solicitud.get_estado_display }}</span>{% elif solicitud.estado == 'APROBADO' %}
-                                            <span class="badge bg-success">{{ solicitud.get_estado_display }}</span>{% elif solicitud.estado == 'RECHAZADO' %}
-                                            <span class="badge bg-danger">{{ solicitud.get_estado_display }}</span>{% endif %}
-                                    </td>
-                                    <td class="text-center">
-                                        <button class="btn btn-sm btn-outline-info" data-bs-toggle="modal"
-                                                data-bs-target="#solicitudDetallesModal"
-                                                data-url="{% url 'detalles_solicitud_api' pk=solicitud.pk %}"
-                                                title="Ver Detalles">
-                                            <i class="bi bi-eye"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-
-                                <form id="form-aprobar-{{ solicitud.id }}"
-                                      action="{% url 'aprobar_solicitud' pk=solicitud.pk %}"
-                                      method="POST"
-                                      class="d-none">
-                                    {% csrf_token %}
-                                </form>
-
-                                <form id="form-rechazar-{{ solicitud.id }}"
-                                      action="#" {# <-- Deberás crear la URL 'rechazar_solicitud' #}
-                                      method="POST"
-                                      class="d-none">
-                                    {% csrf_token %}
-                                </form>
-                                {# --- FIN DEL BLOQUE A AÑADIR --- #}
-                            {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
+                        </thead>
+                        <tbody>
+                        {% for solicitud in solicitudes %}
+                            <tr>
+                                <td><span class="font-weight-bold">#{{ solicitud.id }}</span></td>
+                                <td class="font-weight-bold">
+                                    {% if solicitud.solicitudpersonajuridica %}
+                                        {{ solicitud.solicitudpersonajuridica.razon_social }}
+                                    {% elif solicitud.solicitudpersonanatural %}
+                                        {{ solicitud.solicitudpersonanatural.nombres }} {{ solicitud.solicitudpersonanatural.apellidos }}
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% if solicitud.solicitudpersonajuridica %}
+                                        <span class="badge badge-pill badge-primary">Jurídica</span>
+                                    {% elif solicitud.solicitudpersonanatural %}
+                                        <span class="badge badge-pill badge-info">Natural</span>
+                                    {% endif %}
+                                </td>
+                                <td>{{ solicitud.fecha_creacion|date:"d/m/Y H:i" }}</td>
+                                <td>
+                                    {% if solicitud.estado == 'PENDIENTE' %}
+                                        <span class="badge badge-pill badge-warning">{{ solicitud.get_estado_display }}</span>
+                                    {% elif solicitud.estado == 'APROBADO' %}
+                                        <span class="badge badge-pill badge-success">{{ solicitud.get_estado_display }}</span>
+                                    {% elif solicitud.estado == 'RECHAZADO' %}
+                                        <span class="badge badge-pill badge-danger">{{ solicitud.get_estado_display }}</span>
+                                    {% endif %}
+                                </td>
+                                <td class="text-center">
+                                    <button class="btn btn-sm btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#solicitudDetallesModal"
+                                            data-url="{% url 'detalles_solicitud_api' pk=solicitud.pk %}"
+                                            title="Ver Detalles">
+                                        <i class="fa fa-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
-    {% include 'affiliates/detalles_afiliacion.html' %}
+</div>
+
+{% include 'affiliates/detalles_afiliacion.html' %}
 {% endblock content %}
 
+
 {% block extra_js %}
+    <script src="{% static 'js/core/jquery.min.js' %}"></script>
+    <script src="{% static 'js/core/popper.min.js' %}"></script>
+    <script src="{% static 'js/argon-design-system.min.js' %}"></script>
+    
     <script src="{% static 'affiliates/js/solicitudafiliacion.js' %}"></script>
 {% endblock extra_js %}

@@ -5,136 +5,101 @@
 {% block page_title %}Gestión de Usuarios{% endblock page_title %}
 
 {% block extra_css %}
-    <link type="text/css" href="{% static 'users/css/empleado_usuarios.css' %}" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link href="{% static 'fonts/nucleo-icons.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet" />
+    <link type="text/css" href="{% static 'css/argon-design-system.min.css' %}" rel="stylesheet" />
 {% endblock extra_css %}
 
 {% block content %}
-    <div class="row">
-        <div class="col-12">
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-                        {{ message }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <div class="container-fluid mt-4">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    <span class="alert-inner--text">{{ message }}</span>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <div class="card shadow">
+            <div class="card-header bg-transparent border-0">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h3 class="mb-0">Usuarios del Sistema</h3>
                     </div>
-                {% endfor %}
-            {% endif %}
-            <div class="card shadow mb-4 border-0">
-                <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
-                    <h5 class="mb-0 text-dark fw-bold">Usuarios del Sistema</h5>
-                    <div>
-                        <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
-                                data-bs-target="#crearUsuarioModal">
-                            <i class="bi bi-person-plus-fill me-1"></i> Crear Usuario
+                    <div class="col text-right">
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#crearUsuarioModal">
+                            <i class="fa fa-plus mr-2"></i>Crear Usuario
                         </button>
                     </div>
                 </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-hover table-striped align-middle" id="usersTable">
-                            <thead class="table-light">
-                            <tr>
-                                <th scope="col">Usuario</th>
-                                <th scope="col">Correo</th>
-                                <th scope="col">Rol</th>
-                                <th scope="col">Estado</th>
-                                <th scope="col" class="text-center">Acción</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {% for usuario in usuarios %}
-                                <tr>
-                                    <td>
-                                        {{ usuario.first_name }} {{ usuario.last_name }}
+            </div>
+            <div class="table-responsive">
+                <table id="usersTable" class="table align-items-center table-flush">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Usuario</th>
+                            <th scope="col">Correo</th>
+                            <th scope="col">Rol</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col" class="text-center">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for usuario in usuarios %}
+                        <tr>
+                            <th scope="row">
+                                <div class="media align-items-center">
+                                    <div class="media-body">
+                                        <span class="mb-0 text-sm font-weight-bold">{{ usuario.first_name }} {{ usuario.last_name }}</span>
                                         <br>
                                         <small class="text-muted">{{ usuario.username }}</small>
-                                    </td>
-                                    <td>{{ usuario.email }}</td>
-                                    <td>
-                                        {% if usuario.is_superuser %}
-                                            <span class="badge bg-danger">Superadmin</span>
-                                        {% elif usuario.is_staff %}
-                                            <span class="badge bg-info text-dark">Empleado</span>
-                                        {% else %}
-                                            <span class="badge bg-secondary">Socio</span>
-                                        {% endif %}
-                                    </td>
-                                    <td>
-                                        {% if usuario.is_active %}
-                                            <span class="badge bg-success">Activo</span>
-                                        {% else %}
-                                            <span class="badge bg-warning text-dark">Inactivo</span>
-                                        {% endif %}
-                                    </td>
-                                    <td class="text-center">
-                                        <button type="button" class="btn btn-sm btn-outline-info me-1"
-                                                data-bs-toggle="modal"
-                                                data-bs-target="#usuarioDetallesModal"
-                                                data-nombre-completo="{{ usuario.first_name }} {{ usuario.last_name }}"
-                                                data-cedula="{{ usuario.username }}"
-                                                data-correo="{{ usuario.email }}"
-                                                data-rol="{% if usuario.is_superuser %}Superadmin{% elif usuario.is_staff %}Empleado{% else %}Socio{% endif %}"
-                                                data-estado="{% if usuario.is_active %}Activo{% else %}Inactivo{% endif %}"
-                                                data-url-editar="{% url 'editar_usuario' pk=usuario.pk %}"
-                                                title="Ver Detalles">
-                                            <i class="bi bi-eye"></i>
-                                        </button>
-                                        <button type="button" class="btn btn-sm btn-outline-warning me-1"
-                                                data-bs-toggle="modal"
-                                                data-bs-target="#editarUsuarioModal"
-                                                data-url-actualizar="{% url 'editar_usuario' pk=usuario.pk %}"
-                                                data-nombre="{{ usuario.first_name }}"
-                                                data-apellido="{{ usuario.last_name }}"
-                                                data-email="{{ usuario.email }}"
-                                                data-rol="{% if usuario.is_staff %}empleado{% else %}socio{% endif %}"
-                                                data-activo="{% if usuario.is_active %}true{% endif %}"
-                                                title="Editar">
-                                            <i class="bi bi-pencil"></i>
-                                        </button>
-                                        <button type="button" class="btn btn-sm btn-outline-danger"
-                                                data-bs-toggle="modal"
-                                                data-bs-target="#desactivarUsuarioModal-{{ usuario.pk }}"
-                                                title="Dar de Baja">
-                                            <i class="bi bi-trash"></i>
-                                        </button>
+                                    </div>
+                                </div>
+                            </th>
+                            <td>{{ usuario.email }}</td>
+                            <td>
+                                {% if usuario.is_superuser %}
+                                    <span class="badge badge-pill badge-danger">Superadmin</span>
+                                {% elif usuario.is_staff %}
+                                    <span class="badge badge-pill badge-info">Empleado</span>
+                                {% else %}
+                                    <span class="badge badge-pill badge-secondary">Socio</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if usuario.is_active %}
+                                    <span class="badge badge-pill badge-success">Activo</span>
+                                {% else %}
+                                    <span class="badge badge-pill badge-danger">Inactivo</span>
+                                {% endif %}
+                            </td>
+                            <td class="text-center">
+                                <button class="btn btn-sm btn-info" title="Ver Detalles" data-bs-toggle="modal" data-bs-target="#usuarioDetallesModal"
+                                    data-nombre-completo="{{ usuario.first_name }} {{ usuario.last_name }}" data-cedula="{{ usuario.username }}"
+                                    data-correo="{{ usuario.email }}" data-rol="{% if usuario.is_superuser %}Superadmin{% elif usuario.is_staff %}Empleado{% else %}Socio{% endif %}"
+                                    data-estado="{% if usuario.is_active %}Activo{% else %}Inactivo{% endif %}" data-url-editar="{% url 'editar_usuario' pk=usuario.pk %}">
+                                    <i class="fa fa-eye"></i>
+                                </button>
+                                <button class="btn btn-sm btn-warning" title="Editar" data-bs-toggle="modal" data-bs-target="#editarUsuarioModal"
+                                    data-url-actualizar="{% url 'editar_usuario' pk=usuario.pk %}" data-nombre="{{ usuario.first_name }}"
+                                    data-apellido="{{ usuario.last_name }}" data-email="{{ usuario.email }}" data-rol="{% if usuario.is_staff %}empleado{% else %}socio{% endif %}"
+                                    data-activo="{{ usuario.is_active|yesno:'true,false' }}">
+                                    <i class="fa fa-pencil"></i>
+                                </button>
+                                <button class="btn btn-sm btn-danger" title="Dar de Baja" data-bs-toggle="modal" data-bs-target="#desactivarUsuarioModal-{{ usuario.pk }}">
+                                    <i class="fa fa-trash"></i>
+                                </button>
 
-                                        <div class="modal fade" id="desactivarUsuarioModal-{{ usuario.pk }}"
-                                             tabindex="-1" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title">Confirmar Desactivación</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                                aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <p>¿Estás seguro de que quieres desactivar la cuenta del usuario
-                                                            <strong>{{ usuario.username }}</strong>?</p>
-                                                        <p class="text-danger small">Esta acción no se puede deshacer
-                                                            fácilmente.</p>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <form action="{% url 'desactivar_usuario' pk=usuario.pk %}"
-                                                              method="POST">
-                                                            {% csrf_token %}
-                                                            <button type="button" class="btn btn-secondary"
-                                                                    data-bs-dismiss="modal">Cancelar
-                                                            </button>
-                                                            <button type="submit" class="btn btn-danger">Sí,
-                                                                desactivar
-                                                            </button>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                                {% include 'users/modal_desactivar.html' with usuario=usuario %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -146,6 +111,11 @@
 {% endblock content %}
 
 {% block extra_js %}
+    <script src="{% static 'js/core/jquery.min.js' %}"></script>
+    <script src="{% static 'js/core/popper.min.js' %}"></script>
+    <script src="{% static 'js/core/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/argon-design-system.min.js' %}"></script>
+    
     <script src="{% static 'users/js/empleado_usuarios.js' %}"></script>
     <script src="{% static 'users/js/form_editar_usuario.js' %}"></script>
     <script src="{% static 'users/js/form_detalle_usuario.js' %}"></script>

@@ -1,18 +1,85 @@
-<div class="modal fade" id="crearUsuarioModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+<div class="modal fade" id="crearUsuarioModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
-            <form method="post" action="{% url 'crear_usuario' %}">
+            <form method="post" action="{% url 'crear_usuario' %}" novalidate>
                 {% csrf_token %}
                 <div class="modal-header">
-                    <h5 class="modal-title">Crear Nuevo Usuario</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title" id="ModalLabel">Crear Nuevo Usuario</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body">
-                    {{ form.as_p }}
+                    {% if form.non_field_errors %}
+                        <div class="alert alert-danger" role="alert">
+                            {{ form.non_field_errors.as_text }}
+                        </div>
+                    {% endif %}
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="{{ form.first_name.id_for_label }}">{{ form.first_name.label }}</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text"><i class="ni ni-single-02"></i></span></div>
+                                    {{ form.first_name }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="{{ form.last_name.id_for_label }}">{{ form.last_name.label }}</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text"><i class="ni ni-single-02"></i></span></div>
+                                    {{ form.last_name }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form.username.id_for_label }}">{{ form.username.label }}</label>
+                        <div class="input-group">
+                             <div class="input-group-prepend"><span class="input-group-text"><i class="ni ni-badge"></i></span></div>
+                             {{ form.username }}
+                        </div>
+                         {% if form.username.help_text %}<small class="form-text text-muted pl-2">{{ form.username.help_text|safe }}</small>{% endif %}
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+                        <div class="input-group">
+                             <div class="input-group-prepend"><span class="input-group-text"><i class="ni ni-email-83"></i></span></div>
+                             {{ form.email }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form.rol.id_for_label }}">{{ form.rol.label }}</label>
+                        {{ form.rol }}
+                    </div>
+                     <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="{{ form.password2.id_for_label }}">{{ form.password2.label }}</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span></div>
+                                    {{ form.password2 }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="{{ form.password1.id_for_label }}">{{ form.password1.label }}</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span></div>
+                                    {{ form.password1 }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% if form.password2.help_text %}<small class="form-text text-muted">{{ form.password2.help_text|safe }}</small>{% endif %}
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Guardar Usuario</button>
+                    <button type="button" class="btn btn-link" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary ml-auto"><i class="fa fa-save mr-2"></i>Guardar Usuario</button>
                 </div>
             </form>
         </div>

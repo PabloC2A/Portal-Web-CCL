@@ -1,0 +1,106 @@
+{% extends 'dashboard/empleado/base.html' %}
+{% load static %}
+
+{% block dashboard_title %}Espacios y Servicios | Dashboard Empleado{% endblock dashboard_title %}
+{% block page_title %}Gestión de Espacios y Servicios{% endblock page_title %}
+
+{% block extra_css %}
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link href="{% static 'fonts/nucleo-icons.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet" />
+    <link type="text/css" href="{% static 'css/argon-design-system.min.css' %}" rel="stylesheet" />
+{% endblock extra_css %}
+
+{% block content %}
+    <div class="container-fluid mt-4">
+        <div class="card shadow">
+            <div class="card-header bg-transparent border-0">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h3 class="mb-0">Listado de Espacios y Servicios</h3>
+                    </div>
+                    <div class="col text-right">
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#crearServicioModal">
+                            <i class="fa fa-plus mr-2"></i>Crear Nuevo
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table id="serviciosTable" class="table align-items-center table-flush">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">N°</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Capacidad/Costo</th>
+                            <th scope="col">Ubicación</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col" class="text-center">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {# El backend llenará esta sección con un bucle for #}
+                        <tr>
+                            <td><span class="font-weight-bold">000133</span></td>
+                            <td class="font-weight-bold">Salón Principal A</td>
+                            <td>Salón</td>
+                            <td>50 per / $100 h</td>
+                            <td>Piso 2, Edificio Principal</td>
+                            <td><span class="badge badge-dot mr-4"><i class="bg-success"></i><span class="status">Disponible</span></span></td>
+                            <td class="text-center">
+                                <button class="btn btn-sm btn-info" title="Ver Detalles" data-bs-toggle="modal" data-bs-target="#detallesServicioModal">
+                                    <i class="fa fa-eye"></i>
+                                </button>
+                                <button class="btn btn-sm btn-warning" title="Editar" data-bs-toggle="modal" data-bs-target="#editarServicioModal">
+                                    <i class="fa fa-pencil"></i>
+                                </button>
+                                <button class="btn btn-sm btn-danger" title="Eliminar">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="font-weight-bold">000134</span></td>
+                            <td class="font-weight-bold">Salón Principal A</td>
+                            <td>Servicio</td>
+                            <td>100 per / $75 h</td>
+                            <td>Cocina Central</td>
+                            <td><span class="badge badge-dot mr-4"><i class="bg-success"></i><span class="status">Disponible</span></span></td>
+                            <td class="text-center">
+                                <button class="btn btn-sm btn-info" title="Ver Detalles" data-bs-toggle="modal" data-bs-target="#detallesServicioModal"><i class="fa fa-eye"></i></button>
+                                <button class="btn btn-sm btn-warning" title="Editar" data-bs-toggle="modal" data-bs-target="#editarServicioModal"><i class="fa fa-pencil"></i></button>
+                                <button class="btn btn-sm btn-danger" title="Eliminar"><i class="fa fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="font-weight-bold">000129</span></td>
+                            <td class="font-weight-bold">Salón Principal A</td>
+                            <td>Salón</td>
+                            <td>50 per / $150 h</td>
+                            <td>Cocina Central</td>
+                            <td><span class="badge badge-dot mr-4"><i class="bg-danger"></i><span class="status">No Disponible</span></span></td>
+                            <td class="text-center">
+                                <button class="btn btn-sm btn-info" title="Ver Detalles" data-bs-toggle="modal" data-bs-target="#detallesServicioModal"><i class="fa fa-eye"></i></button>
+                                <button class="btn btn-sm btn-warning" title="Editar" data-bs-toggle="modal" data-bs-target="#editarServicioModal"><i class="fa fa-pencil"></i></button>
+                                <button class="btn btn-sm btn-danger" title="Eliminar"><i class="fa fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    {% include 'espacios_Servicios/crear_servicio.html' %}
+    {% include 'espacios_Servicios/editar_servicio.html' %}
+    {% include 'espacios_Servicios/detalles_servicio.html' %}
+
+{% endblock content %}
+
+{% block extra_js %}
+    <script src="{% static 'js/core/jquery.min.js' %}"></script>
+    <script src="{% static 'js/core/popper.min.js' %}"></script>
+    <script src="{% static 'js/core/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/argon-design-system.min.js' %}"></script>
+{% endblock extra_js %}

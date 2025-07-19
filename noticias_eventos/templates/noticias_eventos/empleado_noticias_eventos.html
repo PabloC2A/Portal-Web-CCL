@@ -1,0 +1,60 @@
+{% extends 'dashboard/empleado/base.html' %}
+{% load static %}
+
+{% block dashboard_title %}Noticias y Eventos | Dashboard Empleado{% endblock dashboard_title %}
+{% block page_title %}Gestión de Noticias y Eventos{% endblock page_title %}
+
+{% block extra_css %}
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link href="{% static 'fonts/nucleo-icons.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet" />
+    <link type="text/css" href="{% static 'css/argon-design-system.min.css' %}" rel="stylesheet" />
+{% endblock extra_css %}
+
+{% block content %}
+<div class="container-fluid mt-4">
+    <div class="card shadow">
+        <div class="card-header bg-transparent border-0">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h3 class="mb-0">Listado de Publicaciones</h3>
+                </div>
+                <div class="col text-right">
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#crearNoticiaEventoModal">
+                        <i class="fa fa-plus mr-2"></i>Crear Nueva
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table id="noticiasEventosTable" class="table align-items-center table-flush">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Título</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Fecha de Publicación</th>
+                        <th scope="col">Fecha del Evento</th>
+                        <th scope="col">Estado</th>
+                        <th scope="col" class="text-center">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% include 'noticias_eventos/crear_noticia_evento.html' %}
+{% include 'noticias_eventos/editar_noticia_evento.html' %}
+{% include 'noticias_eventos/detalles_noticia_evento.html' %}
+
+{% endblock content %}
+
+{% block extra_js %}
+    <script src="{% static 'js/core/jquery.min.js' %}"></script>
+    <script src="{% static 'js/core/popper.min.js' %}"></script>
+    <script src="{% static 'js/core/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/plugins/bootstrap-datepicker.min.js' %}"></script>
+    <script src="{% static 'js/argon-design-system.min.js' %}"></script>
+{% endblock extra_js %}

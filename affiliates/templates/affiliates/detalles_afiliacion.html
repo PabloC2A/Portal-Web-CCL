@@ -1,81 +1,77 @@
-<div class="modal fade" id="solicitudDetallesModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content shadow-lg border-0">
-            <div class="modal-header bg-light">
-                <h5 class="modal-title"><i class="bi bi-file-earmark-text me-2"></i>Detalles - Ticket #<span
-                        id="modal-ticket"></span></h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+<div class="modal fade" id="solicitudDetallesModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            
+            <div class="modal-header">
+                <h5 class="modal-title">Detalles de Solicitud - Ticket <span id="modal-ticket"></span></h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-            <div class="modal-body p-4">
+
+            <div class="modal-body">
                 <div id="modal-error-container" class="mb-3"></div>
-                <div class="container-fluid">
-                    <div class="row mb-4">
-                        <div class="col-md-6"><strong>Fecha de envío:</strong>
-                            <p id="modal-fecha-envio" class="text-muted mb-0"></p></div>
-                        <div class="col-md-6"><strong>Estado actual:</strong>
-                            <div id="modal-estado-container"></div>
-                        </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <small class="text-muted">Fecha de envío:</small>
+                        <p id="modal-fecha-envio" class="font-weight-bold"></p>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-6 mb-4">
-                            <div class="card h-100">
-                                <div class="card-header fw-bold"><i class="bi bi-person-badge me-2"></i>Información del
-                                    Solicitante
-                                </div>
-                                <div class="card-body">
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item"><strong>Nombre:</strong> <span
-                                                id="modal-nombre-usuario"></span></li>
-                                        <li class="list-group-item"><strong>Cédula/RUC:</strong> <span
-                                                id="modal-ruc-usuario"></span></li>
-                                        <li class="list-group-item"><strong>Email:</strong> <span
-                                                id="modal-email-usuario"></span></li>
-                                        <li class="list-group-item"><strong>Teléfono:</strong> <span
-                                                id="modal-telefono-usuario"></span></li>
-                                    </ul>
-                                </div>
+                    <div class="col-md-6">
+                        <small class="text-muted">Estado actual:</small>
+                        <div id="modal-estado-container"></div>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-header bg-transparent">
+                                <h5 class="mb-0">Solicitante</h5>
                             </div>
-                        </div>
-                        <div class="col-lg-6 mb-4" id="tarjeta-empresa">
-                            <div class="card h-100">
-                                <div class="card-header fw-bold"><i class="bi bi-building me-2"></i>Información de la
-                                    Empresa
-                                </div>
-                                <div class="card-body">
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item"><strong>Razón Social:</strong> <span
-                                                id="modal-razon-social"></span></li>
-                                        <li class="list-group-item"><strong>Nombre Comercial:</strong> <span
-                                                id="modal-nombre-comercial"></span></li>
-                                        <li class="list-group-item"><strong>Dirección:</strong> <span
-                                                id="modal-direccion"></span></li>
-                                    </ul>
-                                </div>
+                            <div class="card-body">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item px-0"><strong>Nombre:</strong> <span id="modal-nombre-usuario"></span></li>
+                                    <li class="list-group-item px-0"><strong>Cédula/RUC:</strong> <span id="modal-ruc-usuario"></span></li>
+                                    <li class="list-group-item px-0"><strong>Email:</strong> <span id="modal-email-usuario"></span></li>
+                                    <li class="list-group-item px-0"><strong>Teléfono:</strong> <span id="modal-telefono-usuario"></span></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-header fw-bold"><i class="bi bi-paperclip me-2"></i>Documentos Adjuntos
-                                </div>
-                                <div class="card-body">
-                                    <div id="modal-documentos-list" class="list-group"></div>
-                                </div>
+
+                    <div class="col-lg-6">
+                        <div id="tarjeta-empresa" class="card shadow-sm mb-4" style="display: none;">
+                            <div class="card-header bg-transparent">
+                                <h5 class="mb-0">Empresa</h5>
                             </div>
+                            <div class="card-body">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item px-0"><strong>Razón Social:</strong> <span id="modal-razon-social"></span></li>
+                                    <li class="list-group-item px-0"><strong>Nombre Comercial:</strong> <span id="modal-nombre-comercial"></span></li>
+                                    <li class="list-group-item px-0"><strong>Dirección:</strong> <span id="modal-direccion"></span></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="card shadow-sm">
+                            <div class="card-header bg-transparent">
+                                <h5 class="mb-0">Documentos Adjuntos</h5>
+                            </div>
+                            <div class="list-group list-group-flush" id="modal-documentos-list">
+                                </div>
                         </div>
                     </div>
                 </div>
             </div>
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-danger btn-rechazar" id="btnModalRechazar" data-url=""><i
-                        class="bi bi-x-circle me-1"></i>Rechazar
-                </button>
-                <button type="button" class="btn btn-success btn-aprobar" id="btnModalAceptar" data-url=""><i
-                        class="bi bi-check-circle me-1"></i>Aceptar
-                </button>
+                <button type="button" class="btn btn-danger" id="btnModalRechazar" data-url="">Rechazar</button>
+                <button type="button" class="btn btn-success" id="btnModalAceptar" data-url="">Aceptar</button>
             </div>
+
         </div>
     </div>
 </div>

@@ -1,0 +1,34 @@
+<div class="modal fade" id="editarMetricaModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <form method="post" action="">
+                {% csrf_token %}
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="ni ni-settings-gear-65 mr-2"></i>Editar Registro de Métrica</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="editNombreMetrica">Nombre de la Métrica</label>
+                        <select class="form-control" id="editNombreMetrica" name="nombre">
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="editValorMetrica">Valor (Categoría)</label>
+                        <input type="text" class="form-control" id="editValorMetrica" name="valor">
+                    </div>
+                    <div class="form-group">
+                        <label for="editDescripcionMetrica">Descripción</label>
+                        <textarea class="form-control" id="editDescripcionMetrica" name="descripcion" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-link" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-warning ml-auto"><i class="fa fa-save mr-2"></i>Guardar Cambios</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+<div class="modal fade" id="crearServicioModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <form method="post" action="">
+                {% csrf_token %}
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="ni ni-shop mr-2"></i>Crear Nuevo Espacio o Servicio</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="nombreServicio">Nombre</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text"><i class="ni ni-building"></i></span></div>
+                            <input type="text" class="form-control" id="nombreServicio" name="nombre" placeholder="Ej: Salón de Conferencias A">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="tipoServicio">Tipo</label>
+                                <select class="form-control" id="tipoServicio" name="tipo">
+                                    <option value="salon">Salón</option>
+                                    <option value="servicio">Servicio</option>
+                                    <option value="oficina">Oficina</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                             <div class="form-group">
+                                <label for="capacidadCosto">Capacidad / Costo</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text"><i class="ni ni-money-coins"></i></span></div>
+                                    <input type="text" class="form-control" id="capacidadCosto" name="capacidad_costo" placeholder="Ej: 50 per / $100 h">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <div class="form-group">
+                        <label for="ubicacionServicio">Ubicación</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text"><i class="ni ni-pin-3"></i></span></div>
+                            <input type="text" class="form-control" id="ubicacionServicio" name="ubicacion" placeholder="Ej: Piso 2, Edificio Principal">
+                        </div>
+                    </div>
+
+                     <div class="form-group">
+                        <label for="descripcionServicio">Descripción</label>
+                        <textarea class="form-control" id="descripcionServicio" name="descripcion" rows="3" placeholder="Añada una breve descripción del espacio o servicio."></textarea>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-link" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary ml-auto"><i class="fa fa-save mr-2"></i>Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
