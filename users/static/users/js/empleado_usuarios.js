@@ -1,4 +1,4 @@
-// solicitudafiliantes/static/solicitudafiliantes/js/solicitudafiliacion.js
+// users/static/users/js/empleado_usuarios.js
 
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -8,15 +8,5 @@ document.addEventListener('DOMContentLoaded', function() {
     tooltipTriggerList.map(function (tooltipTriggerEl) {
         return new bootstrap.Tooltip(tooltipTriggerEl);
     });
-
-    // 2. Animación de entrada para la tabla de afiliaciones.
-    const afiliacionesTable = document.getElementById('afiliacionesTable');
-    if (afiliacionesTable) {
-        afiliacionesTable.style.opacity = '0';
-        setTimeout(() => {
-            afiliacionesTable.style.transition = 'opacity 0.8s ease-in';
-            afiliacionesTable.style.opacity = '1';
-        }, 100); 
-    }
 
 });

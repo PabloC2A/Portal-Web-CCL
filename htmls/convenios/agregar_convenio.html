@@ -1,0 +1,63 @@
+<div class="modal fade" id="agregarConvenioModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <form method="post" action="" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="ni ni-collection mr-2"></i>Agregar Nuevo Convenio</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="nombreEmpresa">Nombre de la Empresa</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text"><i class="ni ni-building"></i></span></div>
+                            <input type="text" class="form-control" name="nombre_empresa" id="nombreEmpresa">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="tipoConvenio">Tipo de Convenio</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text"><i class="ni ni-tag"></i></span></div>
+                            <input type="text" class="form-control" name="tipo_convenio" id="tipoConvenio">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="fechaInicio">Fecha de Inicio</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span></div>
+                                    <input class="form-control datepicker" name="fecha_inicio" id="fechaInicio" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="fechaFin">Fecha de Finalización</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span></div>
+                                    <input class="form-control datepicker" name="fecha_fin" id="fechaFin" type="text">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="descripcionConvenio">Descripción</label>
+                        <textarea class="form-control" name="descripcion" id="descripcionConvenio" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="logoEmpresa">Logo de la Empresa</label>
+                        <input type="file" class="form-control" name="logo" id="logoEmpresa">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-link" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary ml-auto"><i class="fa fa-save mr-2"></i>Guardar Convenio</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

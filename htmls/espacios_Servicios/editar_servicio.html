@@ -1,0 +1,70 @@
+<div class="modal fade" id="editarServicioModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <form method="post" action="">
+                {% csrf_token %}
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="ni ni-settings-gear-65 mr-2"></i>Editar Espacio o Servicio</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="editNombreServicio">Nombre</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text"><i class="ni ni-building"></i></span></div>
+                            <input type="text" class="form-control" id="editNombreServicio" name="nombre" value="Salón Principal A">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="editTipoServicio">Tipo</label>
+                                <select class="form-control" id="editTipoServicio" name="tipo">
+                                    <option value="salon" selected>Salón</option>
+                                    <option value="servicio">Servicio</option>
+                                    <option value="oficina">Oficina</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                             <div class="form-group">
+                                <label for="editCapacidadCosto">Capacidad / Costo</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text"><i class="ni ni-money-coins"></i></span></div>
+                                    <input type="text" class="form-control" id="editCapacidadCosto" name="capacidad_costo" value="50 per / $100 h">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <div class="form-group">
+                        <label for="editUbicacionServicio">Ubicación</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text"><i class="ni ni-pin-3"></i></span></div>
+                            <input type="text" class="form-control" id="editUbicacionServicio" name="ubicacion" value="Piso 2, Edificio Principal">
+                        </div>
+                    </div>
+
+                     <div class="form-group">
+                        <label for="editDescripcionServicio">Descripción</label>
+                        <textarea class="form-control" id="editDescripcionServicio" name="descripcion" rows="3">Este es el salón principal, ideal para conferencias y eventos grandes.</textarea>
+                    </div>
+
+                    <div class="form-group mt-4">
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" id="editEstadoSwitch" name="is_active" checked>
+                            <label class="custom-control-label" for="editEstadoSwitch">Disponible</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-link" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-warning ml-auto"><i class="fa fa-save mr-2"></i>Guardar Cambios</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

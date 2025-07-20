@@ -1,0 +1,122 @@
+{% extends 'dashboard/empleado/base.html' %}
+{% load static %}
+
+{% block dashboard_title %}Métricas | Dashboard Empleado{% endblock dashboard_title %}
+{% block page_title %}Reporte de Métricas{% endblock page_title %}
+
+{% block extra_css %}
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link href="{% static 'fonts/nucleo-icons.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet" />
+    <link type="text/css" href="{% static 'css/argon-design-system.min.css' %}" rel="stylesheet" />
+{% endblock extra_css %}
+
+{% block content %}
+<div class="container-fluid mt-4">
+
+    <div class="row">
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card card-stats shadow border-0">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <h5 class="card-title text-uppercase text-muted mb-0">Nuevos Socios</h5>
+                            <span class="h2 font-weight-bold mb-0"></span>
+                        </div>
+                        <div class="col-auto">
+                            <div class="icon icon-shape bg-primary text-white rounded-circle shadow">
+                                <i class="ni ni-circle-08"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card card-stats shadow border-0">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <h5 class="card-title text-uppercase text-muted mb-0">Descargas</h5>
+                            <span class="h2 font-weight-bold mb-0"></span>
+                        </div>
+                        <div class="col-auto">
+                            <div class="icon icon-shape bg-info text-white rounded-circle shadow">
+                                <i class="ni ni-cloud-download-95"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card card-stats shadow border-0">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <h5 class="card-title text-uppercase text-muted mb-0">Vistas Páginas</h5>
+                            <span class="h2 font-weight-bold mb-0"></span>
+                        </div>
+                        <div class="col-auto">
+                            <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                                <i class="ni ni-chart-bar-32"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card card-stats shadow border-0">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <h5 class="card-title text-uppercase text-muted mb-0">Reservas Creadas</h5>
+                            <span class="h2 font-weight-bold mb-0"></span>
+                        </div>
+                        <div class="col-auto">
+                            <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                <i class="ni ni-money-coins"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card shadow">
+        <div class="card-header bg-transparent border-0">
+            <h3 class="mb-0">Registros del Sistema</h3>
+        </div>
+        <div class="table-responsive">
+            <table id="metricasTable" class="table align-items-center table-flush">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">N°</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Valor</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col" class="text-center">Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% include 'metricas/crear_metrica.html' %}
+{% include 'metricas/editar_metrica.html' %}
+{% include 'metricas/detalles_metrica.html' %}
+
+{% endblock content %}
+
+{% block extra_js %}
+    <script src="{% static 'js/core/jquery.min.js' %}"></script>
+    <script src="{% static 'js/core/popper.min.js' %}"></script>
+    <script src="{% static 'js/core/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/argon-design-system.min.js' %}"></script>
+{% endblock extra_js %}
