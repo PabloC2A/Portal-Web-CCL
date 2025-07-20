@@ -1,8 +1,10 @@
+from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from django.http import JsonResponse
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import get_object_or_404
+from django.shortcuts import render, redirect
 from django.utils.crypto import get_random_string
 
 from users.decorators import empleado_required
@@ -19,8 +21,10 @@ def crear_solicitud_afiliacion(request):
         form = FormularioAfiliacion(request.POST, request.FILES)
         if form.is_valid():
             datos = form.cleaned_data
-            if datos["tipo_solicitante"] == "natural":
-                SolicitudPersonaNatural.objects.create(
+            tipo = datos["tipo_solicitante"]
+
+            if tipo == "natural":
+                solicitud = SolicitudPersonaNatural(
                     cedula=datos["natural_cedula"],
                     ruc=datos.get("natural_ruc"),
                     nombres=datos["natural_nombres"],
@@ -30,9 +34,12 @@ def crear_solicitud_afiliacion(request):
                     archivo_cedula=datos["natural_cedula_file"],
                     archivo_ruc=datos.get("natural_ruc_file"),
                 )
-            elif datos["tipo_solicitante"] == "juridica":
+                solicitud.save()
+                print("✅ Solicitud de persona natural guardada con ID:", solicitud.id)
+
+            elif tipo == "juridica":
                 nombre_rep = f"{datos['juridica_rep_legal_nombres']} {datos['juridica_rep_legal_apellidos']}"
-                SolicitudPersonaJuridica.objects.create(
+                solicitud = SolicitudPersonaJuridica(
                     ruc_empresa=datos["juridica_ruc_empresa"],
                     razon_social=datos["juridica_razon_social"],
                     nombre_comercial=datos.get("juridica_nombre_comercial"),
@@ -50,12 +57,17 @@ def crear_solicitud_afiliacion(request):
                     numeros_contacto_whatsapp=datos.get("juridica_whatsapp"),
                     url_sitio_web=datos.get("juridica_website"),
                 )
+                solicitud.save()
+                print("✅ Solicitud de persona jurídica guardada con ID:", solicitud.id)
 
             messages.success(
                 request, "¡Tu solicitud de afiliación ha sido enviada con éxito!"
             )
-
             return redirect("afiliacion")
+
+        else:
+            print("❌ Errores en el formulario:", form.errors)
+
     else:
         form = FormularioAfiliacion()
 

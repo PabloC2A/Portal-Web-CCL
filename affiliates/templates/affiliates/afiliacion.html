@@ -4,14 +4,11 @@
 {% block title %}Afíliate | Cámara de Comercio de Loja{% endblock %}
 
 {% block content %}
-    <section class="section-hero-2"
-             style="background-image: url('{% static "img/hero.png" %}'); background-size: cover; background-position: center;">
+    <section class="section-hero-2" style="background-image: url('{% static "img/hero.png" %}');">
         <div class="container pt-5 pb-7">
             <div class="row align-items-center text-center">
                 <div class="col">
                     <h1 class="display-2 text-white">Únete a nuestra comunidad</h1>
-                    <p class="lead text-white pt-2">Revisa los requisitos y forma parte de la red empresarial más
-                        importante de la región.</p>
                 </div>
             </div>
         </div>
@@ -20,37 +17,33 @@
     <section class="section section-lg">
         <div class="container">
             <div class="row justify-content-center">
-
                 <div class="col-lg-5 mb-5 mb-lg-0">
                     <div class="card shadow border-0 h-100">
                         <div class="card-header bg-transparent text-center pb-0">
-                            <h4 class="text-uppercase text-muted ls-1">Requisitos de Afiliación</h4>
+                            <h4 class="text-uppercase text-muted ls-1">Persona Natural</h4>
                         </div>
-                        <div class="card-body px-lg-5 py-lg-5">
-                            <div class="display-4 text-center mb-4">Persona Natural</div>
-                            <ul class="list-unstyled my-4">
+                        <div class="card-body px-lg-5 py-lg-5 d-flex flex-column">
+                            <ul class="list-unstyled my-4 flex-grow-1">
                                 <li class="py-2">
-                                    <div class="d-flex align-items-center"><span class="mr-3"><i
-                                            class="ni ni-check-bold text-success"></i></span><span>Copia de la cédula de ciudadanía.</span>
+                                    <div class="d-flex align-items-center">
+                                        <span class="mr-3"><i class="ni ni-check-bold text-success"></i></span>
+                                        <span>Copia de la cédula de ciudadanía.</span>
                                     </div>
                                 </li>
                                 <li class="py-2">
-                                    <div class="d-flex align-items-center"><span class="mr-3"><i
-                                            class="ni ni-check-bold text-success"></i></span><span>Copia del RUC.</span>
+                                    <div class="d-flex align-items-center">
+                                        <span class="mr-3"><i class="ni ni-check-bold text-success"></i></span>
+                                        <span>Copia del RUC.</span>
                                     </div>
                                 </li>
                                 <li class="py-2">
-                                    <div class="d-flex align-items-center"><span class="mr-3"><i
-                                            class="ni ni-check-bold text-success"></i></span><span>Información personal básica.</span>
-                                    </div>
-                                </li>
-                                <li class="py-2">
-                                    <div class="d-flex align-items-center"><span class="mr-3"><i
-                                            class="ni ni-check-bold text-success"></i></span><span>Valor a cancelar según la siguiente tabla.</span>
+                                    <div class="d-flex align-items-center">
+                                        <span class="mr-3"><i class="ni ni-check-bold text-success"></i></span>
+                                        <span>Información personal básica.</span>
                                     </div>
                                 </li>
                             </ul>
-                            <button type="button" class="btn btn-primary btn-block" data-toggle="modal"
+                            <button type="button" class="btn btn-primary btn-block mt-auto" data-toggle="modal"
                                     data-target="#modalAfiliacion" data-plan="natural">
                                 Afiliarse como Persona Natural
                             </button>
@@ -61,48 +54,30 @@
                 <div class="col-lg-5">
                     <div class="card shadow border-0 h-100">
                         <div class="card-header bg-transparent text-center pb-0">
-                            <h4 class="text-uppercase text-muted ls-1">Requisitos de Afiliación</h4>
+                            <h4 class="text-uppercase text-muted ls-1">Persona Jurídica</h4>
                         </div>
-                        <div class="card-body px-lg-5 py-lg-5">
-                            <div class="display-4 text-center mb-4">Persona Jurídica</div>
-                            <ul class="list-unstyled my-4">
+                        <div class="card-body px-lg-5 py-lg-5 d-flex flex-column">
+                            <ul class="list-unstyled my-4 flex-grow-1">
                                 <li class="py-2">
-                                    <div class="d-flex align-items-center"><span class="mr-3"><i
-                                            class="ni ni-check-bold text-success"></i></span><span>Copia de RUC</span>
+                                    <div class="d-flex align-items-center">
+                                        <span class="mr-3"><i class="ni ni-check-bold text-success"></i></span>
+                                        <span>Copia de RUC.</span>
                                     </div>
                                 </li>
                                 <li class="py-2">
-                                    <div class="d-flex align-items-center"><span class="mr-3"><i
-                                            class="ni ni-check-bold text-success"></i></span><span>Copia de escritura de constitución</span>
+                                    <div class="d-flex align-items-center">
+                                        <span class="mr-3"><i class="ni ni-check-bold text-success"></i></span>
+                                        <span>Copia de escritura de constitución.</span>
                                     </div>
                                 </li>
                                 <li class="py-2">
-                                    <div class="d-flex align-items-center"><span class="mr-3"><i
-                                            class="ni ni-check-bold text-success"></i></span><span>Copia de cédula del representante legal</span>
-                                    </div>
-                                </li>
-                                <li class="py-2">
-                                    <div class="d-flex align-items-center"><span class="mr-3"><i
-                                            class="ni ni-check-bold text-success"></i></span><span>Datos personales</span>
-                                    </div>
-                                </li>
-                                <li class="py-2">
-                                    <div class="d-flex align-items-center"><span class="mr-3"><i
-                                            class="ni ni-check-bold text-success"></i></span><span>Logo de su empresa o negocio</span>
-                                    </div>
-                                </li>
-                                <li class="py-2">
-                                    <div class="d-flex align-items-center"><span class="mr-3"><i
-                                            class="ni ni-check-bold text-success"></i></span><span>Teléfonos de contacto para WhatsApp</span>
-                                    </div>
-                                </li>
-                                <li class="py-2">
-                                    <div class="d-flex align-items-center"><span class="mr-3"><i
-                                            class="ni ni-check-bold text-success"></i></span><span>Link de su página web y fotografías</span>
+                                    <div class="d-flex align-items-center">
+                                        <span class="mr-3"><i class="ni ni-check-bold text-success"></i></span>
+                                        <span>Copia de cédula del representante.</span>
                                     </div>
                                 </li>
                             </ul>
-                            <button type="button" class="btn btn-primary btn-block" data-toggle="modal"
+                            <button type="button" class="btn btn-primary btn-block mt-auto" data-toggle="modal"
                                     data-target="#modalAfiliacion" data-plan="juridica">
                                 Afiliarse como Persona Jurídica
                             </button>
@@ -112,22 +87,272 @@
             </div>
         </div>
     </section>
-{% endblock %}
 
-
-{% block modals %}
-    <div class="modal fade" id="modalAfiliacion" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Modal con formulario -->
+    <div class="modal fade" id="modalAfiliacion" tabindex="-1" role="dialog" aria-labelledby="modalAfiliacionLabel"
+         aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Formulario de Afiliación</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
+                    <h5 class="modal-title" id="modalAfiliacionLabel">Formulario de Afiliación</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body">
-                    <form action="{% url 'afiliacion' %}" method="POST" enctype="multipart/form-data">
+                    <form method="post" action="{% url 'afiliacion' %}" enctype="multipart/form-data"
+                          id="form-afiliacion">
                         {% csrf_token %}
-                        {% include 'affiliates/_form_afiliacion.html' %}
+
+                        {% if form.non_field_errors %}
+                            <div class="alert alert-danger" role="alert">{{ form.non_field_errors }}</div>
+                        {% endif %}
+
+                        <!-- Radios ocultos porque ya elegiste afuera -->
+                        <input type="hidden" name="tipo_solicitante" id="tipoSolicitanteInput">
+
+                        <!-- Formulario Persona Natural -->
+                        <div id="seccionNatural" style="display: none;">
+                            <fieldset class="form-section">
+                                <legend><i class="ni ni-badge mr-2"></i>Información Personal Básica</legend>
+                                <div class="row">
+                                    <div class="col-md-6 form-group">
+                                        <label class="form-control-label" for="{{ form.natural_cedula.id_for_label }}">Cédula</label>
+                                        <input type="text" name="natural_cedula" class="form-control"
+                                               id="{{ form.natural_cedula.id_for_label }}"
+                                               value="{{ form.natural_cedula.value|default_if_none:'' }}">
+                                        <small class="text-danger">{{ form.natural_cedula.errors|striptags }}</small>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label class="form-control-label"
+                                               for="{{ form.natural_ruc.id_for_label }}">RUC</label>
+                                        <input type="text" name="natural_ruc" class="form-control"
+                                               id="{{ form.natural_ruc.id_for_label }}"
+                                               value="{{ form.natural_ruc.value|default_if_none:'' }}">
+                                        <small class="text-danger">{{ form.natural_ruc.errors|striptags }}</small>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 form-group">
+                                        <label class="form-control-label" for="{{ form.natural_nombres.id_for_label }}">Nombres</label>
+                                        <input type="text" name="natural_nombres" class="form-control"
+                                               id="{{ form.natural_nombres.id_for_label }}"
+                                               value="{{ form.natural_nombres.value|default_if_none:'' }}">
+                                        <small class="text-danger">{{ form.natural_nombres.errors|striptags }}</small>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label class="form-control-label"
+                                               for="{{ form.natural_apellidos.id_for_label }}">Apellidos</label>
+                                        <input type="text" name="natural_apellidos" class="form-control"
+                                               id="{{ form.natural_apellidos.id_for_label }}"
+                                               value="{{ form.natural_apellidos.value|default_if_none:'' }}">
+                                        <small class="text-danger">{{ form.natural_apellidos.errors|striptags }}</small>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label" for="{{ form.natural_email.id_for_label }}">Correo
+                                        Electrónico</label>
+                                    <input type="email" name="natural_email" class="form-control"
+                                           id="{{ form.natural_email.id_for_label }}"
+                                           value="{{ form.natural_email.value|default_if_none:'' }}">
+                                    <small class="text-danger">{{ form.natural_email.errors|striptags }}</small>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label" for="{{ form.natural_celular.id_for_label }}">Celular</label>
+                                    <input type="text" name="natural_celular" class="form-control"
+                                           id="{{ form.natural_celular.id_for_label }}"
+                                           value="{{ form.natural_celular.value|default_if_none:'' }}">
+                                    <small class="text-danger">{{ form.natural_celular.errors|striptags }}</small>
+                                </div>
+                            </fieldset>
+                            <fieldset class="form-section">
+                                <legend><i class="ni ni-cloud-upload-96 mr-2"></i>Documentos</legend>
+                                <div class="form-group">
+                                    <label class="form-control-label" for="{{ form.natural_cedula_file.id_for_label }}">Copia
+                                        de cédula</label>
+                                    <div class="custom-file">
+                                        <input type="file" name="natural_cedula_file" class="custom-file-input"
+                                               id="{{ form.natural_cedula_file.id_for_label }}"
+                                               accept="application/pdf">
+                                        <label class="custom-file-label"
+                                               for="{{ form.natural_cedula_file.id_for_label }}">Elegir archivo</label>
+                                    </div>
+                                    <small class="text-danger">{{ form.natural_cedula_file.errors|striptags }}</small>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label" for="{{ form.natural_ruc_file.id_for_label }}">Copia
+                                        de RUC (Opcional)</label>
+                                    <div class="custom-file">
+                                        <input type="file" name="natural_ruc_file" class="custom-file-input"
+                                               id="{{ form.natural_ruc_file.id_for_label }}" accept="application/pdf">
+                                        <label class="custom-file-label" for="{{ form.natural_ruc_file.id_for_label }}">Elegir
+                                            archivo</label>
+                                    </div>
+                                    <small class="text-danger">{{ form.natural_ruc_file.errors|striptags }}</small>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                        <!-- Formulario Persona Jurídica -->
+                        <div id="seccionJuridica" style="display: none;">
+                            <fieldset class="form-section">
+                                <legend><i class="ni ni-building mr-2"></i>Datos de la Empresa</legend>
+                                <div class="form-group">
+                                    <label class="form-control-label"
+                                           for="{{ form.juridica_ruc_empresa.id_for_label }}">RUC</label>
+                                    <input type="text" name="juridica_ruc_empresa" class="form-control"
+                                           id="{{ form.juridica_ruc_empresa.id_for_label }}"
+                                           value="{{ form.juridica_ruc_empresa.value|default_if_none:'' }}">
+                                    <small class="text-danger">{{ form.juridica_ruc_empresa.errors|striptags }}</small>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label"
+                                           for="{{ form.juridica_razon_social.id_for_label }}">Razón Social</label>
+                                    <input type="text" name="juridica_razon_social" class="form-control"
+                                           id="{{ form.juridica_razon_social.id_for_label }}"
+                                           value="{{ form.juridica_razon_social.value|default_if_none:'' }}">
+                                    <small class="text-danger">{{ form.juridica_razon_social.errors|striptags }}</small>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label"
+                                           for="{{ form.juridica_nombre_comercial.id_for_label }}">Nombre
+                                        Comercial</label>
+                                    <input type="text" name="juridica_nombre_comercial" class="form-control"
+                                           id="{{ form.juridica_nombre_comercial.id_for_label }}"
+                                           value="{{ form.juridica_nombre_comercial.value|default_if_none:'' }}">
+                                    <small class="text-danger">{{ form.juridica_nombre_comercial.errors|striptags }}</small>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label" for="{{ form.juridica_direccion.id_for_label }}">Dirección</label>
+                                    <input type="text" name="juridica_direccion" class="form-control"
+                                           id="{{ form.juridica_direccion.id_for_label }}"
+                                           value="{{ form.juridica_direccion.value|default_if_none:'' }}">
+                                    <small class="text-danger">{{ form.juridica_direccion.errors|striptags }}</small>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label" for="{{ form.juridica_logo_file.id_for_label }}">Logo</label>
+                                    <div class="custom-file">
+                                        <input type="file" name="juridica_logo_file" class="custom-file-input"
+                                               id="{{ form.juridica_logo_file.id_for_label }}">
+                                        <label class="custom-file-label"
+                                               for="{{ form.juridica_logo_file.id_for_label }}">Elegir archivo</label>
+                                    </div>
+                                    <small class="text-danger">{{ form.juridica_logo_file.errors|striptags }}</small>
+                                </div>
+                            </fieldset>
+                            <fieldset class="form-section">
+                                <legend><i class="ni ni-circle-08 mr-2"></i>Datos del Representante Legal</legend>
+                                <div class="form-group">
+                                    <label class="form-control-label"
+                                           for="{{ form.juridica_rep_legal_cedula.id_for_label }}">Cédula</label>
+                                    <input type="text" name="juridica_rep_legal_cedula" class="form-control"
+                                           id="{{ form.juridica_rep_legal_cedula.id_for_label }}"
+                                           value="{{ form.juridica_rep_legal_cedula.value|default_if_none:'' }}">
+                                    <small class="text-danger">{{ form.juridica_rep_legal_cedula.errors|striptags }}</small>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 form-group">
+                                        <label class="form-control-label"
+                                               for="{{ form.juridica_rep_legal_nombres.id_for_label }}">Nombres</label>
+                                        <input type="text" name="juridica_rep_legal_nombres" class="form-control"
+                                               id="{{ form.juridica_rep_legal_nombres.id_for_label }}"
+                                               value="{{ form.juridica_rep_legal_nombres.value|default_if_none:'' }}">
+                                        <small class="text-danger">{{ form.juridica_rep_legal_nombres.errors|striptags }}</small>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label class="form-control-label"
+                                               for="{{ form.juridica_rep_legal_apellidos.id_for_label }}">Apellidos</label>
+                                        <input type="text" name="juridica_rep_legal_apellidos" class="form-control"
+                                               id="{{ form.juridica_rep_legal_apellidos.id_for_label }}"
+                                               value="{{ form.juridica_rep_legal_apellidos.value|default_if_none:'' }}">
+                                        <small class="text-danger">{{ form.juridica_rep_legal_apellidos.errors|striptags }}</small>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label"
+                                           for="{{ form.juridica_rep_legal_email.id_for_label }}">Correo
+                                        Electrónico</label>
+                                    <input type="email" name="juridica_rep_legal_email" class="form-control"
+                                           id="{{ form.juridica_rep_legal_email.id_for_label }}"
+                                           value="{{ form.juridica_rep_legal_email.value|default_if_none:'' }}">
+                                    <small class="text-danger">{{ form.juridica_rep_legal_email.errors|striptags }}</small>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label"
+                                           for="{{ form.juridica_rep_legal_celular.id_for_label }}">Celular</label>
+                                    <input type="text" name="juridica_rep_legal_celular" class="form-control"
+                                           id="{{ form.juridica_rep_legal_celular.id_for_label }}"
+                                           value="{{ form.juridica_rep_legal_celular.value|default_if_none:'' }}">
+                                    <small class="text-danger">{{ form.juridica_rep_legal_celular.errors|striptags }}</small>
+                                </div>
+                            </fieldset>
+                            <fieldset class="form-section">
+                                <legend><i class="ni ni-collection mr-2"></i>Documentos de la Empresa</legend>
+                                <div class="form-group">
+                                    <label class="form-control-label" for="{{ form.juridica_ruc_file.id_for_label }}">Copia
+                                        de RUC</label>
+                                    <div class="custom-file">
+                                        <input type="file" name="juridica_ruc_file" class="custom-file-input"
+                                               id="{{ form.juridica_ruc_file.id_for_label }}" accept="application/pdf">
+                                        <label class="custom-file-label"
+                                               for="{{ form.juridica_ruc_file.id_for_label }}">Elegir archivo</label>
+                                    </div>
+                                    <small class="text-danger">{{ form.juridica_ruc_file.errors|striptags }}</small>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label"
+                                           for="{{ form.juridica_escritura_file.id_for_label }}">Copia de
+                                        escritura</label>
+                                    <div class="custom-file">
+                                        <input type="file" name="juridica_escritura_file" class="custom-file-input"
+                                               id="{{ form.juridica_escritura_file.id_for_label }}"
+                                               accept="application/pdf">
+                                        <label class="custom-file-label"
+                                               for="{{ form.juridica_escritura_file.id_for_label }}">Elegir
+                                            archivo</label>
+                                    </div>
+                                    <small class="text-danger">{{ form.juridica_escritura_file.errors|striptags }}</small>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label"
+                                           for="{{ form.juridica_cedula_rep_file.id_for_label }}">Copia de cédula del
+                                        rep.</label>
+                                    <div class="custom-file">
+                                        <input type="file" name="juridica_cedula_rep_file" class="custom-file-input"
+                                               id="{{ form.juridica_cedula_rep_file.id_for_label }}"
+                                               accept="application/pdf">
+                                        <label class="custom-file-label"
+                                               for="{{ form.juridica_cedula_rep_file.id_for_label }}">Elegir
+                                            archivo</label>
+                                    </div>
+                                    <small class="text-danger">{{ form.juridica_cedula_rep_file.errors|striptags }}</small>
+                                </div>
+                            </fieldset>
+                            <fieldset class="form-section">
+                                <legend><i class="ni ni-mobile-button mr-2"></i>Contacto Adicional</legend>
+                                <div class="form-group">
+                                    <label class="form-control-label" for="{{ form.juridica_whatsapp.id_for_label }}">WhatsApp</label>
+                                    <input type="text" name="juridica_whatsapp" class="form-control"
+                                           id="{{ form.juridica_whatsapp.id_for_label }}"
+                                           value="{{ form.juridica_whatsapp.value|default_if_none:'' }}"
+                                    >
+                                    <small class="text-danger">{{ form.juridica_whatsapp.errors|striptags }}</small>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label" for="{{ form.juridica_website.id_for_label }}">Página
+                                        Web</label>
+                                    <input type="url" name="juridica_website" class="form-control"
+                                           id="{{ form.juridica_website.id_for_label }}"
+                                           value="{{ form.juridica_website.value|default_if_none:'' }}"
+                                           placeholder="https://ejemplo.com">
+                                    <small class="text-danger">{{ form.juridica_website.errors|striptags }}</small>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-success btn-lg">Completar Afiliación</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -135,41 +360,58 @@
     </div>
 {% endblock %}
 
-
 {% block scripts %}
     <script>
-        $(document).ready(function () {
-            const modal = $('#modalAfiliacion');
+        document.addEventListener("DOMContentLoaded", function () {
+            const seccionNatural = document.getElementById("seccionNatural");
+            const seccionJuridica = document.getElementById("seccionJuridica");
+            const modal = document.getElementById("modalAfiliacion");
+            const form = modal.querySelector("form");
+            const tipoInput = document.getElementById("tipoSolicitanteInput");
 
-            // 1. Lógica para PRE-SELECCIONAR el plan al abrir el modal
-            modal.on('show.bs.modal', function (event) {
+            function toggleSecciones(tipo) {
+                if (tipo === "natural") {
+                    seccionNatural.style.display = "block";
+                    seccionJuridica.style.display = "none";
+                } else if (tipo === "juridica") {
+                    seccionNatural.style.display = "none";
+                    seccionJuridica.style.display = "block";
+                }
+            }
+
+            function actualizarNombreArchivo(input) {
+                const label = input.parentElement.querySelector(".custom-file-label");
+                if (input.files && input.files.length > 0) {
+                    label.textContent = input.files[0].name;
+                    label.classList.add('selected');
+                } else {
+                    label.textContent = "Elegir archivo";
+                    label.classList.remove('selected');
+                }
+            }
+
+            modal.querySelectorAll("input[type='file']").forEach(input => {
+                input.addEventListener("change", () => actualizarNombreArchivo(input));
+            });
+
+            $('#modalAfiliacion').on('show.bs.modal', function (event) {
                 const button = $(event.relatedTarget);
                 const plan = button.data('plan');
-                const radioInput = modal.find('input[name="tipo_solicitante"][value="' + plan + '"]');
 
-                radioInput.prop('checked', true);
-                radioInput.trigger('change'); // Dispara el cambio para que se muestre la sección correcta
+                tipoInput.value = plan; // Asigna el tipo al input hidden
+                toggleSecciones(plan);
             });
 
-            // 2. Lógica para MOSTRAR/OCULTAR las secciones del formulario
-            modal.on('change', 'input[name="tipo_solicitante"]', function () {
-                const seccionNatural = $('#seccionNatural');
-                const seccionJuridica = $('#seccionJuridica');
+            $('#modalAfiliacion').on('hidden.bs.modal', function () {
+                form.reset();
+                tipoInput.value = ""; // Limpia el tipo
+                seccionNatural.style.display = "none";
+                seccionJuridica.style.display = "none";
 
-                seccionNatural.addClass('hidden');
-                seccionJuridica.addClass('hidden');
-
-                if ($(this).val() === 'natural') {
-                    seccionNatural.removeClass('hidden');
-                } else if ($(this).val() === 'juridica') {
-                    seccionJuridica.removeClass('hidden');
-                }
-            });
-
-            // 3. Lógica para mostrar el nombre del archivo en los inputs de carga
-            modal.on('change', '.custom-file-input', function () {
-                let fileName = $(this).val().split('\\').pop();
-                $(this).next('.custom-file-label').addClass("selected").html(fileName);
+                modal.querySelectorAll(".custom-file-label").forEach(label => {
+                    label.textContent = "Elegir archivo";
+                    label.classList.remove('selected');
+                });
             });
         });
     </script>
